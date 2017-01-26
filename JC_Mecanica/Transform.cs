@@ -98,6 +98,13 @@ namespace JC_Mecanica {
             }
         }
 
+        public static void setUpperFrist(ComboBox cb) {
+            if (!cb.Text.Equals(cb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cb.Text))) {
+                cb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cb.Text);
+                cb.SelectionStart = cb.Text.Length;
+            }
+        }
+
         public static void setUpper(TextBox tb) {
             if (!tb.Text.Equals(tb.Text.ToUpper())) {
                 int pos = tb.SelectionStart;

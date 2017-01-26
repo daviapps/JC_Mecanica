@@ -13,7 +13,6 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.exe
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.pdb
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\JC_Mecanica.exe
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\JC_Mecanica.pdb
-C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.csprojResolveAssemblyReference.cache
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.AboutBox.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Properties.Resources.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.csproj.GenerateResource.Cache
@@ -23,4 +22,8 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Cad
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\banco_de_dados.sdf
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\EntityFramework.dll
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\EntityFramework.xml
-C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Nova_Dispesa.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Cadastro_Dispesa.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Cadastro_Servicos.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Clientes.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Show_table_content.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.csprojResolveAssemblyReference.cache

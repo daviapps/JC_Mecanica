@@ -1,5 +1,5 @@
 ﻿namespace JC_Mecanica {
-    partial class Nova_Dispesa {
+    partial class Cadastro_Dispesa {
         /// <summary>
         /// Required designer variable.
         /// </summary>

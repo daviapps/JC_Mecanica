@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             this.status = new System.Windows.Forms.StatusStrip();
             this.cadastro_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_dispesas_menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -31,11 +30,7 @@
             this.cadastro_clientes_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_carro_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.banco_de_dadosDataSet = new JC_Mecanica.banco_de_dadosDataSet();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.banco_de_dadosDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // status
@@ -60,27 +55,28 @@
             // cadastro_dispesas_menu
             // 
             this.cadastro_dispesas_menu.Name = "cadastro_dispesas_menu";
-            this.cadastro_dispesas_menu.Size = new System.Drawing.Size(152, 22);
+            this.cadastro_dispesas_menu.Size = new System.Drawing.Size(142, 22);
             this.cadastro_dispesas_menu.Text = "Dispesas [F5]";
             this.cadastro_dispesas_menu.Click += new System.EventHandler(this.cadastro_dispesas_menu_Click);
             // 
             // cadastro_servicos_menu
             // 
             this.cadastro_servicos_menu.Name = "cadastro_servicos_menu";
-            this.cadastro_servicos_menu.Size = new System.Drawing.Size(152, 22);
+            this.cadastro_servicos_menu.Size = new System.Drawing.Size(142, 22);
             this.cadastro_servicos_menu.Text = "Serviços [F6]";
+            this.cadastro_servicos_menu.Click += new System.EventHandler(this.cadastro_servicos_menu_Click);
             // 
             // cadastro_clientes_menu
             // 
             this.cadastro_clientes_menu.Name = "cadastro_clientes_menu";
-            this.cadastro_clientes_menu.Size = new System.Drawing.Size(152, 22);
+            this.cadastro_clientes_menu.Size = new System.Drawing.Size(142, 22);
             this.cadastro_clientes_menu.Text = "Clientes [F7]";
             this.cadastro_clientes_menu.Click += new System.EventHandler(this.cadastro_clientes_menu_Click);
             // 
             // cadastro_carro_menu
             // 
             this.cadastro_carro_menu.Name = "cadastro_carro_menu";
-            this.cadastro_carro_menu.Size = new System.Drawing.Size(152, 22);
+            this.cadastro_carro_menu.Size = new System.Drawing.Size(142, 22);
             this.cadastro_carro_menu.Text = "Carros [F8]";
             this.cadastro_carro_menu.Click += new System.EventHandler(this.cadastro_carro_menu_Click);
             // 
@@ -94,16 +90,6 @@
             this.menu.TabIndex = 1;
             this.menu.Text = "menuStrip1";
             // 
-            // banco_de_dadosDataSet
-            // 
-            this.banco_de_dadosDataSet.DataSetName = "banco_de_dadosDataSet";
-            this.banco_de_dadosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataMember = "clientes";
-            this.clientesBindingSource.DataSource = this.banco_de_dadosDataSet;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +100,7 @@
             this.MainMenuStrip = this.menu;
             this.Name = "MainForm";
             this.Text = "JC Mecânica";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
@@ -126,13 +113,11 @@
 
         private System.Windows.Forms.StatusStrip status;
         private System.Windows.Forms.ToolStripMenuItem cadastro_menu;
+        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_dispesas_menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_servicos_menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_clientes_menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_carro_menu;
-        private System.Windows.Forms.MenuStrip menu;
-        private banco_de_dadosDataSet banco_de_dadosDataSet;
-        private System.Windows.Forms.BindingSource clientesBindingSource;
 
     }
 }

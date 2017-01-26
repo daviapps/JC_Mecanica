@@ -29,20 +29,44 @@ namespace JC_Mecanica {
                     MessageBox.Show("dfs");
                 }
             } else
+            if (e.KeyCode == Keys.F1) {
+                
+            } else
             if (e.KeyCode == Keys.F5) {
-                new Nova_Dispesa().ShowDialog();
+                new Cadastro_Dispesa().ShowDialog();
+            } else
+            if (e.KeyCode == Keys.F6) {
+                new Cadastro_Servicos().ShowDialog();
             } else
             if (e.KeyCode == Keys.F7) {
                 new Cadastro_Cliente().ShowDialog();
             } else
             if (e.KeyCode == Keys.F8) {
                 new Cadastro_Carro().ShowDialog();
+            } else
+            // ************************* //
+            if (e.KeyCode == Keys.F9) {
+
+            } else
+            if (e.KeyCode == Keys.F10) {
+
+            } else
+            if (e.KeyCode == Keys.F11) {
+                new Clientes().ShowDialog();
+            } else
+            if (e.KeyCode == Keys.F12) {
+
             }
         }
 
+        // Cadastro menu
+
         private void cadastro_clientes_menu_Click(object sender, EventArgs e) {
             new Cadastro_Cliente().ShowDialog();
-            //MessageBox.Show("Cliente cadastro fechado");
+        }
+
+        private void cadastro_servicos_menu_Click(object sender, EventArgs e) {
+            new Cadastro_Servicos().ShowDialog();
         }
 
         private void cadastro_carro_menu_Click(object sender, EventArgs e) {
@@ -50,7 +74,13 @@ namespace JC_Mecanica {
         }
 
         private void cadastro_dispesas_menu_Click(object sender, EventArgs e) {
-            new Nova_Dispesa().ShowDialog();
+            new Cadastro_Dispesa().ShowDialog();
+        }
+
+        // Ajuda menu
+
+        private void ajuda_sobre_menu_Click(object sender, EventArgs e) {
+            new AboutBox().ShowDialog();
         }
         
     }

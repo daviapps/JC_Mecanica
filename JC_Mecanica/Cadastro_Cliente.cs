@@ -82,6 +82,11 @@ namespace JC_Mecanica {
             adapter.Update(data);
             connection.Close();*/
 
+            if (telefone_edit.Text.Length < 14)
+                telefone_edit.Text = "";
+            if (celular_edit.Text.Length < 14)
+                celular_edit.Text = "";
+
             SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
             connection.Open();
 

@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JC_Mecanica {
-    public partial class Nova_Dispesa : Form {
+    public partial class Cadastro_Dispesa : Form {
         private System.Windows.Forms.Timer backTast;
 
-        public Nova_Dispesa() {
+        public Cadastro_Dispesa() {
             InitializeComponent();
         }
 

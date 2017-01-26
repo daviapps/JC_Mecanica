@@ -32,5 +32,14 @@ namespace JC_Mecanica.Properties {
                 return ((string)(this["banco_de_dadosConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source = banco_de_dados.sdf")]
+        public string DataConnectionString {
+            get {
+                return ((string)(this["DataConnectionString"]));
+            }
+        }
     }
 }

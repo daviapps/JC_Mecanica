@@ -57,8 +57,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,20 +94,39 @@
     <Compile Include="Cadastro_Cliente.Designer.cs">
       <DependentUpon>Cadastro_Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cadastro_Servicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro_Servicos.Designer.cs">
+      <DependentUpon>Cadastro_Servicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nova_Dispesa.cs">
+    <Compile Include="Cadastro_Dispesa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Nova_Dispesa.Designer.cs">
-      <DependentUpon>Nova_Dispesa.cs</DependentUpon>
+    <Compile Include="Cadastro_Dispesa.Designer.cs">
+      <DependentUpon>Cadastro_Dispesa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Show_table_content.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show_table_content.Designer.cs">
+      <DependentUpon>Show_table_content.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskingTela.cs" />
     <Compile Include="Transform.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -116,11 +137,17 @@
     <EmbeddedResource Include="Cadastro_Cliente.resx">
       <DependentUpon>Cadastro_Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro_Servicos.resx">
+      <DependentUpon>Cadastro_Servicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nova_Dispesa.resx">
-      <DependentUpon>Nova_Dispesa.cs</DependentUpon>
+    <EmbeddedResource Include="Cadastro_Dispesa.resx">
+      <DependentUpon>Cadastro_Dispesa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,7 +157,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Show_table_content.resx">
+      <DependentUpon>Show_table_content.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="banco_de_dadosDataSet.xsc">
       <DependentUpon>banco_de_dadosDataSet.xsd</DependentUpon>
     </None>
@@ -185,6 +216,7 @@
     <Content Include="banco_de_dados.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Lighthouse.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
