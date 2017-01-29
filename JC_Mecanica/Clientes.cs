@@ -32,6 +32,8 @@ namespace JC_Mecanica {
             this.setBtnMode(0);
             numero_edit.Maximum = 3000;
 
+            clearTextBox();
+
             this.backTast = new System.Windows.Forms.Timer();
             this.backTast.Tick += new EventHandler(this.backTasking);
             this.backTast.Interval = 100;
@@ -43,16 +45,20 @@ namespace JC_Mecanica {
             SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
-            String findParameters = (false ? "" : "1=1");
-
-            SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] codigo WHERE 1=1", connection);
+            SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM Clientes WHERE nome Like ?", connection);
+            cmd_count.Parameters.AddWithValue("@p1", "%" + busca_edit.Text.ToString() + "%");
             int length = (int) cmd_count.ExecuteScalar();
             clienteIDs = new int [length];
+
+            error_panel.Visible = length <= 0;
 
             if (length > 0) {
                 int i = 0;
                 DataSet AVATARLINE = new DataSet();
-                SqlCeDataAdapter AVATARLINE_1 = new SqlCeDataAdapter("SELECT * FROM clientes WHERE 1=1 ORDER BY nome " + (sortOrder ? "ASC" : "DESC"), connection);
+                SqlCeCommand cmd = new SqlCeCommand("SELECT * FROM Clientes WHERE nome Like ? ORDER BY nome " + (sortOrder ? "ASC" : "DESC"), connection);
+                cmd.Parameters.AddWithValue("@p1", "%" + busca_edit.Text.ToString() + "%");
+                SqlCeDataAdapter AVATARLINE_1 = new SqlCeDataAdapter(cmd);
+                //SqlCeDataAdapter AVATARLINE_1 = new SqlCeDataAdapter("SELECT * FROM clientes WHERE " + findParameters + " ORDER BY nome " + (sortOrder ? "ASC" : "DESC"), connection);
                 AVATARLINE_1.Fill(AVATARLINE);
                 foreach (DataRow row in AVATARLINE.Tables [0].Rows) {
                     ListViewItem list = new ListViewItem(row [9].ToString());
@@ -64,6 +70,14 @@ namespace JC_Mecanica {
                     clienteIDs [i] = int.Parse(row [0].ToString());
                     i++;
                 }
+            } else {
+                /*ListViewItem list;
+                list = new ListViewItem("Nenhum cliente encontrado.");
+                if(busca_edit.Text.Equals(""))
+                    list = new ListViewItem("");
+                else
+                    list = new ListViewItem("");
+                listView.Items.Add(list);*/
             }
 
             /*SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] codigo", connection);
@@ -246,6 +260,35 @@ namespace JC_Mecanica {
                 editar_button.Visible = false;
                 apagar_button.Visible = true;
             }
+        }
+
+        private void busca_edit_KeyDown(object sender, KeyEventArgs e) {
+            Clientes_KeyDown(sender, e);
+            if (e.KeyCode == Keys.Enter) {
+                updateLista();
+            }
+        }
+
+        private void busca_edit_TextChanged(object sender, EventArgs e) {
+            updateLista();
+        }
+
+        private void Clientes_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode == Keys.F2) {
+                if(editar_button.Visible && editar_button.Enabled)
+                    editar_button_Click(null, null);
+            } else
+            if (e.KeyCode == Keys.F3) {
+                novo_button_Click(null, null);
+            } else
+            if (e.KeyCode == Keys.Escape) {
+                this.Close();
+            }
+        }
+
+        private void listView_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if (editar_button.Enabled && editar_button.Visible)
+                editar_button_Click(null, null);
         }
     }
 }

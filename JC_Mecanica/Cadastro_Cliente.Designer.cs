@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_Cliente));
             this.nome_label = new System.Windows.Forms.Label();
             this.cpf_label = new System.Windows.Forms.Label();
             this.telefone_label = new System.Windows.Forms.Label();
@@ -74,7 +75,7 @@
             // 
             this.telefone_label.AutoSize = true;
             this.telefone_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefone_label.Location = new System.Drawing.Point(179, 61);
+            this.telefone_label.Location = new System.Drawing.Point(172, 61);
             this.telefone_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.telefone_label.Name = "telefone_label";
             this.telefone_label.Size = new System.Drawing.Size(67, 15);
@@ -94,49 +95,49 @@
             // 
             // nome_edit
             // 
-            this.nome_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nome_edit.Location = new System.Drawing.Point(30, 33);
+            this.nome_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nome_edit.Location = new System.Drawing.Point(30, 31);
             this.nome_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.nome_edit.Name = "nome_edit";
-            this.nome_edit.Size = new System.Drawing.Size(420, 24);
+            this.nome_edit.Size = new System.Drawing.Size(420, 26);
             this.nome_edit.TabIndex = 4;
             // 
             // cpf_edit
             // 
-            this.cpf_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpf_edit.Location = new System.Drawing.Point(30, 80);
+            this.cpf_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpf_edit.Location = new System.Drawing.Point(30, 78);
             this.cpf_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cpf_edit.MaxLength = 14;
             this.cpf_edit.Name = "cpf_edit";
-            this.cpf_edit.Size = new System.Drawing.Size(141, 24);
+            this.cpf_edit.Size = new System.Drawing.Size(148, 26);
             this.cpf_edit.TabIndex = 5;
             this.cpf_edit.Text = "___.___.___-__";
             // 
             // telefone_edit
             // 
-            this.telefone_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefone_edit.Location = new System.Drawing.Point(192, 80);
+            this.telefone_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefone_edit.Location = new System.Drawing.Point(181, 80);
             this.telefone_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.telefone_edit.MaxLength = 14;
             this.telefone_edit.Name = "telefone_edit";
-            this.telefone_edit.Size = new System.Drawing.Size(117, 24);
+            this.telefone_edit.Size = new System.Drawing.Size(128, 26);
             this.telefone_edit.TabIndex = 6;
             this.telefone_edit.Text = "(__)____-____";
             // 
             // rua_edit
             // 
-            this.rua_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rua_edit.Location = new System.Drawing.Point(18, 38);
+            this.rua_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rua_edit.Location = new System.Drawing.Point(18, 36);
             this.rua_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.rua_edit.Name = "rua_edit";
-            this.rua_edit.Size = new System.Drawing.Size(332, 24);
+            this.rua_edit.Size = new System.Drawing.Size(337, 26);
             this.rua_edit.TabIndex = 7;
             // 
             // numero_label
             // 
             this.numero_label.AutoSize = true;
             this.numero_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero_label.Location = new System.Drawing.Point(359, 19);
+            this.numero_label.Location = new System.Drawing.Point(355, 19);
             this.numero_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.numero_label.Name = "numero_label";
             this.numero_label.Size = new System.Drawing.Size(33, 15);
@@ -147,7 +148,7 @@
             // 
             this.bairro_label.AutoSize = true;
             this.bairro_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bairro_label.Location = new System.Drawing.Point(230, 66);
+            this.bairro_label.Location = new System.Drawing.Point(205, 66);
             this.bairro_label.Name = "bairro_label";
             this.bairro_label.Size = new System.Drawing.Size(60, 16);
             this.bairro_label.TabIndex = 10;
@@ -175,39 +176,44 @@
             // 
             // numero_edit
             // 
-            this.numero_edit.Location = new System.Drawing.Point(372, 37);
+            this.numero_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero_edit.Location = new System.Drawing.Point(362, 37);
             this.numero_edit.Name = "numero_edit";
-            this.numero_edit.Size = new System.Drawing.Size(66, 22);
+            this.numero_edit.Size = new System.Drawing.Size(76, 26);
             this.numero_edit.TabIndex = 16;
             // 
             // estado_comboBox
             // 
+            this.estado_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estado_comboBox.FormattingEnabled = true;
-            this.estado_comboBox.Location = new System.Drawing.Point(372, 84);
+            this.estado_comboBox.Location = new System.Drawing.Point(380, 82);
             this.estado_comboBox.MaxLength = 2;
             this.estado_comboBox.Name = "estado_comboBox";
-            this.estado_comboBox.Size = new System.Drawing.Size(66, 24);
+            this.estado_comboBox.Size = new System.Drawing.Size(58, 28);
             this.estado_comboBox.TabIndex = 13;
+            this.estado_comboBox.Text = "__";
             // 
             // bairro_edit
             // 
-            this.bairro_edit.Location = new System.Drawing.Point(242, 86);
+            this.bairro_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bairro_edit.Location = new System.Drawing.Point(213, 84);
             this.bairro_edit.Name = "bairro_edit";
-            this.bairro_edit.Size = new System.Drawing.Size(108, 22);
+            this.bairro_edit.Size = new System.Drawing.Size(161, 26);
             this.bairro_edit.TabIndex = 12;
             // 
             // cidade_edit
             // 
+            this.cidade_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cidade_edit.Location = new System.Drawing.Point(18, 85);
             this.cidade_edit.Name = "cidade_edit";
-            this.cidade_edit.Size = new System.Drawing.Size(203, 22);
+            this.cidade_edit.Size = new System.Drawing.Size(189, 26);
             this.cidade_edit.TabIndex = 11;
             // 
             // estado_label
             // 
             this.estado_label.AutoSize = true;
             this.estado_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estado_label.Location = new System.Drawing.Point(359, 66);
+            this.estado_label.Location = new System.Drawing.Point(371, 65);
             this.estado_label.Name = "estado_label";
             this.estado_label.Size = new System.Drawing.Size(67, 16);
             this.estado_label.TabIndex = 9;
@@ -227,7 +233,7 @@
             // 
             this.celular_label.AutoSize = true;
             this.celular_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.celular_label.Location = new System.Drawing.Point(316, 61);
+            this.celular_label.Location = new System.Drawing.Point(310, 61);
             this.celular_label.Name = "celular_label";
             this.celular_label.Size = new System.Drawing.Size(57, 15);
             this.celular_label.TabIndex = 12;
@@ -235,12 +241,12 @@
             // 
             // celular_edit
             // 
-            this.celular_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.celular_edit.Location = new System.Drawing.Point(333, 80);
+            this.celular_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.celular_edit.Location = new System.Drawing.Point(319, 80);
             this.celular_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.celular_edit.MaxLength = 15;
             this.celular_edit.Name = "celular_edit";
-            this.celular_edit.Size = new System.Drawing.Size(117, 24);
+            this.celular_edit.Size = new System.Drawing.Size(131, 26);
             this.celular_edit.TabIndex = 13;
             this.celular_edit.Text = "(__)____-____";
             // 
@@ -285,6 +291,7 @@
             this.Controls.Add(this.nome_label);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

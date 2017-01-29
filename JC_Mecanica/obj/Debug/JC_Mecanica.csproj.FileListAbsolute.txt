@@ -27,3 +27,4 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Cad
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Clientes.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Show_table_content.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.csprojResolveAssemblyReference.cache
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Dispesas.resources

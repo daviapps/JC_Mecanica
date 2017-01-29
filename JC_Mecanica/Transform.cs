@@ -91,6 +91,15 @@ namespace JC_Mecanica {
             return output;
         }
 
+        public static String moneyFormat(String value) {
+            double valor = double.Parse(value);
+            double _cents = ((double) valor - ((int) valor)) * 100;
+            String v_cent = (_cents > 0 ? (_cents > 10 ? _cents + "" : "0" +_cents).Substring(0, 2) : "00");
+            String v_real = ("" + value).Substring(0, (value.IndexOf(',') > 0 ? value.IndexOf(',') : value.Length));
+            //MessageBox.Show("" + v_cent + "  -  " + value + "  -  " + valor + "  --  " + _cents);
+            return v_real + "," + v_cent;
+        }
+
         public static void setUpperFrist(TextBox tb) {
             if (!tb.Text.Equals(tb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(tb.Text))) {
                 tb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(tb.Text);
@@ -103,6 +112,22 @@ namespace JC_Mecanica {
                 cb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cb.Text);
                 cb.SelectionStart = cb.Text.Length;
             }
+        }
+
+        public static void setUpperOnlyFrist(TextBox tb) {
+            if (tb.Text.Length > 0)
+                if (!tb.Text.Equals(tb.Text.First().ToString().ToUpper() + tb.Text.Substring(1))){
+                tb.Text = tb.Text.First().ToString().ToUpper() + tb.Text.Substring(1);
+                tb.SelectionStart = tb.Text.Length;
+            }
+        }
+
+        public static void setUpperOnlyFrist(ComboBox cb) {
+            if (cb.Text.Length > 0)
+                if (!cb.Text.Equals(cb.Text.First().ToString().ToUpper() + cb.Text.Substring(1))) {
+                    cb.Text = cb.Text.First().ToString().ToUpper() + cb.Text.Substring(1);
+                    cb.SelectionStart = cb.Text.Length;
+                }
         }
 
         public static void setUpper(TextBox tb) {

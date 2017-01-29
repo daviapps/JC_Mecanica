@@ -23,8 +23,10 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.button_panel = new System.Windows.Forms.Panel();
+            this.apagar_button = new System.Windows.Forms.Button();
             this.salvar_button = new System.Windows.Forms.Button();
             this.editar_button = new System.Windows.Forms.Button();
             this.novo_button = new System.Windows.Forms.Button();
@@ -55,13 +57,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.busca_edit = new System.Windows.Forms.ComboBox();
             this.busca_button = new System.Windows.Forms.Button();
-            this.apagar_button = new System.Windows.Forms.Button();
+            this.error_panel = new System.Windows.Forms.Panel();
+            this.error_label = new System.Windows.Forms.Label();
             this.tableLayout.SuspendLayout();
             this.button_panel.SuspendLayout();
             this.cliente_group.SuspendLayout();
             this.endereco_group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numero_edit)).BeginInit();
             this.panel2.SuspendLayout();
+            this.error_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayout
@@ -95,11 +99,24 @@
             this.button_panel.Size = new System.Drawing.Size(386, 37);
             this.button_panel.TabIndex = 0;
             // 
+            // apagar_button
+            // 
+            this.apagar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.apagar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apagar_button.Location = new System.Drawing.Point(62, 4);
+            this.apagar_button.Name = "apagar_button";
+            this.apagar_button.Size = new System.Drawing.Size(75, 29);
+            this.apagar_button.TabIndex = 5;
+            this.apagar_button.Text = "Apagar";
+            this.apagar_button.UseVisualStyleBackColor = true;
+            this.apagar_button.Click += new System.EventHandler(this.apagar_button_Click);
+            this.apagar_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
+            // 
             // salvar_button
             // 
             this.salvar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.salvar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salvar_button.Location = new System.Drawing.Point(143, 3);
+            this.salvar_button.Location = new System.Drawing.Point(142, 4);
             this.salvar_button.Name = "salvar_button";
             this.salvar_button.Size = new System.Drawing.Size(75, 29);
             this.salvar_button.TabIndex = 4;
@@ -107,13 +124,14 @@
             this.salvar_button.UseVisualStyleBackColor = true;
             this.salvar_button.Visible = false;
             this.salvar_button.Click += new System.EventHandler(this.salvar_button_Click);
+            this.salvar_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // editar_button
             // 
             this.editar_button.Enabled = false;
             this.editar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.editar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editar_button.Location = new System.Drawing.Point(143, 3);
+            this.editar_button.Location = new System.Drawing.Point(142, 4);
             this.editar_button.Name = "editar_button";
             this.editar_button.Size = new System.Drawing.Size(75, 29);
             this.editar_button.TabIndex = 3;
@@ -125,25 +143,29 @@
             // 
             this.novo_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.novo_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novo_button.Location = new System.Drawing.Point(224, 3);
+            this.novo_button.Location = new System.Drawing.Point(223, 4);
             this.novo_button.Name = "novo_button";
             this.novo_button.Size = new System.Drawing.Size(75, 29);
             this.novo_button.TabIndex = 2;
             this.novo_button.Text = "Novo";
             this.novo_button.UseVisualStyleBackColor = true;
             this.novo_button.Click += new System.EventHandler(this.novo_button_Click);
+            this.novo_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // ok_button
             // 
+            this.ok_button.BackColor = System.Drawing.SystemColors.Control;
             this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ok_button.Location = new System.Drawing.Point(305, 3);
+            this.ok_button.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ok_button.Location = new System.Drawing.Point(304, 4);
             this.ok_button.Name = "ok_button";
             this.ok_button.Size = new System.Drawing.Size(75, 29);
             this.ok_button.TabIndex = 1;
             this.ok_button.Text = "Ok";
-            this.ok_button.UseVisualStyleBackColor = true;
+            this.ok_button.UseVisualStyleBackColor = false;
             this.ok_button.Click += new System.EventHandler(this.ok_button_Click);
+            this.ok_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // listView
             // 
@@ -159,16 +181,18 @@
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.listView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
+            this.listView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_MouseDoubleClick);
             // 
             // nome
             // 
             this.nome.Text = "Nome";
-            this.nome.Width = 192;
+            this.nome.Width = 184;
             // 
             // telefone
             // 
             this.telefone.Text = "Telefone/Cel.";
-            this.telefone.Width = 114;
+            this.telefone.Width = 121;
             // 
             // cliente_group
             // 
@@ -217,6 +241,7 @@
             this.estado_comboBox.Size = new System.Drawing.Size(54, 26);
             this.estado_comboBox.TabIndex = 9;
             this.estado_comboBox.Text = "__";
+            this.estado_comboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // bairro_edit
             // 
@@ -225,6 +250,7 @@
             this.bairro_edit.Name = "bairro_edit";
             this.bairro_edit.Size = new System.Drawing.Size(135, 26);
             this.bairro_edit.TabIndex = 8;
+            this.bairro_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // cidade_edit
             // 
@@ -233,6 +259,7 @@
             this.cidade_edit.Name = "cidade_edit";
             this.cidade_edit.Size = new System.Drawing.Size(145, 26);
             this.cidade_edit.TabIndex = 7;
+            this.cidade_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // estado_label
             // 
@@ -251,6 +278,7 @@
             this.numero_edit.Name = "numero_edit";
             this.numero_edit.Size = new System.Drawing.Size(74, 26);
             this.numero_edit.TabIndex = 5;
+            this.numero_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // rua_edit
             // 
@@ -259,6 +287,7 @@
             this.rua_edit.Name = "rua_edit";
             this.rua_edit.Size = new System.Drawing.Size(266, 26);
             this.rua_edit.TabIndex = 4;
+            this.rua_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // bairro_label
             // 
@@ -309,6 +338,7 @@
             this.telefone_edit.Size = new System.Drawing.Size(106, 24);
             this.telefone_edit.TabIndex = 7;
             this.telefone_edit.Text = "(__) ____-____";
+            this.telefone_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // celular_edit
             // 
@@ -319,6 +349,7 @@
             this.celular_edit.Size = new System.Drawing.Size(119, 24);
             this.celular_edit.TabIndex = 6;
             this.celular_edit.Text = "(__) _____-____";
+            this.celular_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // cpf_edit
             // 
@@ -330,6 +361,7 @@
             this.cpf_edit.Size = new System.Drawing.Size(109, 24);
             this.cpf_edit.TabIndex = 5;
             this.cpf_edit.Text = "___.___.___-__";
+            this.cpf_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // nome_edit
             // 
@@ -338,6 +370,7 @@
             this.nome_edit.Name = "nome_edit";
             this.nome_edit.Size = new System.Drawing.Size(346, 26);
             this.nome_edit.TabIndex = 4;
+            this.nome_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // celular_label
             // 
@@ -384,9 +417,10 @@
             this.panel2.Controls.Add(this.busca_edit);
             this.panel2.Controls.Add(this.busca_button);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 265);
+            this.panel2.Location = new System.Drawing.Point(0, 265);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(331, 37);
+            this.panel2.Size = new System.Drawing.Size(337, 37);
             this.panel2.TabIndex = 4;
             // 
             // busca_edit
@@ -395,40 +429,54 @@
             this.busca_edit.FormattingEnabled = true;
             this.busca_edit.Location = new System.Drawing.Point(3, 4);
             this.busca_edit.Name = "busca_edit";
-            this.busca_edit.Size = new System.Drawing.Size(245, 28);
+            this.busca_edit.Size = new System.Drawing.Size(250, 28);
             this.busca_edit.TabIndex = 3;
+            this.busca_edit.TextChanged += new System.EventHandler(this.busca_edit_TextChanged);
+            this.busca_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.busca_edit_KeyDown);
             // 
             // busca_button
             // 
             this.busca_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.busca_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busca_button.Location = new System.Drawing.Point(254, 3);
+            this.busca_button.Location = new System.Drawing.Point(259, 4);
             this.busca_button.Name = "busca_button";
             this.busca_button.Size = new System.Drawing.Size(75, 29);
             this.busca_button.TabIndex = 4;
             this.busca_button.Text = "Buscar";
             this.busca_button.UseVisualStyleBackColor = true;
             this.busca_button.Click += new System.EventHandler(this.busca_button_Click);
+            this.busca_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
-            // apagar_button
+            // error_panel
             // 
-            this.apagar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.apagar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apagar_button.Location = new System.Drawing.Point(62, 3);
-            this.apagar_button.Name = "apagar_button";
-            this.apagar_button.Size = new System.Drawing.Size(75, 29);
-            this.apagar_button.TabIndex = 5;
-            this.apagar_button.Text = "Apagar";
-            this.apagar_button.UseVisualStyleBackColor = true;
-            this.apagar_button.Click += new System.EventHandler(this.apagar_button_Click);
+            this.error_panel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.error_panel.Controls.Add(this.error_label);
+            this.error_panel.Location = new System.Drawing.Point(18, 49);
+            this.error_panel.Name = "error_panel";
+            this.error_panel.Size = new System.Drawing.Size(326, 222);
+            this.error_panel.TabIndex = 2;
+            this.error_panel.Visible = false;
+            // 
+            // error_label
+            // 
+            this.error_label.AutoSize = true;
+            this.error_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.error_label.Location = new System.Drawing.Point(33, 87);
+            this.error_label.Name = "error_label";
+            this.error_label.Size = new System.Drawing.Size(250, 24);
+            this.error_label.TabIndex = 0;
+            this.error_label.Text = "Nenhum cliente encontrado.";
             // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(753, 327);
+            this.Controls.Add(this.error_panel);
             this.Controls.Add(this.tableLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Clientes";
@@ -436,6 +484,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             this.tableLayout.ResumeLayout(false);
             this.button_panel.ResumeLayout(false);
             this.cliente_group.ResumeLayout(false);
@@ -444,6 +493,8 @@
             this.endereco_group.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numero_edit)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.error_panel.ResumeLayout(false);
+            this.error_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -483,6 +534,8 @@
         private System.Windows.Forms.Button salvar_button;
         private System.Windows.Forms.TextBox bairro_edit;
         private System.Windows.Forms.Button apagar_button;
+        private System.Windows.Forms.Panel error_panel;
+        private System.Windows.Forms.Label error_label;
 
 
 

@@ -46,7 +46,7 @@ namespace JC_Mecanica {
             } else
             // ************************* //
             if (e.KeyCode == Keys.F9) {
-
+                new Dispesas().ShowDialog();
             } else
             if (e.KeyCode == Keys.F10) {
 
@@ -80,6 +80,10 @@ namespace JC_Mecanica {
         // Ajuda menu
 
         private void ajuda_sobre_menu_Click(object sender, EventArgs e) {
+            new AboutBox().ShowDialog();
+        }
+
+        private void main_sobre_button_Click(object sender, EventArgs e) {
             new AboutBox().ShowDialog();
         }
         
