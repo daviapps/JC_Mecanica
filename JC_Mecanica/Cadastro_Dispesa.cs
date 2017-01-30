@@ -22,9 +22,11 @@ namespace JC_Mecanica {
 
         public Cadastro_Dispesa(int mes, int ano) {
             InitializeComponent();
+            //MessageBox.Show(DateTime.Today.Day + "/" + mes + "/" + ano);
             this.dispesaID = -1;
             apagar_button.Visible = false;
-            data_timePicker.Value = DateTime.Parse(DateTime.Today.Day + "/" + mes + "/" + ano);
+            data_timePicker.Value = DateTime.Parse((DateTime.DaysInMonth(ano, mes) > DateTime.Today.Day ? DateTime.Today.Day : (DateTime.DaysInMonth(ano, mes))) // Solution selection day month error
+                                                    + "/" + mes + "/" + ano);
         }
 
         public Cadastro_Dispesa(int dispesaID) {
@@ -117,13 +119,7 @@ namespace JC_Mecanica {
         }
 
         private void valor_edit_KeyPress(object sender, KeyPressEventArgs e) {
-            TextBox tb = (sender as TextBox);
-            if (!char.IsControl(e.KeyChar) && !(char.IsDigit(e.KeyChar) && (tb.Text.Length > 0 && (tb.Text.IndexOf(',') > 0) ? ((int)tb.Text.IndexOf(',')) + 3 > tb.Text.Length : true)) && (e.KeyChar != ',') )
-                e.Handled = true;
-            //!((sender as TextBox).Text.IndexOf(',') > 0 && ((sender as TextBox).Text.IndexOf(',') >= ((int) (sender as TextBox).Text.Length) + 2))
-            // only allow one decimal point
-            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-                e.Handled = true;
+            Transform.setMoneyTextBox((sender as TextBox), e);
         }
 
         private void apagar_button_Click(object sender, EventArgs e) {

@@ -230,9 +230,5 @@ namespace JC_Mecanica {
         private void tudo_checkBox_CheckedChanged(object sender, EventArgs e) {
             updateLista();
         }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e) {
-
-        }
     }
 }

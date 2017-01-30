@@ -14,6 +14,7 @@ namespace JC_Mecanica {
         private int [] clienteIDs;
         private int currentID;
         private bool sortOrder = true;
+        private bool selectMode = false;
         private System.Windows.Forms.Timer backTast;
         public Clientes() {
             InitializeComponent();
@@ -38,6 +39,13 @@ namespace JC_Mecanica {
             this.backTast.Tick += new EventHandler(this.backTasking);
             this.backTast.Interval = 100;
             this.backTast.Start();
+        }
+
+        private void Clientes_FormClosing(object sender, FormClosingEventArgs e) {
+            //if (selectMode)
+            //    if (!ok_button.Enabled) { e.Cancel = true; MessageBox.Show("Você esqueceu de selecionar um cliente da lista", "Selecionar cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+                
+            this.backTast.Stop();
         }
 
         private void updateLista() {
@@ -118,7 +126,7 @@ namespace JC_Mecanica {
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e) {
-            if (listView.SelectedIndices.Count <= 0) { this.setBtnMode(0); this.clearTextBox(); editar_button.Enabled = false; return; }
+            if (listView.SelectedIndices.Count <= 0) { this.setBtnMode(0); this.clearTextBox(); editar_button.Enabled = false; currentID = 0; return; }
             int item = listView.SelectedIndices [0];
             this.currentID = clienteIDs [item];
 
@@ -179,6 +187,9 @@ namespace JC_Mecanica {
             Transform.setUpperFrist(rua_edit);
             Transform.setUpperFrist(cidade_edit);
             Transform.setUpperFrist(bairro_edit);
+
+            ok_button.Enabled = (selectMode ? currentID > 0 : true);
+            editar_button.Visible = !selectMode;
         }
 
         private void busca_button_Click(object sender, EventArgs e) {
@@ -249,16 +260,23 @@ namespace JC_Mecanica {
         }
 
         private void setBtnMode(int mode) {
-            if (mode == 0) {
+            if (selectMode) {
                 this.setEnabled(false);
                 salvar_button.Visible = false;
-                editar_button.Visible = true;
+                editar_button.Visible = false;
                 apagar_button.Visible = false;
             } else {
-                this.setEnabled(true);
-                salvar_button.Visible = true;
-                editar_button.Visible = false;
-                apagar_button.Visible = true;
+                if (mode == 0) {
+                    this.setEnabled(false);
+                    salvar_button.Visible = false;
+                    editar_button.Visible = true;
+                    apagar_button.Visible = false;
+                } else {
+                    this.setEnabled(true);
+                    salvar_button.Visible = true;
+                    editar_button.Visible = false;
+                    apagar_button.Visible = true;
+                }
             }
         }
 
@@ -287,8 +305,23 @@ namespace JC_Mecanica {
         }
 
         private void listView_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if (editar_button.Enabled && editar_button.Visible)
-                editar_button_Click(null, null);
+            if (selectMode) {
+                if (ok_button.Enabled && ok_button.Visible)
+                    ok_button_Click(null, null);
+            } else {
+                if (editar_button.Enabled && editar_button.Visible)
+                    editar_button_Click(null, null);
+            }
+        }
+
+        // Modes
+
+        public int getClienteID() {
+            ok_button.Text = "Selec";
+            Text = "Selecionar cliente";
+            selectMode = true;
+            this.ShowDialog();
+            return currentID;
         }
     }
 }

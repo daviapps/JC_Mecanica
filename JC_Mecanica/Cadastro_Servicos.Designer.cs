@@ -26,12 +26,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_Servicos));
             this.servico_label = new System.Windows.Forms.Label();
             this.codigo_label = new System.Windows.Forms.Label();
-            this.detalhe_label = new System.Windows.Forms.Label();
             this.servico_edit = new System.Windows.Forms.TextBox();
-            this.detalhe_edit = new System.Windows.Forms.TextBox();
             this.salvar_button = new System.Windows.Forms.Button();
             this.cancelar_button = new System.Windows.Forms.Button();
             this.codigo_edit = new System.Windows.Forms.TextBox();
+            this.apagar_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // servico_label
@@ -54,16 +53,6 @@
             this.codigo_label.TabIndex = 1;
             this.codigo_label.Text = "Código:";
             // 
-            // detalhe_label
-            // 
-            this.detalhe_label.AutoSize = true;
-            this.detalhe_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detalhe_label.Location = new System.Drawing.Point(12, 57);
-            this.detalhe_label.Name = "detalhe_label";
-            this.detalhe_label.Size = new System.Drawing.Size(74, 16);
-            this.detalhe_label.TabIndex = 2;
-            this.detalhe_label.Text = "Detalhes:";
-            // 
             // servico_edit
             // 
             this.servico_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -72,20 +61,11 @@
             this.servico_edit.Size = new System.Drawing.Size(352, 26);
             this.servico_edit.TabIndex = 3;
             // 
-            // detalhe_edit
-            // 
-            this.detalhe_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detalhe_edit.Location = new System.Drawing.Point(24, 76);
-            this.detalhe_edit.Multiline = true;
-            this.detalhe_edit.Name = "detalhe_edit";
-            this.detalhe_edit.Size = new System.Drawing.Size(465, 106);
-            this.detalhe_edit.TabIndex = 5;
-            // 
             // salvar_button
             // 
             this.salvar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.salvar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salvar_button.Location = new System.Drawing.Point(414, 188);
+            this.salvar_button.Location = new System.Drawing.Point(414, 60);
             this.salvar_button.Name = "salvar_button";
             this.salvar_button.Size = new System.Drawing.Size(75, 29);
             this.salvar_button.TabIndex = 7;
@@ -97,7 +77,7 @@
             // 
             this.cancelar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelar_button.Location = new System.Drawing.Point(318, 188);
+            this.cancelar_button.Location = new System.Drawing.Point(318, 60);
             this.cancelar_button.Name = "cancelar_button";
             this.cancelar_button.Size = new System.Drawing.Size(90, 29);
             this.cancelar_button.TabIndex = 8;
@@ -115,17 +95,28 @@
             this.codigo_edit.TabIndex = 9;
             this.codigo_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // apagar_button
+            // 
+            this.apagar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.apagar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apagar_button.Location = new System.Drawing.Point(237, 60);
+            this.apagar_button.Name = "apagar_button";
+            this.apagar_button.Size = new System.Drawing.Size(75, 29);
+            this.apagar_button.TabIndex = 10;
+            this.apagar_button.Text = "Apagar";
+            this.apagar_button.UseVisualStyleBackColor = true;
+            this.apagar_button.Visible = false;
+            // 
             // Cadastro_Servicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 225);
+            this.ClientSize = new System.Drawing.Size(501, 99);
+            this.Controls.Add(this.apagar_button);
             this.Controls.Add(this.codigo_edit);
             this.Controls.Add(this.cancelar_button);
             this.Controls.Add(this.salvar_button);
-            this.Controls.Add(this.detalhe_edit);
             this.Controls.Add(this.servico_edit);
-            this.Controls.Add(this.detalhe_label);
             this.Controls.Add(this.codigo_label);
             this.Controls.Add(this.servico_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -147,11 +138,10 @@
 
         private System.Windows.Forms.Label servico_label;
         private System.Windows.Forms.Label codigo_label;
-        private System.Windows.Forms.Label detalhe_label;
         private System.Windows.Forms.TextBox servico_edit;
-        private System.Windows.Forms.TextBox detalhe_edit;
         private System.Windows.Forms.Button salvar_button;
         private System.Windows.Forms.Button cancelar_button;
         private System.Windows.Forms.TextBox codigo_edit;
+        private System.Windows.Forms.Button apagar_button;
     }
 }

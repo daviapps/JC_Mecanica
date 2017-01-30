@@ -453,19 +453,20 @@
             this.error_panel.Controls.Add(this.error_label);
             this.error_panel.Location = new System.Drawing.Point(18, 49);
             this.error_panel.Name = "error_panel";
-            this.error_panel.Size = new System.Drawing.Size(326, 222);
+            this.error_panel.Size = new System.Drawing.Size(326, 218);
             this.error_panel.TabIndex = 2;
             this.error_panel.Visible = false;
             // 
             // error_label
             // 
-            this.error_label.AutoSize = true;
+            this.error_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.error_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.error_label.Location = new System.Drawing.Point(33, 87);
+            this.error_label.Location = new System.Drawing.Point(0, 0);
             this.error_label.Name = "error_label";
-            this.error_label.Size = new System.Drawing.Size(250, 24);
+            this.error_label.Size = new System.Drawing.Size(326, 218);
             this.error_label.TabIndex = 0;
             this.error_label.Text = "Nenhum cliente encontrado.";
+            this.error_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Clientes
             // 
@@ -483,6 +484,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Clientes_FormClosing);
             this.Load += new System.EventHandler(this.Clientes_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             this.tableLayout.ResumeLayout(false);
@@ -494,7 +496,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numero_edit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.error_panel.ResumeLayout(false);
-            this.error_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }

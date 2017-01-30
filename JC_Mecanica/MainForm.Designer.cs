@@ -27,12 +27,9 @@
             this.status = new System.Windows.Forms.StatusStrip();
             this.cadastro_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_dispesas_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastro_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_clientes_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastro_carro_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.cliente_name_label = new System.Windows.Forms.Label();
-            this.cliente_logo_panel = new System.Windows.Forms.Panel();
             this.contato_corp_label = new System.Windows.Forms.Label();
             this.cliente_cel_label = new System.Windows.Forms.Label();
             this.contato_cel_label = new System.Windows.Forms.Label();
@@ -41,6 +38,15 @@
             this.main_help_button = new System.Windows.Forms.Button();
             this.main_contato_button = new System.Windows.Forms.Button();
             this.main_sobre_button = new System.Windows.Forms.Button();
+            this.cadastro_separator_menu = new System.Windows.Forms.ToolStripSeparator();
+            this.cadastro_fechar_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_dispesa_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_cliente_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cliente_logo_panel = new System.Windows.Forms.Panel();
+            this.cadastro_carro_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastro_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.menu.SuspendLayout();
             this.contato_panel.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +66,9 @@
             this.cadastro_dispesas_menu,
             this.cadastro_servicos_menu,
             this.cadastro_clientes_menu,
-            this.cadastro_carro_menu});
+            this.cadastro_carro_menu,
+            this.cadastro_separator_menu,
+            this.cadastro_fechar_menu});
             this.cadastro_menu.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cadastro_menu.Name = "cadastro_menu";
             this.cadastro_menu.Size = new System.Drawing.Size(76, 23);
@@ -73,13 +81,6 @@
             this.cadastro_dispesas_menu.Text = "Dispesas [F5]";
             this.cadastro_dispesas_menu.Click += new System.EventHandler(this.cadastro_dispesas_menu_Click);
             // 
-            // cadastro_servicos_menu
-            // 
-            this.cadastro_servicos_menu.Name = "cadastro_servicos_menu";
-            this.cadastro_servicos_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_servicos_menu.Text = "Serviços [F6]";
-            this.cadastro_servicos_menu.Click += new System.EventHandler(this.cadastro_servicos_menu_Click);
-            // 
             // cadastro_clientes_menu
             // 
             this.cadastro_clientes_menu.Name = "cadastro_clientes_menu";
@@ -87,19 +88,13 @@
             this.cadastro_clientes_menu.Text = "Clientes [F7]";
             this.cadastro_clientes_menu.Click += new System.EventHandler(this.cadastro_clientes_menu_Click);
             // 
-            // cadastro_carro_menu
-            // 
-            this.cadastro_carro_menu.Name = "cadastro_carro_menu";
-            this.cadastro_carro_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_carro_menu.Text = "Carros [F8]";
-            this.cadastro_carro_menu.Click += new System.EventHandler(this.cadastro_carro_menu_Click);
-            // 
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.DarkKhaki;
             this.menu.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastro_menu});
+            this.cadastro_menu,
+            this.dados_menu});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(805, 27);
@@ -119,16 +114,6 @@
             this.cliente_name_label.TabIndex = 2;
             this.cliente_name_label.Text = "JC Mecânica";
             this.cliente_name_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cliente_logo_panel
-            // 
-            this.cliente_logo_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cliente_logo_panel.BackColor = System.Drawing.Color.Transparent;
-            this.cliente_logo_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cliente_logo_panel.BackgroundImage")));
-            this.cliente_logo_panel.Location = new System.Drawing.Point(176, 124);
-            this.cliente_logo_panel.Name = "cliente_logo_panel";
-            this.cliente_logo_panel.Size = new System.Drawing.Size(448, 260);
-            this.cliente_logo_panel.TabIndex = 3;
             // 
             // contato_corp_label
             // 
@@ -223,6 +208,73 @@
             this.main_sobre_button.Click += new System.EventHandler(this.main_sobre_button_Click);
             this.main_sobre_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
+            // cadastro_separator_menu
+            // 
+            this.cadastro_separator_menu.Name = "cadastro_separator_menu";
+            this.cadastro_separator_menu.Size = new System.Drawing.Size(155, 6);
+            // 
+            // cadastro_fechar_menu
+            // 
+            this.cadastro_fechar_menu.Name = "cadastro_fechar_menu";
+            this.cadastro_fechar_menu.Size = new System.Drawing.Size(158, 24);
+            this.cadastro_fechar_menu.Text = "Fechar";
+            this.cadastro_fechar_menu.Click += new System.EventHandler(this.cadastro_fechar_menu_Click);
+            // 
+            // dados_menu
+            // 
+            this.dados_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dados_dispesa_menu,
+            this.dados_servicos_menu,
+            this.dados_cliente_menu});
+            this.dados_menu.Name = "dados_menu";
+            this.dados_menu.Size = new System.Drawing.Size(60, 23);
+            this.dados_menu.Text = "Dados";
+            // 
+            // dados_dispesa_menu
+            // 
+            this.dados_dispesa_menu.Name = "dados_dispesa_menu";
+            this.dados_dispesa_menu.Size = new System.Drawing.Size(162, 24);
+            this.dados_dispesa_menu.Text = "Dispesas [F9]";
+            this.dados_dispesa_menu.Click += new System.EventHandler(this.dados_dispesa_menu_Click);
+            // 
+            // dados_servicos_menu
+            // 
+            this.dados_servicos_menu.Name = "dados_servicos_menu";
+            this.dados_servicos_menu.Size = new System.Drawing.Size(162, 24);
+            this.dados_servicos_menu.Text = "Serviços [F10]";
+            this.dados_servicos_menu.Click += new System.EventHandler(this.dados_servicos_menu_Click);
+            // 
+            // dados_cliente_menu
+            // 
+            this.dados_cliente_menu.Name = "dados_cliente_menu";
+            this.dados_cliente_menu.Size = new System.Drawing.Size(162, 24);
+            this.dados_cliente_menu.Text = "Clientes [F11]";
+            this.dados_cliente_menu.Click += new System.EventHandler(this.dados_cliente_menu_Click);
+            // 
+            // cliente_logo_panel
+            // 
+            this.cliente_logo_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cliente_logo_panel.BackColor = System.Drawing.Color.Transparent;
+            this.cliente_logo_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cliente_logo_panel.BackgroundImage")));
+            this.cliente_logo_panel.Location = new System.Drawing.Point(176, 124);
+            this.cliente_logo_panel.Name = "cliente_logo_panel";
+            this.cliente_logo_panel.Size = new System.Drawing.Size(448, 260);
+            this.cliente_logo_panel.TabIndex = 3;
+            // 
+            // cadastro_carro_menu
+            // 
+            this.cadastro_carro_menu.Name = "cadastro_carro_menu";
+            this.cadastro_carro_menu.Size = new System.Drawing.Size(158, 24);
+            this.cadastro_carro_menu.Text = "Carros [F8]";
+            this.cadastro_carro_menu.Click += new System.EventHandler(this.cadastro_carro_menu_Click);
+            // 
+            // cadastro_servicos_menu
+            // 
+            this.cadastro_servicos_menu.Name = "cadastro_servicos_menu";
+            this.cadastro_servicos_menu.Size = new System.Drawing.Size(158, 24);
+            this.cadastro_servicos_menu.Text = "Serviços [F6]";
+            this.cadastro_servicos_menu.Click += new System.EventHandler(this.cadastro_servicos_menu_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,9 +313,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastro_menu;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_dispesas_menu;
-        private System.Windows.Forms.ToolStripMenuItem cadastro_servicos_menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_clientes_menu;
-        private System.Windows.Forms.ToolStripMenuItem cadastro_carro_menu;
         private System.Windows.Forms.Label cliente_name_label;
         private System.Windows.Forms.Panel cliente_logo_panel;
         private System.Windows.Forms.Label contato_corp_label;
@@ -274,6 +324,14 @@
         private System.Windows.Forms.Button main_help_button;
         private System.Windows.Forms.Button main_contato_button;
         private System.Windows.Forms.Button main_sobre_button;
+        private System.Windows.Forms.ToolStripSeparator cadastro_separator_menu;
+        private System.Windows.Forms.ToolStripMenuItem cadastro_fechar_menu;
+        private System.Windows.Forms.ToolStripMenuItem dados_menu;
+        private System.Windows.Forms.ToolStripMenuItem dados_dispesa_menu;
+        private System.Windows.Forms.ToolStripMenuItem dados_servicos_menu;
+        private System.Windows.Forms.ToolStripMenuItem dados_cliente_menu;
+        private System.Windows.Forms.ToolStripMenuItem cadastro_servicos_menu;
+        private System.Windows.Forms.ToolStripMenuItem cadastro_carro_menu;
 
     }
 }

@@ -13,24 +13,56 @@ using System.Windows.Forms;
 namespace JC_Mecanica {
     public partial class Cadastro_Servicos : Form {
         private System.Windows.Forms.Timer backTast;
+        private int codigo = 0;
         public Cadastro_Servicos() {
             InitializeComponent();
         }
 
-        private void Cadastro_Servicos_Load(object sender, EventArgs e) {
-            SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
-            connection.Open();
-            
-            SqlCeCommand cmd_max = new SqlCeCommand("SELECT MAX(codigo) FROM servicos", connection);
-            SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM [servicos] codigo", connection);
-            int codigo_count = (int) cmd_count.ExecuteScalar();
+        public Cadastro_Servicos(int codigo) {
+            InitializeComponent();
+            this.codigo = codigo;
 
-            if (codigo_count > 0) {
-                int maxCodigo = (int) cmd_max.ExecuteScalar();
-                codigo_edit.Text = "" + (maxCodigo < 10 ? "0" : "") + (maxCodigo < 100 ? "0" : "") + (maxCodigo < 1000 ? "0" : "") + (maxCodigo < 10000 ? "0" : "") + (maxCodigo < 10000 ? "0" : "") + maxCodigo;
+            Text = "Editar serviço";
+
+            SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
+            connection.Open();
+
+            SqlCeCommand cmd = new SqlCeCommand("SELECT * FROM Servicos WHERE codigo = @codigo", connection);
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            SqlCeDataReader re = cmd.ExecuteReader();
+
+            if (re.Read()) {
+                servico_edit.Text = re ["servico"].ToString();
+                int c = int.Parse(re ["codigo"].ToString());
+                codigo_edit.Text = (c < 10 ? "0" : "") + (c < 100 ? "0" : "") + (c < 1000 ? "0" : "") + (c < 10000 ? "0" : "") + (c < 10000 ? "0" : "") + c;
+            } else {
+                MessageBox.Show("Please enter a valid item barcode");
             }
 
+            re.Close();
+
             connection.Close();
+        }
+
+        private void Cadastro_Servicos_Load(object sender, EventArgs e) {
+            if (codigo <= 0) {
+                SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+                connection.Open();
+
+                SqlCeCommand cmd_max = new SqlCeCommand("SELECT MAX(codigo) FROM servicos", connection);
+                SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM [servicos] codigo", connection);
+                int codigo_count = (int) cmd_count.ExecuteScalar();
+
+                if (codigo_count > 0) {
+                    int maxCodigo = (int) cmd_max.ExecuteScalar();
+                    maxCodigo++;
+                    codigo_edit.Text = "" + (maxCodigo < 10 ? "0" : "") + (maxCodigo < 100 ? "0" : "") + (maxCodigo < 1000 ? "0" : "") + (maxCodigo < 10000 ? "0" : "") + (maxCodigo < 10000 ? "0" : "") + maxCodigo;
+                } else
+                    codigo_edit.Text = "000001";
+                connection.Close();
+            } else {
+
+            }
 
             this.backTast = new System.Windows.Forms.Timer();
             this.backTast.Tick += new EventHandler(this.backTasking);
@@ -44,17 +76,26 @@ namespace JC_Mecanica {
 
         private void salvar_button_Click(object sender, EventArgs e) {
             SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+
+            String queryString = (this.codigo == -1 ?
+                "INSERT INTO Servicos (servico) Values(@servico)" :
+                "UPDATE Servicos SET servico = @servico; ");
+
+            int servico_exists = 0;
+
             connection.Open();
-            SqlCeCommand check_servico = new SqlCeCommand("SELECT COUNT(*) FROM [servicos] WHERE ([servico] = @servico)", connection);
-            check_servico.Parameters.AddWithValue("@servico", servico_edit.Text);
-            int servico_exists = (int) check_servico.ExecuteScalar();
+
+            if (codigo > 0) {
+                SqlCeCommand check_servico = new SqlCeCommand("SELECT COUNT(*) FROM [servicos] WHERE ([servico] = @servico)", connection);
+                check_servico.Parameters.AddWithValue("@servico", servico_edit.Text);
+                servico_exists = (int) check_servico.ExecuteScalar();
+            }
 
             if (servico_exists > 0) {
                 MessageBox.Show("Serviço já cadastrado", "Erro de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else {
-                using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Servicos (servico, detalhes) Values(@servico,@detalhes)", connection)) {
+                using (SqlCeCommand com = new SqlCeCommand(queryString, connection)) {
                     com.Parameters.AddWithValue("@servico", this.servico_edit.Text);
-                    com.Parameters.AddWithValue("@detalhes", this.detalhe_edit.Text);
                     com.ExecuteNonQuery();
                 }
                 this.Close();

@@ -100,6 +100,15 @@ namespace JC_Mecanica {
             return v_real + "," + v_cent;
         }
 
+        public static void setMoneyTextBox(TextBox tb, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !(char.IsDigit(e.KeyChar) && (tb.Text.Length > 0 && (tb.Text.IndexOf(',') > 0) ? ((int) tb.Text.IndexOf(',')) + 3 > tb.Text.Length : true)) && (e.KeyChar != ','))
+                e.Handled = true;
+            //!((sender as TextBox).Text.IndexOf(',') > 0 && ((sender as TextBox).Text.IndexOf(',') >= ((int) (sender as TextBox).Text.Length) + 2))
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && (tb.Text.IndexOf(',') > -1))
+                e.Handled = true;
+        }
+
         public static void setUpperFrist(TextBox tb) {
             if (!tb.Text.Equals(tb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(tb.Text))) {
                 tb.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(tb.Text);

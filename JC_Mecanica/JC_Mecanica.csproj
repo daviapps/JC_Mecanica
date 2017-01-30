@@ -97,11 +97,23 @@
     <Compile Include="Cadastro_Cliente.Designer.cs">
       <DependentUpon>Cadastro_Cliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cadastro_Orcamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastro_Orcamento.Designer.cs">
+      <DependentUpon>Cadastro_Orcamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro_Servicos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cadastro_Servicos.Designer.cs">
       <DependentUpon>Cadastro_Servicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Carros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Carros.Designer.cs">
+      <DependentUpon>Carros.cs</DependentUpon>
     </Compile>
     <Compile Include="Clientes.cs">
       <SubType>Form</SubType>
@@ -129,6 +141,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicos.Designer.cs">
+      <DependentUpon>Servicos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Show_table_content.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,8 +164,14 @@
     <EmbeddedResource Include="Cadastro_Cliente.resx">
       <DependentUpon>Cadastro_Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cadastro_Orcamento.resx">
+      <DependentUpon>Cadastro_Orcamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro_Servicos.resx">
       <DependentUpon>Cadastro_Servicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Carros.resx">
+      <DependentUpon>Carros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
@@ -171,6 +195,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Servicos.resx">
+      <DependentUpon>Servicos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Show_table_content.resx">
       <DependentUpon>Show_table_content.cs</DependentUpon>
     </EmbeddedResource>
