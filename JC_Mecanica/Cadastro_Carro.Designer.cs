@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_Carro));
             this.placa_label = new System.Windows.Forms.Label();
             this.modelo_label = new System.Windows.Forms.Label();
             this.chassi_label = new System.Windows.Forms.Label();
@@ -150,6 +151,7 @@
             this.Controls.Add(this.modelo_label);
             this.Controls.Add(this.placa_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Cadastro_Carro";

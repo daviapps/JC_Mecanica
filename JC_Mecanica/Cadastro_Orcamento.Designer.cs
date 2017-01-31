@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_Orcamento));
             this.servico_label = new System.Windows.Forms.Label();
             this.cliente_label = new System.Windows.Forms.Label();
             this.carro_label = new System.Windows.Forms.Label();
@@ -40,7 +41,8 @@
             this.carro_escolher_button = new System.Windows.Forms.Button();
             this.salvar_button = new System.Windows.Forms.Button();
             this.cancelar_button = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.id_label = new System.Windows.Forms.Label();
+            this.apagar_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // servico_label
@@ -99,17 +101,18 @@
             this.valor_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valor_label.Location = new System.Drawing.Point(142, 103);
             this.valor_label.Name = "valor_label";
-            this.valor_label.Size = new System.Drawing.Size(44, 15);
+            this.valor_label.Size = new System.Drawing.Size(76, 15);
             this.valor_label.TabIndex = 5;
-            this.valor_label.Text = "Valor:";
+            this.valor_label.Text = "Valor (R$):";
             // 
             // valor_edit
             // 
-            this.valor_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valor_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valor_edit.Location = new System.Drawing.Point(153, 121);
             this.valor_edit.Name = "valor_edit";
             this.valor_edit.Size = new System.Drawing.Size(89, 26);
             this.valor_edit.TabIndex = 6;
+            this.valor_edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valor_edit_KeyPress);
             // 
             // servico_edit
             // 
@@ -119,6 +122,7 @@
             this.servico_edit.Name = "servico_edit";
             this.servico_edit.Size = new System.Drawing.Size(184, 26);
             this.servico_edit.TabIndex = 7;
+            this.servico_edit.Text = "Selecione o serviço >>";
             this.servico_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // carro_edit
@@ -129,6 +133,7 @@
             this.carro_edit.Name = "carro_edit";
             this.carro_edit.Size = new System.Drawing.Size(86, 26);
             this.carro_edit.TabIndex = 8;
+            this.carro_edit.Text = "Selec. >>";
             this.carro_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // detalhes_edit
@@ -137,6 +142,7 @@
             this.detalhes_edit.Location = new System.Drawing.Point(256, 75);
             this.detalhes_edit.Multiline = true;
             this.detalhes_edit.Name = "detalhes_edit";
+            this.detalhes_edit.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.detalhes_edit.Size = new System.Drawing.Size(324, 72);
             this.detalhes_edit.TabIndex = 9;
             // 
@@ -148,6 +154,7 @@
             this.cliente_edit.Name = "cliente_edit";
             this.cliente_edit.Size = new System.Drawing.Size(184, 26);
             this.cliente_edit.TabIndex = 10;
+            this.cliente_edit.Text = "Selecione o cliente >>";
             this.cliente_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // data_timePicker
@@ -210,32 +217,45 @@
             // 
             this.cancelar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelar_button.Location = new System.Drawing.Point(410, 155);
+            this.cancelar_button.Location = new System.Drawing.Point(409, 155);
             this.cancelar_button.Name = "cancelar_button";
-            this.cancelar_button.Size = new System.Drawing.Size(89, 29);
+            this.cancelar_button.Size = new System.Drawing.Size(90, 29);
             this.cancelar_button.TabIndex = 16;
             this.cancelar_button.Text = "Cancelar";
             this.cancelar_button.UseVisualStyleBackColor = true;
             this.cancelar_button.Click += new System.EventHandler(this.cancelar_button_Click);
             // 
-            // label1
+            // id_label
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(12, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(392, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código do orçamento: 000001";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.id_label.BackColor = System.Drawing.SystemColors.Control;
+            this.id_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_label.ForeColor = System.Drawing.Color.DimGray;
+            this.id_label.Location = new System.Drawing.Point(12, 155);
+            this.id_label.Name = "id_label";
+            this.id_label.Size = new System.Drawing.Size(309, 29);
+            this.id_label.TabIndex = 0;
+            this.id_label.Text = "Código do orçamento: 000001";
+            this.id_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // apagar_button
+            // 
+            this.apagar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.apagar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apagar_button.Location = new System.Drawing.Point(327, 155);
+            this.apagar_button.Name = "apagar_button";
+            this.apagar_button.Size = new System.Drawing.Size(76, 29);
+            this.apagar_button.TabIndex = 17;
+            this.apagar_button.Text = "Apagar";
+            this.apagar_button.UseVisualStyleBackColor = true;
+            this.apagar_button.Visible = false;
             // 
             // Cadastro_Orcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 194);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.apagar_button);
+            this.Controls.Add(this.id_label);
             this.Controls.Add(this.cancelar_button);
             this.Controls.Add(this.salvar_button);
             this.Controls.Add(this.carro_escolher_button);
@@ -254,12 +274,13 @@
             this.Controls.Add(this.cliente_label);
             this.Controls.Add(this.servico_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Cadastro_Orcamento";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cadastro orcamento";
+            this.Text = "Novo orçamento";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cadastro_Orcamento_FormClosing);
             this.Load += new System.EventHandler(this.Cadastro_Orcamento_Load);
             this.ResumeLayout(false);
@@ -286,6 +307,7 @@
         private System.Windows.Forms.Button carro_escolher_button;
         private System.Windows.Forms.Button salvar_button;
         private System.Windows.Forms.Button cancelar_button;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label id_label;
+        private System.Windows.Forms.Button apagar_button;
     }
 }

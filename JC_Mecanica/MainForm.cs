@@ -44,7 +44,8 @@ namespace JC_Mecanica {
                 new Cadastro_Cliente().ShowDialog();
             } else
             if (e.KeyCode == Keys.F8) {
-                new Cadastro_Carro().ShowDialog();
+                //new Cadastro_Carro().ShowDialog();
+                new Orcamentos().ShowDialog();
             } else
             // ************************* //
             if (e.KeyCode == Keys.F9) {

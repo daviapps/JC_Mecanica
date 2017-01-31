@@ -81,11 +81,7 @@ namespace JC_Mecanica {
             data.Tables [0].Rows.Add(newRow);
             adapter.Update(data);
             connection.Close();*/
-
-            if (telefone_edit.Text.Length < 14)
-                telefone_edit.Text = "";
-            if (celular_edit.Text.Length < 14)
-                celular_edit.Text = "";
+            
 
             SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
             connection.Open();
@@ -96,7 +92,7 @@ namespace JC_Mecanica {
             check_User_Name.Parameters.AddWithValue("@cpf", Transform.packCPF(cpf_edit.Text));
             int UserExist = (int) check_User_Name.ExecuteScalar();
 
-            if (UserExist > 0) {
+            if (UserExist > 0 && cpf_edit.Text.Length > 0) {
                 MessageBox.Show("CPF já cadastrado", "Erro de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else {
                 using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Clientes (nome, cpf, telefone, celular, rua, numero, cidade, bairro, estado) Values(@nome,@cpf,@telefone,@celular,@rua,@numero,@cidade,@bairro,@estado)", connection)) {
@@ -111,6 +107,11 @@ namespace JC_Mecanica {
                     com.Parameters.AddWithValue("@estado", this.estado_comboBox.Text);
                     com.ExecuteNonQuery();
                 }
+
+                if (telefone_edit.Text.Length < 14)
+                    telefone_edit.Text = "";
+                if (celular_edit.Text.Length < 14)
+                    celular_edit.Text = "";
 
                 this.Close();
             }
@@ -132,14 +133,14 @@ namespace JC_Mecanica {
             // Salvar button
 
             bool nomeEmpty = nome_edit.Text.Equals("");
-            bool cpfEmpty = Transform.packCPF(cpf_edit.Text).ToCharArray().Length != 11;
-            bool ruaEmpty = rua_edit.Text.Equals("");
+            bool cpfEmpty = (cpf_edit.Text.Length > 0 ? Transform.packCPF(cpf_edit.Text).ToCharArray().Length != 11 : false);
+            //bool ruaEmpty = rua_edit.Text.Equals("");
             bool numeroEmpty = numero_edit.Text.Equals("");
-            bool cidadeEmpty = cidade_edit.Text.Equals("");
-            bool bairroEmpty = bairro_edit.Text.Equals("");
+            //bool cidadeEmpty = cidade_edit.Text.Equals("");
+            //bool bairroEmpty = bairro_edit.Text.Equals("");
             bool estadoEmpty = estado_comboBox.Text.Equals("");
 
-            salvar_button.Enabled = (!nomeEmpty && !cpfEmpty && !ruaEmpty && !numeroEmpty && !cidadeEmpty && !bairroEmpty && !estadoEmpty);
+            salvar_button.Enabled = (!nomeEmpty && !cpfEmpty /*&& !ruaEmpty*/ && !numeroEmpty /*&& !cidadeEmpty && !bairroEmpty*/ && !estadoEmpty);
         }
 
         /*private void clientesBindingNavigatorSaveItem_Click(object sender, EventArgs e) {

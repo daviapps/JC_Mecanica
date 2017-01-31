@@ -11,18 +11,31 @@ using System.Windows.Forms;
 
 namespace JC_Mecanica {
     public partial class Servicos : Form {
+        private System.Windows.Forms.Timer backTast;
         private int [] codigos;
         private int currentCodigo = 0;
+        private bool selectMode = false;
         public Servicos() {
             InitializeComponent();
         }
 
         private void Servicos_Load(object sender, EventArgs e) {
+            this.backTast = new System.Windows.Forms.Timer();
+            this.backTast.Tick += new EventHandler(this.backTasking);
+            this.backTast.Interval = 100;
+            this.backTast.Start();
+
             updateLista();
         }
 
         private void Servicos_FormClosing(object sender, FormClosingEventArgs e) {
 
+        }
+
+        private void backTasking(object sender, EventArgs e) {
+            bool selectError = (selectMode ? currentCodigo <= 0 : false);
+
+            ok_button.Enabled = (!selectError);
         }
 
         private void updateLista() {
@@ -88,28 +101,43 @@ namespace JC_Mecanica {
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e) {
-            if (listView.SelectedIndices.Count <= 0) { return; }
+            if (listView.SelectedIndices.Count <= 0) { currentCodigo = 0; return; }
             int item = listView.SelectedIndices [0];
             currentCodigo = codigos [item];
         }
 
         private void listView_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if (currentCodigo != -1) {
-                DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse cadastro será apagado.", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (m == DialogResult.Yes) {
-                    SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
-                    connection.Open();
+            if (!selectMode) {
+                if (currentCodigo > -1) {
+                    DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse cadastro será apagado.", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (m == DialogResult.Yes) {
+                        SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
+                        connection.Open();
 
-                    SqlCeCommand cmd = new SqlCeCommand("DELETE FROM Servicos WHERE codigo = @codigo", connection);
-                    cmd.Parameters.AddWithValue("@codigo", currentCodigo);
-                    cmd.ExecuteNonQuery();
-                    //SqlCeDataReader re = cmd.ExecuteReader();
+                        SqlCeCommand cmd = new SqlCeCommand("DELETE FROM Servicos WHERE codigo = @codigo", connection);
+                        cmd.Parameters.AddWithValue("@codigo", currentCodigo);
+                        cmd.ExecuteNonQuery();
+                        //SqlCeDataReader re = cmd.ExecuteReader();
 
-                    connection.Close();
-                    this.updateLista();
+                        connection.Close();
+                        this.updateLista();
+                    }
+                    updateLista();
                 }
-                updateLista();
+            } else {
+                if (ok_button.Enabled)
+                    ok_button_Click(null, null);
             }
+        }
+
+        // Modes
+
+        public int getServicoID() {
+            ok_button.Text = "Selec";
+            Text = "Selecionar serviço";
+            selectMode = true;
+            this.ShowDialog();
+            return currentCodigo;
         }
     }
 }

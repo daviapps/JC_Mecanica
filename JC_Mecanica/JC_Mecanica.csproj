@@ -115,6 +115,13 @@
     <Compile Include="Carros.Designer.cs">
       <DependentUpon>Carros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Orcamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orcamentos.Designer.cs">
+      <DependentUpon>Orcamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL.cs" />
     <Compile Include="Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro_Dispesa.resx">
       <DependentUpon>Cadastro_Dispesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orcamentos.resx">
+      <DependentUpon>Orcamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

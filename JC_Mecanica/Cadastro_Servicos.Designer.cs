@@ -60,6 +60,7 @@
             this.servico_edit.Name = "servico_edit";
             this.servico_edit.Size = new System.Drawing.Size(352, 26);
             this.servico_edit.TabIndex = 3;
+            this.servico_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.servico_edit_KeyDown);
             // 
             // salvar_button
             // 

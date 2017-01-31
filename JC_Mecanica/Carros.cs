@@ -84,7 +84,10 @@ namespace JC_Mecanica {
             bool chassiError = (chassi_edit.Text.Length > 0 ? chassi_edit.Text.Length < 11 : false);
             bool modeloEmpty = modelo_edit.Text.Length <= 0;
 
+            bool selectError = (this.selectMode ? currentPlaca.Equals("") : false);
+
             salvar_button.Enabled = (!placaError && !anoError && !chassiError && !modeloEmpty);
+            ok_button.Enabled = !selectError;
         }
 
         private void novo_button_Click(object sender, EventArgs e) {
