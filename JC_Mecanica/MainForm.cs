@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace JC_Mecanica {
             // TODO: This line of code loads data into the 'banco_de_dadosDataSet.clientes' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'banco_de_dadosDataSet.clientes' table. You can move, or remove it, as needed.
             //this.clientesTableAdapter.Fill(this.banco_de_dadosDataSet.clientes);
-
+            main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private void keyDown(object sender, KeyEventArgs e) {
@@ -31,14 +32,13 @@ namespace JC_Mecanica {
                 }
             } else
             if (e.KeyCode == Keys.F1) {
-                
+                new AjudaForm().ShowDialog();
             } else
             if (e.KeyCode == Keys.F5) {
-                new Cadastro_Dispesa().ShowDialog();
+                new Cadastro_Orcamento().ShowDialog();
             } else
             if (e.KeyCode == Keys.F6) {
-                //new Cadastro_Servicos().ShowDialog();
-                new Cadastro_Orcamento().ShowDialog();
+                new Cadastro_Dispesa().ShowDialog();
             } else
             if (e.KeyCode == Keys.F7) {
                 new Cadastro_Cliente().ShowDialog();
@@ -100,47 +100,55 @@ namespace JC_Mecanica {
 
         // Cadastro menu
 
+        private void cadastro_orcamento_menu_Click(object sender, EventArgs e) {
+            new Cadastro_Orcamento().ShowDialog();
+        }
+
         private void cadastro_clientes_menu_Click(object sender, EventArgs e) {
             new Cadastro_Cliente().ShowDialog();
-        }
-
-        private void cadastro_servicos_menu_Click(object sender, EventArgs e) {
-            new Cadastro_Servicos().ShowDialog();
-        }
-
-        private void cadastro_carro_menu_Click(object sender, EventArgs e) {
-            new Cadastro_Carro().ShowDialog();
         }
 
         private void cadastro_dispesas_menu_Click(object sender, EventArgs e) {
             new Cadastro_Dispesa().ShowDialog();
         }
 
-        // Ajuda menu
-
-        private void ajuda_sobre_menu_Click(object sender, EventArgs e) {
-            new AboutBox().ShowDialog();
-        }
-
-        private void main_sobre_button_Click(object sender, EventArgs e) {
-            new AboutBox().ShowDialog();
-        }
-
         private void cadastro_fechar_menu_Click(object sender, EventArgs e) {
 
         }
 
+        // Dados menu
+
+        private void dados_orcamentos_menu_Click(object sender, EventArgs e) {
+            new Orcamentos().ShowDialog();
+        }
+
         private void dados_dispesa_menu_Click(object sender, EventArgs e) {
-            
+            new Dispesas().ShowDialog();
         }
 
         private void dados_servicos_menu_Click(object sender, EventArgs e) {
-
+            new Servicos().ShowDialog();
         }
 
         private void dados_cliente_menu_Click(object sender, EventArgs e) {
-
+            new Clientes().ShowDialog();
         }
-        
+
+        private void dados_carros_menu_Click(object sender, EventArgs e) {
+            new Carros().ShowDialog();
+        }
+
+        // Main buttons
+        private void main_sobre_button_Click(object sender, EventArgs e) {
+            new AboutBox().ShowDialog();
+        }
+
+        private void main_contato_button_Click(object sender, EventArgs e) {
+            new ContatoForm().ShowDialog();
+        }
+
+        private void main_help_button_Click(object sender, EventArgs e) {
+            new AjudaForm().ShowDialog();
+        }
     }
 }

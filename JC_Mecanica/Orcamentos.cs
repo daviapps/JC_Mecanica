@@ -86,12 +86,17 @@ namespace JC_Mecanica {
 
             String queryString = "";
             String orderString = "";
+            String findString = "(cliente IN (SELECT id FROM Clientes WHERE nome Like @p1) OR " +   // Find cliente nome
+                                "carro Like @p1 OR " +                                              // Find carro placa
+                                "carro IN (SELECT placa FROM Carros WHERE modelo Like @p1) OR " +   // Find carro modelo
+                                "servico IN (SELECT codigo FROM Servicos WHERE servico Like @p1) " +// Find servico
+                                ")";
 
             if (!busca_edit.Text.Equals("")) // Busca
                 if (tudo_checkBox.Checked) // Buscar em todas as  Orcamentos
-                    queryString += "FROM Orcamentos WHERE cliente Like ?";
+                    queryString += "FROM Orcamentos WHERE " + findString;
                 else// Buscar apenas nas Orcamentos do mes selecionado
-                    queryString += "FROM Orcamentos WHERE DATEPART(month, data) = " + currentMonth + " AND DATEPART(year, data) = " + currentYear + " AND cliente Like ?";
+                    queryString += "FROM Orcamentos WHERE DATEPART(month, data) = " + currentMonth + " AND DATEPART(year, data) = " + currentYear + " AND " + findString;
             else // Normal
                 if (tudo_checkBox.Checked) // Mostrar todas as Orcamentos
                     queryString += "FROM Orcamentos";
@@ -115,7 +120,6 @@ namespace JC_Mecanica {
                 DataSet AVATARLINE = new DataSet();
                 SqlCeCommand cmd = new SqlCeCommand("SELECT * " + queryString + " " + orderString, connection);
                 cmd.Parameters.AddWithValue("@p1", "%" + busca_edit.Text.ToString() + "%");
-                //cmd.Parameters.AddWithValue("@p2", "%" + currentYear + "/" + currentMonth + "%");
                 SqlCeDataAdapter AVATARLINE_1 = new SqlCeDataAdapter(cmd);
                 AVATARLINE_1.Fill(AVATARLINE);
                 foreach (DataRow row in AVATARLINE.Tables [0].Rows) {
@@ -126,7 +130,7 @@ namespace JC_Mecanica {
                     list.SubItems.Add(row [4].ToString().Substring(0, 10));
                     list.SubItems.Add(row [3].ToString());
                     listView.Items.Add(list);
-                    soma_orcamentos += double.Parse(row [1].ToString()) * int.Parse(row [2].ToString());
+                    soma_orcamentos += double.Parse(row [5].ToString());
                     orcamentosIDs [i] = int.Parse(row [6].ToString());
                     i++;
                 }
@@ -140,7 +144,7 @@ namespace JC_Mecanica {
         }
 
         private void nova_button_Click(object sender, EventArgs e) {
-            new Cadastro_Orcamento(/*currentMonth, currentYear*/).ShowDialog();
+            new Cadastro_Orcamento(currentMonth, currentYear).ShowDialog();
             updateLista();
         }
 
@@ -177,8 +181,6 @@ namespace JC_Mecanica {
             currentMonth = item + 1;
             tudo_checkBox.Checked = false;
             updateLista();
-
-            //MessageBox.Show(currentMonth + "/" + currentYear);
         }
 
         private void Orcamentos_KeyDown(object sender, KeyEventArgs e) {

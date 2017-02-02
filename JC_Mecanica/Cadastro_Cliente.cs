@@ -95,6 +95,10 @@ namespace JC_Mecanica {
             if (UserExist > 0 && cpf_edit.Text.Length > 0) {
                 MessageBox.Show("CPF já cadastrado", "Erro de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else {
+                if (telefone_edit.Text.Length < 14)
+                    telefone_edit.Text = "";
+                if (celular_edit.Text.Length < 14)
+                    celular_edit.Text = "";
                 using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Clientes (nome, cpf, telefone, celular, rua, numero, cidade, bairro, estado) Values(@nome,@cpf,@telefone,@celular,@rua,@numero,@cidade,@bairro,@estado)", connection)) {
                     com.Parameters.AddWithValue("@nome", this.nome_edit.Text);
                     com.Parameters.AddWithValue("@cpf", Transform.packCPF(this.cpf_edit.Text));
@@ -107,11 +111,6 @@ namespace JC_Mecanica {
                     com.Parameters.AddWithValue("@estado", this.estado_comboBox.Text);
                     com.ExecuteNonQuery();
                 }
-
-                if (telefone_edit.Text.Length < 14)
-                    telefone_edit.Text = "";
-                if (celular_edit.Text.Length < 14)
-                    celular_edit.Text = "";
 
                 this.Close();
             }

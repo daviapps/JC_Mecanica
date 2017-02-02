@@ -149,5 +149,21 @@ namespace JC_Mecanica {
         private void valor_edit_KeyPress(object sender, KeyPressEventArgs e) {
             Transform.setMoneyTextBox(valor_edit, e);
         }
+
+        private void apagar_button_Click(object sender, EventArgs e) {
+            DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse orçamento será apagada.", "Apagar dispesa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (m == DialogResult.Yes) {
+                SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
+                connection.Open();
+
+                SqlCeCommand cmd = new SqlCeCommand("DELETE FROM Orcamentos WHERE id = @id", connection);
+                cmd.Parameters.AddWithValue("@id", orcamentoID);
+                cmd.ExecuteNonQuery();
+
+                connection.Close();
+
+                this.Close();
+            }
+        }
     }
 }

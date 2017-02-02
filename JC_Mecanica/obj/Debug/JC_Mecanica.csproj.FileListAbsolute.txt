@@ -32,3 +32,5 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Car
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Cadastro_Orcamento.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Servicos.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Orcamentos.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.ContatoForm.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.AjudaForm.resources

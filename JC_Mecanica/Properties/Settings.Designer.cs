@@ -41,5 +41,14 @@ namespace JC_Mecanica.Properties {
                 return ((string)(this["DataConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double DB_VERSION {
+            get {
+                return ((double)(this["DB_VERSION"]));
+            }
+        }
     }
 }

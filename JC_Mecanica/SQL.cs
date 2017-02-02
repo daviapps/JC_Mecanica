@@ -4,6 +4,7 @@ using System.Data.SqlServerCe;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JC_Mecanica {
     class SQL {
@@ -26,6 +27,11 @@ namespace JC_Mecanica {
             this.table = table;
         }
 
+        public SQL setID(String ident) {
+            this._id = ident;
+            return this;
+        }
+
         public SQL setID(String ident, String id) {
             this._id = ident; this.id = id;
             return this;
@@ -36,14 +42,37 @@ namespace JC_Mecanica {
             return this;
         }
 
+        public SQL setDynamic(String indent, String prop, String findValue) {
+            connection.Open();
+
+            SqlCeCommand cmd = new SqlCeCommand("SELECT * FROM " + table + " WHERE " + prop + " Like ?", connection);
+            cmd.Parameters.AddWithValue("@p1", findValue);
+            SqlCeDataReader re = cmd.ExecuteReader();
+
+            MessageBox.Show(re ["id"].ToString());
+
+            if (re.Read())
+                this.id = re [indent].ToString();
+
+            this._id = indent;
+            re.Close();
+            connection.Close();
+            return this;
+        }
+
         public bool isError() {
             return (_id.Equals("") || id.Equals("") || id.Equals("0"));
+        }
+
+        public String get(String item, String id) {
+            this.id = id;
+            return get(item);
         }
 
         public String get(String item) {
             String output = "";
 
-            if (_id.Equals("") || _id.Equals("0") || id.Equals("")) return "";
+            if (_id.Equals("") || _id.Equals("0") || id.Equals("")) return "ERROR";
 
             connection.Open();
 
@@ -58,6 +87,11 @@ namespace JC_Mecanica {
             connection.Close();
 
             return output;
+        }
+
+        public void set(String item, String value, String id) {
+            this.id = id;
+            this.set(item, value);
         }
 
         public void set(String item, String value) {

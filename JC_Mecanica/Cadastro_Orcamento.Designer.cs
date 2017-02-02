@@ -248,6 +248,7 @@
             this.apagar_button.Text = "Apagar";
             this.apagar_button.UseVisualStyleBackColor = true;
             this.apagar_button.Visible = false;
+            this.apagar_button.Click += new System.EventHandler(this.apagar_button_Click);
             // 
             // Cadastro_Orcamento
             // 

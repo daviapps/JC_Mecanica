@@ -26,9 +26,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.status = new System.Windows.Forms.StatusStrip();
             this.cadastro_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastro_orcamento_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_dispesas_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cadastro_clientes_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastro_separator_menu = new System.Windows.Forms.ToolStripSeparator();
+            this.cadastro_fechar_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.dados_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_orcamentos_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_dispesa_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.dados_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_cliente_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.dados_carros_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cliente_name_label = new System.Windows.Forms.Label();
             this.contato_corp_label = new System.Windows.Forms.Label();
             this.cliente_cel_label = new System.Windows.Forms.Label();
@@ -38,21 +49,17 @@
             this.main_help_button = new System.Windows.Forms.Button();
             this.main_contato_button = new System.Windows.Forms.Button();
             this.main_sobre_button = new System.Windows.Forms.Button();
-            this.cadastro_separator_menu = new System.Windows.Forms.ToolStripSeparator();
-            this.cadastro_fechar_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.dados_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.dados_dispesa_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.dados_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.dados_cliente_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.main_version_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.cliente_logo_panel = new System.Windows.Forms.Panel();
-            this.cadastro_carro_menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastro_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.status.SuspendLayout();
             this.menu.SuspendLayout();
             this.contato_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // status
             // 
+            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.main_version_label});
             this.status.Location = new System.Drawing.Point(0, 489);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(805, 22);
@@ -63,10 +70,10 @@
             // cadastro_menu
             // 
             this.cadastro_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastro_orcamento_menu,
             this.cadastro_dispesas_menu,
-            this.cadastro_servicos_menu,
+            this.toolStripSeparator2,
             this.cadastro_clientes_menu,
-            this.cadastro_carro_menu,
             this.cadastro_separator_menu,
             this.cadastro_fechar_menu});
             this.cadastro_menu.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -74,19 +81,47 @@
             this.cadastro_menu.Size = new System.Drawing.Size(76, 23);
             this.cadastro_menu.Text = "Cadastro";
             // 
+            // cadastro_orcamento_menu
+            // 
+            this.cadastro_orcamento_menu.Name = "cadastro_orcamento_menu";
+            this.cadastro_orcamento_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_orcamento_menu.Text = "Orçamento [F5]";
+            this.cadastro_orcamento_menu.Click += new System.EventHandler(this.cadastro_orcamento_menu_Click);
+            // 
             // cadastro_dispesas_menu
             // 
             this.cadastro_dispesas_menu.Name = "cadastro_dispesas_menu";
-            this.cadastro_dispesas_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_dispesas_menu.Text = "Dispesas [F5]";
+            this.cadastro_dispesas_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_dispesas_menu.Text = "Dispesa [F6]";
             this.cadastro_dispesas_menu.Click += new System.EventHandler(this.cadastro_dispesas_menu_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(171, 6);
             // 
             // cadastro_clientes_menu
             // 
             this.cadastro_clientes_menu.Name = "cadastro_clientes_menu";
-            this.cadastro_clientes_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_clientes_menu.Text = "Clientes [F7]";
+            this.cadastro_clientes_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_clientes_menu.Text = "Cliente [F7]";
             this.cadastro_clientes_menu.Click += new System.EventHandler(this.cadastro_clientes_menu_Click);
+            // 
+            // cadastro_separator_menu
+            // 
+            this.cadastro_separator_menu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cadastro_separator_menu.Name = "cadastro_separator_menu";
+            this.cadastro_separator_menu.Size = new System.Drawing.Size(171, 6);
+            // 
+            // cadastro_fechar_menu
+            // 
+            this.cadastro_fechar_menu.BackColor = System.Drawing.Color.Salmon;
+            this.cadastro_fechar_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cadastro_fechar_menu.ForeColor = System.Drawing.SystemColors.Window;
+            this.cadastro_fechar_menu.Name = "cadastro_fechar_menu";
+            this.cadastro_fechar_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_fechar_menu.Text = "Fechar";
+            this.cadastro_fechar_menu.Click += new System.EventHandler(this.cadastro_fechar_menu_Click);
             // 
             // menu
             // 
@@ -99,8 +134,61 @@
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(805, 27);
             this.menu.TabIndex = 1;
-            this.menu.Text = "menuStrip1";
+            this.menu.Text = "menu";
             this.menu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
+            // 
+            // dados_menu
+            // 
+            this.dados_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dados_orcamentos_menu,
+            this.dados_dispesa_menu,
+            this.toolStripSeparator1,
+            this.dados_servicos_menu,
+            this.dados_cliente_menu,
+            this.dados_carros_menu});
+            this.dados_menu.Name = "dados_menu";
+            this.dados_menu.Size = new System.Drawing.Size(60, 23);
+            this.dados_menu.Text = "Dados";
+            // 
+            // dados_orcamentos_menu
+            // 
+            this.dados_orcamentos_menu.Name = "dados_orcamentos_menu";
+            this.dados_orcamentos_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_orcamentos_menu.Text = "Orçamentos [F8]";
+            this.dados_orcamentos_menu.Click += new System.EventHandler(this.dados_orcamentos_menu_Click);
+            // 
+            // dados_dispesa_menu
+            // 
+            this.dados_dispesa_menu.Name = "dados_dispesa_menu";
+            this.dados_dispesa_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_dispesa_menu.Text = "Dispesas [F9]";
+            this.dados_dispesa_menu.Click += new System.EventHandler(this.dados_dispesa_menu_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // dados_servicos_menu
+            // 
+            this.dados_servicos_menu.Name = "dados_servicos_menu";
+            this.dados_servicos_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_servicos_menu.Text = "Serviços [F10]";
+            this.dados_servicos_menu.Click += new System.EventHandler(this.dados_servicos_menu_Click);
+            // 
+            // dados_cliente_menu
+            // 
+            this.dados_cliente_menu.Name = "dados_cliente_menu";
+            this.dados_cliente_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_cliente_menu.Text = "Clientes [F11]";
+            this.dados_cliente_menu.Click += new System.EventHandler(this.dados_cliente_menu_Click);
+            // 
+            // dados_carros_menu
+            // 
+            this.dados_carros_menu.Name = "dados_carros_menu";
+            this.dados_carros_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_carros_menu.Text = "Carros [F12]";
+            this.dados_carros_menu.Click += new System.EventHandler(this.dados_carros_menu_Click);
             // 
             // cliente_name_label
             // 
@@ -178,6 +266,7 @@
             this.main_help_button.TabIndex = 9;
             this.main_help_button.Text = "Ajuda";
             this.main_help_button.UseVisualStyleBackColor = false;
+            this.main_help_button.Click += new System.EventHandler(this.main_help_button_Click);
             this.main_help_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // main_contato_button
@@ -192,6 +281,7 @@
             this.main_contato_button.TabIndex = 10;
             this.main_contato_button.Text = "Contato";
             this.main_contato_button.UseVisualStyleBackColor = false;
+            this.main_contato_button.Click += new System.EventHandler(this.main_contato_button_Click);
             this.main_contato_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // main_sobre_button
@@ -208,48 +298,12 @@
             this.main_sobre_button.Click += new System.EventHandler(this.main_sobre_button_Click);
             this.main_sobre_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
-            // cadastro_separator_menu
+            // main_version_label
             // 
-            this.cadastro_separator_menu.Name = "cadastro_separator_menu";
-            this.cadastro_separator_menu.Size = new System.Drawing.Size(155, 6);
-            // 
-            // cadastro_fechar_menu
-            // 
-            this.cadastro_fechar_menu.Name = "cadastro_fechar_menu";
-            this.cadastro_fechar_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_fechar_menu.Text = "Fechar";
-            this.cadastro_fechar_menu.Click += new System.EventHandler(this.cadastro_fechar_menu_Click);
-            // 
-            // dados_menu
-            // 
-            this.dados_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dados_dispesa_menu,
-            this.dados_servicos_menu,
-            this.dados_cliente_menu});
-            this.dados_menu.Name = "dados_menu";
-            this.dados_menu.Size = new System.Drawing.Size(60, 23);
-            this.dados_menu.Text = "Dados";
-            // 
-            // dados_dispesa_menu
-            // 
-            this.dados_dispesa_menu.Name = "dados_dispesa_menu";
-            this.dados_dispesa_menu.Size = new System.Drawing.Size(162, 24);
-            this.dados_dispesa_menu.Text = "Dispesas [F9]";
-            this.dados_dispesa_menu.Click += new System.EventHandler(this.dados_dispesa_menu_Click);
-            // 
-            // dados_servicos_menu
-            // 
-            this.dados_servicos_menu.Name = "dados_servicos_menu";
-            this.dados_servicos_menu.Size = new System.Drawing.Size(162, 24);
-            this.dados_servicos_menu.Text = "Serviços [F10]";
-            this.dados_servicos_menu.Click += new System.EventHandler(this.dados_servicos_menu_Click);
-            // 
-            // dados_cliente_menu
-            // 
-            this.dados_cliente_menu.Name = "dados_cliente_menu";
-            this.dados_cliente_menu.Size = new System.Drawing.Size(162, 24);
-            this.dados_cliente_menu.Text = "Clientes [F11]";
-            this.dados_cliente_menu.Click += new System.EventHandler(this.dados_cliente_menu_Click);
+            this.main_version_label.BackColor = System.Drawing.SystemColors.Control;
+            this.main_version_label.Name = "main_version_label";
+            this.main_version_label.Size = new System.Drawing.Size(49, 17);
+            this.main_version_label.Text = "Verção: ";
             // 
             // cliente_logo_panel
             // 
@@ -260,20 +314,6 @@
             this.cliente_logo_panel.Name = "cliente_logo_panel";
             this.cliente_logo_panel.Size = new System.Drawing.Size(448, 260);
             this.cliente_logo_panel.TabIndex = 3;
-            // 
-            // cadastro_carro_menu
-            // 
-            this.cadastro_carro_menu.Name = "cadastro_carro_menu";
-            this.cadastro_carro_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_carro_menu.Text = "Carros [F8]";
-            this.cadastro_carro_menu.Click += new System.EventHandler(this.cadastro_carro_menu_Click);
-            // 
-            // cadastro_servicos_menu
-            // 
-            this.cadastro_servicos_menu.Name = "cadastro_servicos_menu";
-            this.cadastro_servicos_menu.Size = new System.Drawing.Size(158, 24);
-            this.cadastro_servicos_menu.Text = "Serviços [F6]";
-            this.cadastro_servicos_menu.Click += new System.EventHandler(this.cadastro_servicos_menu_Click);
             // 
             // MainForm
             // 
@@ -298,6 +338,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
+            this.status.ResumeLayout(false);
+            this.status.PerformLayout();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.contato_panel.ResumeLayout(false);
@@ -330,8 +372,12 @@
         private System.Windows.Forms.ToolStripMenuItem dados_dispesa_menu;
         private System.Windows.Forms.ToolStripMenuItem dados_servicos_menu;
         private System.Windows.Forms.ToolStripMenuItem dados_cliente_menu;
-        private System.Windows.Forms.ToolStripMenuItem cadastro_servicos_menu;
-        private System.Windows.Forms.ToolStripMenuItem cadastro_carro_menu;
+        private System.Windows.Forms.ToolStripMenuItem cadastro_orcamento_menu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem dados_orcamentos_menu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem dados_carros_menu;
+        private System.Windows.Forms.ToolStripStatusLabel main_version_label;
 
     }
 }

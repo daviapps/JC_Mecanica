@@ -80,6 +80,12 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="AjudaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjudaForm.Designer.cs">
+      <DependentUpon>AjudaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="banco_de_dadosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="Carros.Designer.cs">
       <DependentUpon>Carros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContatoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContatoForm.Designer.cs">
+      <DependentUpon>ContatoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Orcamentos.cs">
       <SubType>Form</SubType>
@@ -160,10 +172,13 @@
     <Compile Include="Show_table_content.Designer.cs">
       <DependentUpon>Show_table_content.cs</DependentUpon>
     </Compile>
-    <Compile Include="TaskingTela.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="DB_INFO.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjudaForm.resx">
+      <DependentUpon>AjudaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro_Carro.resx">
       <DependentUpon>Cadastro_Carro.cs</DependentUpon>
@@ -182,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContatoForm.resx">
+      <DependentUpon>ContatoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dispesas.resx">
       <DependentUpon>Dispesas.cs</DependentUpon>
