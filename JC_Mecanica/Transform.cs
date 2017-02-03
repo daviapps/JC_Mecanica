@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -166,6 +167,63 @@ namespace JC_Mecanica {
                 }
             }
         }
+    }
 
+    abstract class Codes {
+        public static int EMPTY_AVALIATION_DATE = -1000;
+
+        public static bool checkValidation() {
+            Properties.Settings.Default.Reload();
+            return getCode().Equals(Properties.Settings.Default.ACTIVED_CODE);
+        }
+
+        public static bool checkValidation(String input) {
+            return getCode(input).Equals(getCode());
+        }
+
+        public static String getCode(String input) {
+            String output = "";
+            char [] version = removeDot(input).ToCharArray();
+            for (int i = 0; i < version.Length; i++) {
+                output += ((char) (((int) version [i]) + 17));
+                output += ((int) (version [i] - 48));
+            }
+            return output;
+        }
+
+        public static String getCode(){
+            return getCode(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        }
+
+        public static String removeDot(String input) {
+            char [] _input = input.ToCharArray();
+            String output = "";
+            for (int i = 0; i < _input.Length; i++) {
+                if (!_input [i].Equals('.'))
+                    output += _input [i];
+            }
+            return output;
+        }
+
+        public static int getAvaliableDays() {
+            bool timeAvalEmpty = Properties.Settings.Default.AVALIATION_DATE.Equals("");
+            DateTime timeAvaliation = (!timeAvalEmpty ? timeAvaliation = DateTime.Parse(Properties.Settings.Default.AVALIATION_DATE) : DateTime.Today), 
+                today = DateTime.Today;
+
+            return (timeAvalEmpty ? -1000 : timeAvaliation.DayOfYear - today.DayOfYear);
+        }
+
+        public static bool inAvaliationMode() {
+            bool timeAvalEmpty = !Properties.Settings.Default.AVALIATION_DATE.Equals("");
+            bool codeValiEmpty = !Properties.Settings.Default.ACTIVED_CODE.Equals("");
+
+            return (getAvaliableDays() > 0 && !checkValidation());
+        }
+
+        public static bool confirm() {
+            if (!checkValidation())
+                MessageBox.Show("Não é possivel realizar essa ação em modo de avaliação", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return checkValidation();
+        }
     }
 }

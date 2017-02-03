@@ -19,10 +19,8 @@ namespace JC_Mecanica {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-            // TODO: This line of code loads data into the 'banco_de_dadosDataSet.clientes' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'banco_de_dadosDataSet.clientes' table. You can move, or remove it, as needed.
-            //this.clientesTableAdapter.Fill(this.banco_de_dadosDataSet.clientes);
-            main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            String avaliableDays = (Codes.inAvaliationMode() ? " - " + Codes.getAvaliableDays() + " dias restantes": "");
+            main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + (Codes.checkValidation() ? "Ativado" : "Em periodo de avaliação" + avaliableDays);
         }
 
         private void keyDown(object sender, KeyEventArgs e) {
@@ -32,6 +30,7 @@ namespace JC_Mecanica {
                 }
             } else
             if (e.KeyCode == Keys.F1) {
+                //Properties.Settings.Default.AVALIATION_DATE = "02/02/2017 00:00:00";
                 new AjudaForm().ShowDialog();
             } else
             if (e.KeyCode == Keys.F5) {
@@ -149,6 +148,14 @@ namespace JC_Mecanica {
 
         private void main_help_button_Click(object sender, EventArgs e) {
             new AjudaForm().ShowDialog();
+        }
+
+        private void menu_DropDownClosed(object sender, EventArgs e) {
+            ((ToolStripMenuItem) sender).ForeColor = Color.FromArgb(0xffffff);
+        }
+
+        private void menu_DropDownOpened(object sender, EventArgs e) {
+            ((ToolStripMenuItem) sender).ForeColor = Color.FromArgb(0x000000);
         }
     }
 }

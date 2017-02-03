@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.status = new System.Windows.Forms.StatusStrip();
+            this.main_version_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.cadastro_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_orcamento_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastro_dispesas_menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,17 +41,15 @@
             this.dados_servicos_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.dados_cliente_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.dados_carros_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajuda_menu = new System.Windows.Forms.ToolStripMenuItem();
             this.cliente_name_label = new System.Windows.Forms.Label();
             this.contato_corp_label = new System.Windows.Forms.Label();
             this.cliente_cel_label = new System.Windows.Forms.Label();
             this.contato_cel_label = new System.Windows.Forms.Label();
             this.contato_email_label = new System.Windows.Forms.Label();
             this.contato_panel = new System.Windows.Forms.Panel();
-            this.main_help_button = new System.Windows.Forms.Button();
-            this.main_contato_button = new System.Windows.Forms.Button();
-            this.main_sobre_button = new System.Windows.Forms.Button();
-            this.main_version_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.cliente_logo_panel = new System.Windows.Forms.Panel();
+            this.main_sobre_button = new System.Windows.Forms.Button();
             this.status.SuspendLayout();
             this.menu.SuspendLayout();
             this.contato_panel.SuspendLayout();
@@ -67,6 +66,13 @@
             this.status.Text = "statusStrip1";
             this.status.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
+            // main_version_label
+            // 
+            this.main_version_label.BackColor = System.Drawing.SystemColors.Control;
+            this.main_version_label.Name = "main_version_label";
+            this.main_version_label.Size = new System.Drawing.Size(49, 17);
+            this.main_version_label.Text = "Verção: ";
+            // 
             // cadastro_menu
             // 
             this.cadastro_menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -76,34 +82,40 @@
             this.cadastro_clientes_menu,
             this.cadastro_separator_menu,
             this.cadastro_fechar_menu});
-            this.cadastro_menu.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cadastro_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cadastro_menu.ForeColor = System.Drawing.SystemColors.Window;
             this.cadastro_menu.Name = "cadastro_menu";
-            this.cadastro_menu.Size = new System.Drawing.Size(76, 23);
+            this.cadastro_menu.Size = new System.Drawing.Size(74, 21);
             this.cadastro_menu.Text = "Cadastro";
+            this.cadastro_menu.DropDownClosed += new System.EventHandler(this.menu_DropDownClosed);
+            this.cadastro_menu.DropDownOpened += new System.EventHandler(this.menu_DropDownOpened);
             // 
             // cadastro_orcamento_menu
             // 
+            this.cadastro_orcamento_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cadastro_orcamento_menu.Name = "cadastro_orcamento_menu";
-            this.cadastro_orcamento_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_orcamento_menu.Size = new System.Drawing.Size(166, 22);
             this.cadastro_orcamento_menu.Text = "Orçamento [F5]";
             this.cadastro_orcamento_menu.Click += new System.EventHandler(this.cadastro_orcamento_menu_Click);
             // 
             // cadastro_dispesas_menu
             // 
+            this.cadastro_dispesas_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cadastro_dispesas_menu.Name = "cadastro_dispesas_menu";
-            this.cadastro_dispesas_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_dispesas_menu.Size = new System.Drawing.Size(166, 22);
             this.cadastro_dispesas_menu.Text = "Dispesa [F6]";
             this.cadastro_dispesas_menu.Click += new System.EventHandler(this.cadastro_dispesas_menu_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(163, 6);
             // 
             // cadastro_clientes_menu
             // 
+            this.cadastro_clientes_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cadastro_clientes_menu.Name = "cadastro_clientes_menu";
-            this.cadastro_clientes_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_clientes_menu.Size = new System.Drawing.Size(166, 22);
             this.cadastro_clientes_menu.Text = "Cliente [F7]";
             this.cadastro_clientes_menu.Click += new System.EventHandler(this.cadastro_clientes_menu_Click);
             // 
@@ -111,7 +123,7 @@
             // 
             this.cadastro_separator_menu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.cadastro_separator_menu.Name = "cadastro_separator_menu";
-            this.cadastro_separator_menu.Size = new System.Drawing.Size(171, 6);
+            this.cadastro_separator_menu.Size = new System.Drawing.Size(163, 6);
             // 
             // cadastro_fechar_menu
             // 
@@ -119,20 +131,22 @@
             this.cadastro_fechar_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cadastro_fechar_menu.ForeColor = System.Drawing.SystemColors.Window;
             this.cadastro_fechar_menu.Name = "cadastro_fechar_menu";
-            this.cadastro_fechar_menu.Size = new System.Drawing.Size(174, 24);
+            this.cadastro_fechar_menu.Size = new System.Drawing.Size(166, 22);
             this.cadastro_fechar_menu.Text = "Fechar";
             this.cadastro_fechar_menu.Click += new System.EventHandler(this.cadastro_fechar_menu_Click);
             // 
             // menu
             // 
-            this.menu.BackColor = System.Drawing.Color.DarkKhaki;
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(132)))), ((int)(((byte)(55)))));
             this.menu.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastro_menu,
-            this.dados_menu});
+            this.dados_menu,
+            this.ajuda_menu});
+            this.menu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(805, 27);
+            this.menu.Size = new System.Drawing.Size(805, 25);
             this.menu.TabIndex = 1;
             this.menu.Text = "menu";
             this.menu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
@@ -146,49 +160,68 @@
             this.dados_servicos_menu,
             this.dados_cliente_menu,
             this.dados_carros_menu});
+            this.dados_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dados_menu.ForeColor = System.Drawing.SystemColors.Window;
             this.dados_menu.Name = "dados_menu";
-            this.dados_menu.Size = new System.Drawing.Size(60, 23);
+            this.dados_menu.Size = new System.Drawing.Size(59, 21);
             this.dados_menu.Text = "Dados";
+            this.dados_menu.DropDownClosed += new System.EventHandler(this.menu_DropDownClosed);
+            this.dados_menu.DropDownOpened += new System.EventHandler(this.menu_DropDownOpened);
             // 
             // dados_orcamentos_menu
             // 
+            this.dados_orcamentos_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dados_orcamentos_menu.Name = "dados_orcamentos_menu";
-            this.dados_orcamentos_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_orcamentos_menu.Size = new System.Drawing.Size(172, 22);
             this.dados_orcamentos_menu.Text = "Orçamentos [F8]";
             this.dados_orcamentos_menu.Click += new System.EventHandler(this.dados_orcamentos_menu_Click);
             // 
             // dados_dispesa_menu
             // 
+            this.dados_dispesa_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dados_dispesa_menu.Name = "dados_dispesa_menu";
-            this.dados_dispesa_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_dispesa_menu.Size = new System.Drawing.Size(172, 22);
             this.dados_dispesa_menu.Text = "Dispesas [F9]";
             this.dados_dispesa_menu.Click += new System.EventHandler(this.dados_dispesa_menu_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // dados_servicos_menu
             // 
+            this.dados_servicos_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dados_servicos_menu.Name = "dados_servicos_menu";
-            this.dados_servicos_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_servicos_menu.Size = new System.Drawing.Size(172, 22);
             this.dados_servicos_menu.Text = "Serviços [F10]";
             this.dados_servicos_menu.Click += new System.EventHandler(this.dados_servicos_menu_Click);
             // 
             // dados_cliente_menu
             // 
+            this.dados_cliente_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dados_cliente_menu.Name = "dados_cliente_menu";
-            this.dados_cliente_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_cliente_menu.Size = new System.Drawing.Size(172, 22);
             this.dados_cliente_menu.Text = "Clientes [F11]";
             this.dados_cliente_menu.Click += new System.EventHandler(this.dados_cliente_menu_Click);
             // 
             // dados_carros_menu
             // 
+            this.dados_carros_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dados_carros_menu.Name = "dados_carros_menu";
-            this.dados_carros_menu.Size = new System.Drawing.Size(180, 24);
+            this.dados_carros_menu.Size = new System.Drawing.Size(172, 22);
             this.dados_carros_menu.Text = "Carros [F12]";
             this.dados_carros_menu.Click += new System.EventHandler(this.dados_carros_menu_Click);
+            // 
+            // ajuda_menu
+            // 
+            this.ajuda_menu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.ajuda_menu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ajuda_menu.ForeColor = System.Drawing.SystemColors.Window;
+            this.ajuda_menu.Name = "ajuda_menu";
+            this.ajuda_menu.Size = new System.Drawing.Size(56, 21);
+            this.ajuda_menu.Text = "Ajuda";
+            this.ajuda_menu.Click += new System.EventHandler(this.main_help_button_Click);
             // 
             // cliente_name_label
             // 
@@ -254,57 +287,6 @@
             this.contato_panel.Size = new System.Drawing.Size(116, 48);
             this.contato_panel.TabIndex = 8;
             // 
-            // main_help_button
-            // 
-            this.main_help_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_help_button.BackColor = System.Drawing.Color.DarkKhaki;
-            this.main_help_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.main_help_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.main_help_button.Location = new System.Drawing.Point(742, 0);
-            this.main_help_button.Name = "main_help_button";
-            this.main_help_button.Size = new System.Drawing.Size(63, 27);
-            this.main_help_button.TabIndex = 9;
-            this.main_help_button.Text = "Ajuda";
-            this.main_help_button.UseVisualStyleBackColor = false;
-            this.main_help_button.Click += new System.EventHandler(this.main_help_button_Click);
-            this.main_help_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
-            // 
-            // main_contato_button
-            // 
-            this.main_contato_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_contato_button.BackColor = System.Drawing.SystemColors.Control;
-            this.main_contato_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.main_contato_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.main_contato_button.Location = new System.Drawing.Point(709, 489);
-            this.main_contato_button.Name = "main_contato_button";
-            this.main_contato_button.Size = new System.Drawing.Size(73, 23);
-            this.main_contato_button.TabIndex = 10;
-            this.main_contato_button.Text = "Contato";
-            this.main_contato_button.UseVisualStyleBackColor = false;
-            this.main_contato_button.Click += new System.EventHandler(this.main_contato_button_Click);
-            this.main_contato_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
-            // 
-            // main_sobre_button
-            // 
-            this.main_sobre_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_sobre_button.BackColor = System.Drawing.SystemColors.Control;
-            this.main_sobre_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.main_sobre_button.Location = new System.Drawing.Point(637, 489);
-            this.main_sobre_button.Name = "main_sobre_button";
-            this.main_sobre_button.Size = new System.Drawing.Size(75, 23);
-            this.main_sobre_button.TabIndex = 11;
-            this.main_sobre_button.Text = "Sobre";
-            this.main_sobre_button.UseVisualStyleBackColor = false;
-            this.main_sobre_button.Click += new System.EventHandler(this.main_sobre_button_Click);
-            this.main_sobre_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
-            // 
-            // main_version_label
-            // 
-            this.main_version_label.BackColor = System.Drawing.SystemColors.Control;
-            this.main_version_label.Name = "main_version_label";
-            this.main_version_label.Size = new System.Drawing.Size(49, 17);
-            this.main_version_label.Text = "Verção: ";
-            // 
             // cliente_logo_panel
             // 
             this.cliente_logo_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -315,15 +297,27 @@
             this.cliente_logo_panel.Size = new System.Drawing.Size(448, 260);
             this.cliente_logo_panel.TabIndex = 3;
             // 
+            // main_sobre_button
+            // 
+            this.main_sobre_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_sobre_button.BackColor = System.Drawing.SystemColors.Control;
+            this.main_sobre_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.main_sobre_button.Location = new System.Drawing.Point(709, 489);
+            this.main_sobre_button.Name = "main_sobre_button";
+            this.main_sobre_button.Size = new System.Drawing.Size(75, 22);
+            this.main_sobre_button.TabIndex = 11;
+            this.main_sobre_button.Text = "Sobre";
+            this.main_sobre_button.UseVisualStyleBackColor = false;
+            this.main_sobre_button.Click += new System.EventHandler(this.main_sobre_button_Click);
+            this.main_sobre_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(210)))), ((int)(((byte)(149)))));
             this.ClientSize = new System.Drawing.Size(805, 511);
             this.Controls.Add(this.main_sobre_button);
-            this.Controls.Add(this.main_contato_button);
-            this.Controls.Add(this.main_help_button);
             this.Controls.Add(this.contato_panel);
             this.Controls.Add(this.cliente_cel_label);
             this.Controls.Add(this.cliente_logo_panel);
@@ -353,7 +347,6 @@
 
         private System.Windows.Forms.StatusStrip status;
         private System.Windows.Forms.ToolStripMenuItem cadastro_menu;
-        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_dispesas_menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_clientes_menu;
         private System.Windows.Forms.Label cliente_name_label;
@@ -363,9 +356,6 @@
         private System.Windows.Forms.Label contato_cel_label;
         private System.Windows.Forms.Label contato_email_label;
         private System.Windows.Forms.Panel contato_panel;
-        private System.Windows.Forms.Button main_help_button;
-        private System.Windows.Forms.Button main_contato_button;
-        private System.Windows.Forms.Button main_sobre_button;
         private System.Windows.Forms.ToolStripSeparator cadastro_separator_menu;
         private System.Windows.Forms.ToolStripMenuItem cadastro_fechar_menu;
         private System.Windows.Forms.ToolStripMenuItem dados_menu;
@@ -378,6 +368,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem dados_carros_menu;
         private System.Windows.Forms.ToolStripStatusLabel main_version_label;
+        private System.Windows.Forms.ToolStripMenuItem ajuda_menu;
+        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.Button main_sobre_button;
 
     }
 }

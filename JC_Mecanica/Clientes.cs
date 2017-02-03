@@ -229,21 +229,23 @@ namespace JC_Mecanica {
         }
 
         private void apagar_button_Click(object sender, EventArgs e) {
-            DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse cadastro será apagado.", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (m == DialogResult.Yes) {
-                SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
-                connection.Open();
+            if (Codes.confirm()) {
+                DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse cadastro será apagado.", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (m == DialogResult.Yes) {
+                    SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
+                    connection.Open();
 
-                SqlCeCommand cmd = new SqlCeCommand("DELETE FROM Clientes WHERE id = @id", connection);
-                cmd.Parameters.AddWithValue("@id", currentID);
-                cmd.ExecuteNonQuery();
-                //SqlCeDataReader re = cmd.ExecuteReader();
+                    SqlCeCommand cmd = new SqlCeCommand("DELETE FROM Clientes WHERE id = @id", connection);
+                    cmd.Parameters.AddWithValue("@id", currentID);
+                    cmd.ExecuteNonQuery();
+                    //SqlCeDataReader re = cmd.ExecuteReader();
 
-                connection.Close();
-                this.updateLista();
-                this.setBtnMode(0);
-                this.editar_button.Enabled = false;
-                this.clearTextBox();
+                    connection.Close();
+                    this.updateLista();
+                    this.setBtnMode(0);
+                    this.editar_button.Enabled = false;
+                    this.clearTextBox();
+                }
             }
         }
 

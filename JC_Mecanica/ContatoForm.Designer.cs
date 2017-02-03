@@ -25,14 +25,14 @@
         private void InitializeComponent() {
             this.daviapps_label = new System.Windows.Forms.Label();
             this.contactUs_panel = new System.Windows.Forms.Panel();
+            this.enviar_button = new System.Windows.Forms.Button();
+            this.voltar_button = new System.Windows.Forms.Button();
             this.mensagem_edit = new System.Windows.Forms.TextBox();
             this.email_edit = new System.Windows.Forms.TextBox();
             this.nome_edit = new System.Windows.Forms.TextBox();
             this.mensagem_label = new System.Windows.Forms.Label();
             this.email_label = new System.Windows.Forms.Label();
             this.nome_label = new System.Windows.Forms.Label();
-            this.voltar_button = new System.Windows.Forms.Button();
-            this.enviar_button = new System.Windows.Forms.Button();
             this.contactUs_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,31 @@
             this.contactUs_panel.Name = "contactUs_panel";
             this.contactUs_panel.Size = new System.Drawing.Size(343, 211);
             this.contactUs_panel.TabIndex = 1;
+            // 
+            // enviar_button
+            // 
+            this.enviar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.enviar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.enviar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enviar_button.Location = new System.Drawing.Point(260, 171);
+            this.enviar_button.Name = "enviar_button";
+            this.enviar_button.Size = new System.Drawing.Size(75, 29);
+            this.enviar_button.TabIndex = 14;
+            this.enviar_button.Text = "Enviar";
+            this.enviar_button.UseVisualStyleBackColor = true;
+            // 
+            // voltar_button
+            // 
+            this.voltar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.voltar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.voltar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.voltar_button.Location = new System.Drawing.Point(179, 171);
+            this.voltar_button.Name = "voltar_button";
+            this.voltar_button.Size = new System.Drawing.Size(75, 29);
+            this.voltar_button.TabIndex = 13;
+            this.voltar_button.Text = "Voltar";
+            this.voltar_button.UseVisualStyleBackColor = true;
+            this.voltar_button.Click += new System.EventHandler(this.voltar_button_Click);
             // 
             // mensagem_edit
             // 
@@ -127,31 +152,6 @@
             this.nome_label.Size = new System.Drawing.Size(49, 15);
             this.nome_label.TabIndex = 7;
             this.nome_label.Text = "Nome:";
-            // 
-            // voltar_button
-            // 
-            this.voltar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.voltar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.voltar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voltar_button.Location = new System.Drawing.Point(179, 171);
-            this.voltar_button.Name = "voltar_button";
-            this.voltar_button.Size = new System.Drawing.Size(75, 29);
-            this.voltar_button.TabIndex = 13;
-            this.voltar_button.Text = "Voltar";
-            this.voltar_button.UseVisualStyleBackColor = true;
-            this.voltar_button.Click += new System.EventHandler(this.voltar_button_Click);
-            // 
-            // enviar_button
-            // 
-            this.enviar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.enviar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.enviar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enviar_button.Location = new System.Drawing.Point(260, 171);
-            this.enviar_button.Name = "enviar_button";
-            this.enviar_button.Size = new System.Drawing.Size(75, 29);
-            this.enviar_button.TabIndex = 14;
-            this.enviar_button.Text = "Enviar";
-            this.enviar_button.UseVisualStyleBackColor = true;
             // 
             // ContatoForm
             // 

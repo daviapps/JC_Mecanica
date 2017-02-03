@@ -34,3 +34,4 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Ser
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.Orcamentos.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.ContatoForm.resources
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.AjudaForm.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.ValidationForm.resources

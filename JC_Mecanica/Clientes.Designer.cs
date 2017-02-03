@@ -234,13 +234,14 @@
             // 
             // estado_comboBox
             // 
+            this.estado_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.estado_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.estado_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estado_comboBox.FormattingEnabled = true;
             this.estado_comboBox.Location = new System.Drawing.Point(310, 83);
             this.estado_comboBox.Name = "estado_comboBox";
             this.estado_comboBox.Size = new System.Drawing.Size(54, 26);
             this.estado_comboBox.TabIndex = 9;
-            this.estado_comboBox.Text = "__";
             this.estado_comboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // bairro_edit
@@ -425,6 +426,7 @@
             // 
             // busca_edit
             // 
+            this.busca_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.busca_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.busca_edit.FormattingEnabled = true;
             this.busca_edit.Location = new System.Drawing.Point(3, 4);

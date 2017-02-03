@@ -7,6 +7,7 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Data;
+using System.Reflection;
 
 namespace JC_Mecanica {
     static class Program {
@@ -26,6 +27,20 @@ namespace JC_Mecanica {
                     //DB_INFO.EXECUTE("UPDATE DB_INFO SET value = 1,5 WHERE name = DB_VERSION");
                 }
             }
+
+            //MessageBox.Show(Codes.getAvaliableDays() + " - " + Codes.inAvaliationMode());
+
+            bool close = false;
+
+            if (!Codes.checkValidation()) {
+                new ValidationForm().ShowDialog();
+                close = !Codes.checkValidation() && !Codes.inAvaliationMode();
+            }
+
+            if (close)
+                return;
+
+            //MessageBox.Show(Codes.removeDot(Assembly.GetExecutingAssembly().GetName().Version.ToString()));
 
             //UpdateDB.SET_VALUE("DB_VERSION", "1,23");
 

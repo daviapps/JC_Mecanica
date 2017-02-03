@@ -133,6 +133,12 @@
     <Compile Include="Orcamentos.Designer.cs">
       <DependentUpon>Orcamentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidationForm.Designer.cs">
+      <DependentUpon>ValidationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQL.cs" />
     <Compile Include="Clientes.cs">
       <SubType>Form</SubType>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Show_table_content.resx">
       <DependentUpon>Show_table_content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValidationForm.resx">
+      <DependentUpon>ValidationForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="banco_de_dadosDataSet.xsc">
       <DependentUpon>banco_de_dadosDataSet.xsd</DependentUpon>

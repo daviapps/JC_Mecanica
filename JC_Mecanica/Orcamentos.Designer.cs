@@ -311,6 +311,7 @@
             // busca_edit
             // 
             this.busca_edit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.busca_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.busca_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.busca_edit.FormattingEnabled = true;
             this.busca_edit.Location = new System.Drawing.Point(3, 3);
