@@ -46,12 +46,12 @@
             this.cidade_label = new System.Windows.Forms.Label();
             this.numero_label = new System.Windows.Forms.Label();
             this.rua_label = new System.Windows.Forms.Label();
-            this.telefone_edit = new System.Windows.Forms.TextBox();
+            this.rg_edit = new System.Windows.Forms.TextBox();
             this.celular_edit = new System.Windows.Forms.TextBox();
             this.cpf_edit = new System.Windows.Forms.TextBox();
             this.nome_edit = new System.Windows.Forms.TextBox();
             this.celular_label = new System.Windows.Forms.Label();
-            this.telefone_label = new System.Windows.Forms.Label();
+            this.rg_label = new System.Windows.Forms.Label();
             this.cpf_label = new System.Windows.Forms.Label();
             this.nome_label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -83,7 +83,7 @@
             this.tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.90164F));
             this.tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.09836F));
             this.tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayout.Size = new System.Drawing.Size(729, 305);
+            this.tableLayout.Size = new System.Drawing.Size(741, 305);
             this.tableLayout.TabIndex = 1;
             // 
             // button_panel
@@ -94,16 +94,17 @@
             this.button_panel.Controls.Add(this.novo_button);
             this.button_panel.Controls.Add(this.ok_button);
             this.button_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_panel.Location = new System.Drawing.Point(340, 265);
+            this.button_panel.Location = new System.Drawing.Point(346, 265);
             this.button_panel.Name = "button_panel";
-            this.button_panel.Size = new System.Drawing.Size(386, 37);
+            this.button_panel.Size = new System.Drawing.Size(392, 37);
             this.button_panel.TabIndex = 0;
             // 
             // apagar_button
             // 
+            this.apagar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.apagar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.apagar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apagar_button.Location = new System.Drawing.Point(62, 4);
+            this.apagar_button.Location = new System.Drawing.Point(68, 4);
             this.apagar_button.Name = "apagar_button";
             this.apagar_button.Size = new System.Drawing.Size(75, 29);
             this.apagar_button.TabIndex = 5;
@@ -114,9 +115,10 @@
             // 
             // salvar_button
             // 
+            this.salvar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.salvar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.salvar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salvar_button.Location = new System.Drawing.Point(142, 4);
+            this.salvar_button.Location = new System.Drawing.Point(149, 4);
             this.salvar_button.Name = "salvar_button";
             this.salvar_button.Size = new System.Drawing.Size(75, 29);
             this.salvar_button.TabIndex = 4;
@@ -128,10 +130,11 @@
             // 
             // editar_button
             // 
+            this.editar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.editar_button.Enabled = false;
             this.editar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.editar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editar_button.Location = new System.Drawing.Point(142, 4);
+            this.editar_button.Location = new System.Drawing.Point(149, 4);
             this.editar_button.Name = "editar_button";
             this.editar_button.Size = new System.Drawing.Size(75, 29);
             this.editar_button.TabIndex = 3;
@@ -141,9 +144,10 @@
             // 
             // novo_button
             // 
+            this.novo_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.novo_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.novo_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novo_button.Location = new System.Drawing.Point(223, 4);
+            this.novo_button.Location = new System.Drawing.Point(229, 4);
             this.novo_button.Name = "novo_button";
             this.novo_button.Size = new System.Drawing.Size(75, 29);
             this.novo_button.TabIndex = 2;
@@ -154,11 +158,12 @@
             // 
             // ok_button
             // 
+            this.ok_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ok_button.BackColor = System.Drawing.SystemColors.Control;
             this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ok_button.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ok_button.Location = new System.Drawing.Point(304, 4);
+            this.ok_button.Location = new System.Drawing.Point(310, 4);
             this.ok_button.Name = "ok_button";
             this.ok_button.Size = new System.Drawing.Size(75, 29);
             this.ok_button.TabIndex = 1;
@@ -176,7 +181,7 @@
             this.listView.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView.Location = new System.Drawing.Point(3, 3);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(331, 256);
+            this.listView.Size = new System.Drawing.Size(337, 256);
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -197,17 +202,17 @@
             // cliente_group
             // 
             this.cliente_group.Controls.Add(this.endereco_group);
-            this.cliente_group.Controls.Add(this.telefone_edit);
+            this.cliente_group.Controls.Add(this.rg_edit);
             this.cliente_group.Controls.Add(this.celular_edit);
             this.cliente_group.Controls.Add(this.cpf_edit);
             this.cliente_group.Controls.Add(this.nome_edit);
             this.cliente_group.Controls.Add(this.celular_label);
-            this.cliente_group.Controls.Add(this.telefone_label);
+            this.cliente_group.Controls.Add(this.rg_label);
             this.cliente_group.Controls.Add(this.cpf_label);
             this.cliente_group.Controls.Add(this.nome_label);
-            this.cliente_group.Location = new System.Drawing.Point(340, 3);
+            this.cliente_group.Location = new System.Drawing.Point(346, 3);
             this.cliente_group.Name = "cliente_group";
-            this.cliente_group.Size = new System.Drawing.Size(385, 256);
+            this.cliente_group.Size = new System.Drawing.Size(392, 256);
             this.cliente_group.TabIndex = 2;
             this.cliente_group.TabStop = false;
             this.cliente_group.Text = "Dados do cliente";
@@ -227,7 +232,7 @@
             this.endereco_group.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endereco_group.Location = new System.Drawing.Point(9, 121);
             this.endereco_group.Name = "endereco_group";
-            this.endereco_group.Size = new System.Drawing.Size(370, 119);
+            this.endereco_group.Size = new System.Drawing.Size(377, 119);
             this.endereco_group.TabIndex = 8;
             this.endereco_group.TabStop = false;
             this.endereco_group.Text = "Endereço:";
@@ -238,7 +243,7 @@
             this.estado_comboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.estado_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estado_comboBox.FormattingEnabled = true;
-            this.estado_comboBox.Location = new System.Drawing.Point(310, 83);
+            this.estado_comboBox.Location = new System.Drawing.Point(317, 83);
             this.estado_comboBox.Name = "estado_comboBox";
             this.estado_comboBox.Size = new System.Drawing.Size(54, 26);
             this.estado_comboBox.TabIndex = 9;
@@ -249,7 +254,7 @@
             this.bairro_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bairro_edit.Location = new System.Drawing.Point(169, 83);
             this.bairro_edit.Name = "bairro_edit";
-            this.bairro_edit.Size = new System.Drawing.Size(135, 26);
+            this.bairro_edit.Size = new System.Drawing.Size(142, 26);
             this.bairro_edit.TabIndex = 8;
             this.bairro_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
@@ -266,7 +271,7 @@
             // 
             this.estado_label.AutoSize = true;
             this.estado_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estado_label.Location = new System.Drawing.Point(300, 65);
+            this.estado_label.Location = new System.Drawing.Point(307, 65);
             this.estado_label.Name = "estado_label";
             this.estado_label.Size = new System.Drawing.Size(55, 15);
             this.estado_label.TabIndex = 6;
@@ -275,7 +280,7 @@
             // numero_edit
             // 
             this.numero_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero_edit.Location = new System.Drawing.Point(290, 36);
+            this.numero_edit.Location = new System.Drawing.Point(297, 36);
             this.numero_edit.Name = "numero_edit";
             this.numero_edit.Size = new System.Drawing.Size(74, 26);
             this.numero_edit.TabIndex = 5;
@@ -286,7 +291,7 @@
             this.rua_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rua_edit.Location = new System.Drawing.Point(18, 36);
             this.rua_edit.Name = "rua_edit";
-            this.rua_edit.Size = new System.Drawing.Size(266, 26);
+            this.rua_edit.Size = new System.Drawing.Size(273, 26);
             this.rua_edit.TabIndex = 4;
             this.rua_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
@@ -314,7 +319,7 @@
             // 
             this.numero_label.AutoSize = true;
             this.numero_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero_label.Location = new System.Drawing.Point(283, 18);
+            this.numero_label.Location = new System.Drawing.Point(290, 18);
             this.numero_label.Name = "numero_label";
             this.numero_label.Size = new System.Drawing.Size(27, 15);
             this.numero_label.TabIndex = 1;
@@ -330,21 +335,21 @@
             this.rua_label.TabIndex = 0;
             this.rua_label.Text = "Rua:";
             // 
-            // telefone_edit
+            // rg_edit
             // 
-            this.telefone_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefone_edit.Location = new System.Drawing.Point(142, 81);
-            this.telefone_edit.MaxLength = 14;
-            this.telefone_edit.Name = "telefone_edit";
-            this.telefone_edit.Size = new System.Drawing.Size(106, 24);
-            this.telefone_edit.TabIndex = 7;
-            this.telefone_edit.Text = "(__) ____-____";
-            this.telefone_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
+            this.rg_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rg_edit.Location = new System.Drawing.Point(142, 81);
+            this.rg_edit.MaxLength = 14;
+            this.rg_edit.Name = "rg_edit";
+            this.rg_edit.Size = new System.Drawing.Size(118, 24);
+            this.rg_edit.TabIndex = 7;
+            this.rg_edit.Text = "__-__.___.___";
+            this.rg_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // celular_edit
             // 
             this.celular_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.celular_edit.Location = new System.Drawing.Point(254, 81);
+            this.celular_edit.Location = new System.Drawing.Point(266, 81);
             this.celular_edit.MaxLength = 15;
             this.celular_edit.Name = "celular_edit";
             this.celular_edit.Size = new System.Drawing.Size(119, 24);
@@ -369,7 +374,7 @@
             this.nome_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nome_edit.Location = new System.Drawing.Point(27, 34);
             this.nome_edit.Name = "nome_edit";
-            this.nome_edit.Size = new System.Drawing.Size(346, 26);
+            this.nome_edit.Size = new System.Drawing.Size(358, 26);
             this.nome_edit.TabIndex = 4;
             this.nome_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
@@ -377,21 +382,21 @@
             // 
             this.celular_label.AutoSize = true;
             this.celular_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.celular_label.Location = new System.Drawing.Point(247, 63);
+            this.celular_label.Location = new System.Drawing.Point(258, 63);
             this.celular_label.Name = "celular_label";
             this.celular_label.Size = new System.Drawing.Size(57, 15);
             this.celular_label.TabIndex = 3;
             this.celular_label.Text = "Celular:";
             // 
-            // telefone_label
+            // rg_label
             // 
-            this.telefone_label.AutoSize = true;
-            this.telefone_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefone_label.Location = new System.Drawing.Point(135, 63);
-            this.telefone_label.Name = "telefone_label";
-            this.telefone_label.Size = new System.Drawing.Size(67, 15);
-            this.telefone_label.TabIndex = 2;
-            this.telefone_label.Text = "Telefone:";
+            this.rg_label.AutoSize = true;
+            this.rg_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rg_label.Location = new System.Drawing.Point(135, 63);
+            this.rg_label.Name = "rg_label";
+            this.rg_label.Size = new System.Drawing.Size(31, 15);
+            this.rg_label.TabIndex = 2;
+            this.rg_label.Text = "RG:";
             // 
             // cpf_label
             // 
@@ -421,7 +426,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 265);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(337, 37);
+            this.panel2.Size = new System.Drawing.Size(343, 37);
             this.panel2.TabIndex = 4;
             // 
             // busca_edit
@@ -475,7 +480,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(753, 327);
+            this.ClientSize = new System.Drawing.Size(765, 327);
             this.Controls.Add(this.error_panel);
             this.Controls.Add(this.tableLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -516,12 +521,12 @@
         private System.Windows.Forms.ComboBox busca_edit;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button busca_button;
-        private System.Windows.Forms.TextBox telefone_edit;
+        private System.Windows.Forms.TextBox rg_edit;
         private System.Windows.Forms.TextBox celular_edit;
         private System.Windows.Forms.TextBox cpf_edit;
         private System.Windows.Forms.TextBox nome_edit;
         private System.Windows.Forms.Label celular_label;
-        private System.Windows.Forms.Label telefone_label;
+        private System.Windows.Forms.Label rg_label;
         private System.Windows.Forms.Label cpf_label;
         private System.Windows.Forms.Label nome_label;
         private System.Windows.Forms.GroupBox endereco_group;

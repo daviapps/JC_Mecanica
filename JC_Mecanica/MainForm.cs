@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace JC_Mecanica {
         private void MainForm_Load(object sender, EventArgs e) {
             String avaliableDays = (Codes.inAvaliationMode() ? " - " + Codes.getAvaliableDays() + " dias restantes": "");
             main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + (Codes.checkValidation() ? "Ativado" : "Em periodo de avaliação" + avaliableDays);
+
+            ajuda_menu.Visible = false;
         }
 
         private void keyDown(object sender, KeyEventArgs e) {
@@ -32,6 +35,25 @@ namespace JC_Mecanica {
             if (e.KeyCode == Keys.F1) {
                 //Properties.Settings.Default.AVALIATION_DATE = "02/02/2017 00:00:00";
                 new AjudaForm().ShowDialog();
+            } else
+            if (e.KeyCode == Keys.F2) {
+                SqlConnection connection;
+                try {
+                    connection = new SqlConnection("Data Source = banco_de_dados.sdf");
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM dispesas WHERE id = @id", connection);
+                    cmd.Parameters.AddWithValue("@id", 1);
+                    SqlDataReader re = cmd.ExecuteReader();
+
+                    if (re.Read()) {
+                        MessageBox.Show(re ["produto"].ToString());
+                    } else {
+                        MessageBox.Show("Please enter a valid item barcode");
+                    }
+                } catch (SqlException ex) {
+                    MessageBox.Show(ex.ToString());
+                }
+
             } else
             if (e.KeyCode == Keys.F5) {
                 new Cadastro_Orcamento().ShowDialog();
@@ -112,7 +134,7 @@ namespace JC_Mecanica {
         }
 
         private void cadastro_fechar_menu_Click(object sender, EventArgs e) {
-
+            this.Close();
         }
 
         // Dados menu

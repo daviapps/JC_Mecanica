@@ -8,19 +8,66 @@ using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Data;
 using System.Reflection;
+using System.Threading;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace JC_Mecanica {
     static class Program {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        /*[STAThread]
+
+        [DllImport("user32.dll")]
+        private static extern int SetForegroundWindow(IntPtr hWnd);
+
+        private const int SW_SHOWNORMAL = 1;
+        private const int SW_SHOWMAXIMIZED = 3;
+        private const int SW_RESTORE = 9;
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);*/
+
         [STAThread]
+
+        //[System.Runtime.InteropServices.DllImport("user32.dll")]
+        //[return: MarshalAs(UnmanagedType.Bool)]
+        //static extern bool SetForegroundWindow(IntPtr hWnd);
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             String contate = "\nPor favor, contate o suporte técnico.";
 
-            DB_INFO.INIT();
+            //AppDomain.CurrentDomain.SetData("DataDirectory", "C:\\Users\\Davi\\AppData\\Roaming\\DaviApps\\JC Mecanica");
+            //AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\JC Mecanica\\");
+
+            if (!File.Exists("banco_de_dados.sdf")) {
+                AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\JC Mecanica\\");
+                //AppDomain.CurrentDomain.SetData("DataDirectory", "\\");
+            }
+
+            UpdateDB.CHECK();
+
+            /*bool createdNew = true;
+            using (Mutex mutex = new Mutex(true, "JC_Mecanica", out createdNew)) {
+                if (createdNew) {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new MainForm());
+                } else {
+                    Process current = Process.GetCurrentProcess();
+                    foreach (Process process in Process.GetProcessesByName(current.ProcessName)) {
+                        if (process.Id != current.Id) {
+                            //SetForegroundWindow(process.MainWindowHandle);
+                            break;
+                        }
+                    }
+                }
+            }*/
+
+            /*DB_INFO.INIT();
 
             if (DB_INFO.DB_VERSION < Properties.Settings.Default.DB_VERSION) {
                 if (DB_INFO.DB_VERSION == 1.0) {
@@ -28,7 +75,18 @@ namespace JC_Mecanica {
                 }
             }
 
-            //MessageBox.Show(Codes.getAvaliableDays() + " - " + Codes.inAvaliationMode());
+            //MessageBox.Show(Codes.getAvaliableDays() + " - " + Codes.inAvaliationMode());*/
+
+            /* Create dispesas table
+             * create table dispesas (
+	                id int not null AUTO_INCREMENT,
+                    produto varchar(20) not null,
+                    valor decimal not null,
+                    count int not null,
+                    data timestamp default now(),
+	                primary key (id)
+                )
+             */
 
             bool close = false;
 
@@ -72,47 +130,103 @@ namespace JC_Mecanica {
                     mycon.Close();
                 }
             }*/
-
-            if (!File.Exists("banco_de_dados.sdf")) {
-                MessageBox.Show("Arquivo de banco de dados não encontrado." + contate, "Erro de inicialização", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
-                Application.Run(new MainForm());
-        }
-
-        private static bool CheckDatabaseExists(SqlConnection tmpConn, string databaseName){
-            string sqlCreateDBQuery;
-            bool result = false;
-
+            /*SqlCeConnection connection;
             try {
-                tmpConn = new SqlConnection("server=(local)\\SQLEXPRESS;Trusted_Connection=yes");
-
-                sqlCreateDBQuery = string.Format("SELECT database_id FROM sys.databases WHERE Name = '{0}'", databaseName);
-
-                using (tmpConn) {
-                    using (SqlCommand sqlCmd = new SqlCommand(sqlCreateDBQuery, tmpConn)){
-                        tmpConn.Open();
-
-                        //object resultObj = ExecuteScalar();
-
-                        int databaseID = 0;    
-
-                        //if (resultObj != null)
-                       // {
-                        //    int.TryParse(resultObj.ToString(), out databaseID);
-                        //}
-
-                        tmpConn.Close();
-
-                        result = (databaseID > 0);
-                    }
-                }
-            } 
-            catch (Exception ex)
-            { 
-                result = false;
+                connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
+                connection.Open();
+            } catch (SqlException ex) {
+                MessageBox.Show("Arquivo de banco de dados não encontrado." + contate, "Erro de inicialização", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            return result;
+            connection.Close();*/
+
+            if (!File.Exists(AppDomain.CurrentDomain.GetData("DataDirectory") + "banco_de_dados.sdf")) {
+                MessageBox.Show("Arquivo de banco de dados não encontrado." + contate, "Erro de inicialização", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else {
+                //Application.Run(new MainForm());
+                bool createdNew = true;
+                using (Mutex mutex = new Mutex(true, "JC_Mecanica", out createdNew)) {
+                    if (createdNew) {
+                        Application.Run(new MainForm());
+                    } else {
+                        Process current = Process.GetCurrentProcess();
+                        foreach (Process process in Process.GetProcessesByName(current.ProcessName)) {
+                            if (process.Id != current.Id) {
+                                //BringWindowToFront();
+                                /*process.WaitForInputIdle();
+                                var processes = Process.GetProcessesByName("JC_Mecanica.exe");
+                                if (processes.Any()){
+                                    //I can't currently tell the window's state,
+                                    //so I both restore and activate it
+                                    var handle = processes.First().MainWindowHandle;
+                                    ShowWindow(handle, SW_SHOWMAXIMIZED); //GRR!!!
+                                    SetForegroundWindow(handle);
+                                    //return true;
+                                }*/
+                                //SetForegroundWindow(process.MainWindowHandle);
+                                //process.WindowState = FormWindowState.Maximized;
+                                //Invoke(new MethodInvoker(delegate { this.WindowState = FormWindowState.Normal; }));
+                                //Invoke(new Action(() => { this.WindowState = FormWindowState.Normal; }));
+                                //process.CloseMainWindow();
+                                //new MainForm().ShowDialog();
+                                //process.Kill();
+                                //((Form) process.MainWindowHandle).WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                                //process.Start();
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
+
+        /*[DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(string className, string windowTitle);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool ShowWindow(IntPtr hWnd, ShowWindowEnum flags);
+
+        [DllImport("user32.dll")]
+        private static extern int SetForegroundWindow(IntPtr hwnd);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool GetWindowPlacement(IntPtr hWnd, ref Windowplacement lpwndpl);
+
+        private enum ShowWindowEnum {
+            Hide = 0,
+            ShowNormal = 1, ShowMinimized = 2, ShowMaximized = 3,
+            Maximize = 3, ShowNormalNoActivate = 4, Show = 5,
+            Minimize = 6, ShowMinNoActivate = 7, ShowNoActivate = 8,
+            Restore = 9, ShowDefault = 10, ForceMinimized = 11
+        };
+
+        private struct Windowplacement {
+            public int length;
+            public int flags;
+            public int showCmd;
+            public System.Drawing.Point ptMinPosition;
+            public System.Drawing.Point ptMaxPosition;
+            public System.Drawing.Rectangle rcNormalPosition;
+        }
+
+        private static void BringWindowToFront() {
+            IntPtr wdwIntPtr = FindWindow(null, "JC Mecânica");
+
+            //get the hWnd of the process
+            Windowplacement placement = new Windowplacement();
+            GetWindowPlacement(wdwIntPtr, ref placement);
+
+            // Check if window is minimized
+            if (placement.showCmd == 2) {
+                //the window is hidden so we restore it
+                ShowWindow(wdwIntPtr, ShowWindowEnum.Restore);
+            }
+
+            //set user's focus to the window
+            SetForegroundWindow(wdwIntPtr);
+        }*/
     }
 }

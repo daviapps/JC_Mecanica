@@ -47,7 +47,7 @@ namespace JC_Mecanica {
 
         private void Cadastro_Servicos_Load(object sender, EventArgs e) {
             if (codigo <= 0) {
-                SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+                SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
                 connection.Open();
 
                 SqlCeCommand cmd_max = new SqlCeCommand("SELECT MAX(codigo) FROM servicos", connection);

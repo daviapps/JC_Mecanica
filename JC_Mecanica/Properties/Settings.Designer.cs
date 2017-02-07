@@ -35,7 +35,7 @@ namespace JC_Mecanica.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source = banco_de_dados.sdf")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\banco_de_dados.sdf")]
         public string DataConnectionString {
             get {
                 return ((string)(this["DataConnectionString"]));

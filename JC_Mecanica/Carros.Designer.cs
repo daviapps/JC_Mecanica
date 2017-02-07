@@ -47,6 +47,8 @@
             this.editar_button = new System.Windows.Forms.Button();
             this.salvar_button = new System.Windows.Forms.Button();
             this.apagar_button = new System.Windows.Forms.Button();
+            this.km_label = new System.Windows.Forms.Label();
+            this.km_edit = new System.Windows.Forms.TextBox();
             this.main_tableLayout.SuspendLayout();
             this.carros_tableLayout.SuspendLayout();
             this.infos_groupBox.SuspendLayout();
@@ -116,6 +118,8 @@
             // 
             // infos_groupBox
             // 
+            this.infos_groupBox.Controls.Add(this.km_label);
+            this.infos_groupBox.Controls.Add(this.km_edit);
             this.infos_groupBox.Controls.Add(this.placa_edit);
             this.infos_groupBox.Controls.Add(this.placa_label);
             this.infos_groupBox.Controls.Add(this.ano_edit);
@@ -188,7 +192,7 @@
             this.modelo_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modelo_edit.Location = new System.Drawing.Point(25, 159);
             this.modelo_edit.Name = "modelo_edit";
-            this.modelo_edit.Size = new System.Drawing.Size(285, 29);
+            this.modelo_edit.Size = new System.Drawing.Size(186, 29);
             this.modelo_edit.TabIndex = 16;
             // 
             // ano_label
@@ -346,6 +350,25 @@
             this.apagar_button.UseVisualStyleBackColor = true;
             this.apagar_button.Click += new System.EventHandler(this.apagar_button_Click);
             // 
+            // km_label
+            // 
+            this.km_label.AutoSize = true;
+            this.km_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.km_label.Location = new System.Drawing.Point(205, 141);
+            this.km_label.Name = "km_label";
+            this.km_label.Size = new System.Drawing.Size(32, 15);
+            this.km_label.TabIndex = 24;
+            this.km_label.Text = "KM:";
+            // 
+            // km_edit
+            // 
+            this.km_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.km_edit.Location = new System.Drawing.Point(215, 159);
+            this.km_edit.Name = "km_edit";
+            this.km_edit.Size = new System.Drawing.Size(95, 29);
+            this.km_edit.TabIndex = 23;
+            this.km_edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.km_edit_KeyPress);
+            // 
             // Carros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,5 +421,7 @@
         private System.Windows.Forms.Button apagar_button;
         private System.Windows.Forms.ColumnHeader placa;
         private System.Windows.Forms.ColumnHeader modelo;
+        private System.Windows.Forms.Label km_label;
+        private System.Windows.Forms.TextBox km_edit;
     }
 }

@@ -26,11 +26,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro_Cliente));
             this.nome_label = new System.Windows.Forms.Label();
             this.cpf_label = new System.Windows.Forms.Label();
-            this.telefone_label = new System.Windows.Forms.Label();
+            this.rg_label = new System.Windows.Forms.Label();
             this.rua_label = new System.Windows.Forms.Label();
             this.nome_edit = new System.Windows.Forms.TextBox();
             this.cpf_edit = new System.Windows.Forms.TextBox();
-            this.telefone_edit = new System.Windows.Forms.TextBox();
+            this.rg_edit = new System.Windows.Forms.TextBox();
             this.rua_edit = new System.Windows.Forms.TextBox();
             this.numero_label = new System.Windows.Forms.Label();
             this.bairro_label = new System.Windows.Forms.Label();
@@ -71,16 +71,16 @@
             this.cpf_label.TabIndex = 1;
             this.cpf_label.Text = "CPF*:";
             // 
-            // telefone_label
+            // rg_label
             // 
-            this.telefone_label.AutoSize = true;
-            this.telefone_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefone_label.Location = new System.Drawing.Point(172, 61);
-            this.telefone_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.telefone_label.Name = "telefone_label";
-            this.telefone_label.Size = new System.Drawing.Size(67, 15);
-            this.telefone_label.TabIndex = 2;
-            this.telefone_label.Text = "Telefone:";
+            this.rg_label.AutoSize = true;
+            this.rg_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rg_label.Location = new System.Drawing.Point(172, 61);
+            this.rg_label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.rg_label.Name = "rg_label";
+            this.rg_label.Size = new System.Drawing.Size(31, 15);
+            this.rg_label.TabIndex = 2;
+            this.rg_label.Text = "RG:";
             // 
             // rua_label
             // 
@@ -113,16 +113,16 @@
             this.cpf_edit.TabIndex = 5;
             this.cpf_edit.Text = "___.___.___-__";
             // 
-            // telefone_edit
+            // rg_edit
             // 
-            this.telefone_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefone_edit.Location = new System.Drawing.Point(181, 80);
-            this.telefone_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.telefone_edit.MaxLength = 14;
-            this.telefone_edit.Name = "telefone_edit";
-            this.telefone_edit.Size = new System.Drawing.Size(128, 26);
-            this.telefone_edit.TabIndex = 6;
-            this.telefone_edit.Text = "(__)____-____";
+            this.rg_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rg_edit.Location = new System.Drawing.Point(181, 80);
+            this.rg_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.rg_edit.MaxLength = 13;
+            this.rg_edit.Name = "rg_edit";
+            this.rg_edit.Size = new System.Drawing.Size(128, 26);
+            this.rg_edit.TabIndex = 6;
+            this.rg_edit.Text = "__-__.___.___";
             // 
             // rua_edit
             // 
@@ -284,10 +284,10 @@
             this.Controls.Add(this.celular_edit);
             this.Controls.Add(this.celular_label);
             this.Controls.Add(this.endereco_group);
-            this.Controls.Add(this.telefone_edit);
+            this.Controls.Add(this.rg_edit);
             this.Controls.Add(this.cpf_edit);
             this.Controls.Add(this.nome_edit);
-            this.Controls.Add(this.telefone_label);
+            this.Controls.Add(this.rg_label);
             this.Controls.Add(this.cpf_label);
             this.Controls.Add(this.nome_label);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,11 +314,11 @@
 
         private System.Windows.Forms.Label nome_label;
         private System.Windows.Forms.Label cpf_label;
-        private System.Windows.Forms.Label telefone_label;
+        private System.Windows.Forms.Label rg_label;
         private System.Windows.Forms.Label rua_label;
         private System.Windows.Forms.TextBox nome_edit;
         private System.Windows.Forms.TextBox cpf_edit;
-        private System.Windows.Forms.TextBox telefone_edit;
+        private System.Windows.Forms.TextBox rg_edit;
         private System.Windows.Forms.TextBox rua_edit;
         private System.Windows.Forms.Label numero_label;
         private System.Windows.Forms.Label bairro_label;

@@ -103,12 +103,13 @@ namespace JC_Mecanica {
             SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
-            SqlCeCommand cmd = new SqlCeCommand("UPDATE Carros SET ano = @ano, chassi = @chassi, modelo = @modelo WHERE placa = @placa;", connection);
+            SqlCeCommand cmd = new SqlCeCommand("UPDATE Carros SET ano = @ano, chassi = @chassi, modelo = @modelo, km = @km WHERE placa = @placa;", connection);
             cmd.Parameters.AddWithValue("@ano", ano_edit.Text);
             cmd.Parameters.AddWithValue("@chassi", chassi_edit.Text);
             cmd.Parameters.AddWithValue("@modelo", modelo_edit.Text);
-
             cmd.Parameters.AddWithValue("@placa", currentPlaca);
+            cmd.Parameters.AddWithValue("@km", km_edit.Text);
+
             cmd.ExecuteNonQuery();
 
             connection.Close();
@@ -172,6 +173,7 @@ namespace JC_Mecanica {
             ano_edit.Enabled = enabled;
             chassi_edit.Enabled = (chassi_edit.Text.Length > 0 ? false : enabled);
             modelo_edit.Enabled = enabled;
+            km_edit.Enabled = enabled;
         }
 
         private void listView_MouseDoubleClick(object sender, MouseEventArgs e) {
@@ -203,6 +205,7 @@ namespace JC_Mecanica {
                 ano_edit.Text = re ["ano"].ToString();
                 chassi_edit.Text = re ["chassi"].ToString();
                 modelo_edit.Text = re ["modelo"].ToString();
+                km_edit.Text = re ["km"].ToString();
             } else {
                 MessageBox.Show("Please enter a valid item barcode");
             }
@@ -219,6 +222,7 @@ namespace JC_Mecanica {
             ano_edit.Text = "";
             chassi_edit.Text = "";
             modelo_edit.Text = "";
+            km_edit.Text = "";
         }
 
         // Modes
@@ -229,6 +233,10 @@ namespace JC_Mecanica {
             selectMode = true;
             this.ShowDialog();
             return currentPlaca;
+        }
+
+        private void km_edit_KeyPress(object sender, KeyPressEventArgs e) {
+            Transform.setMoneyTextBox(sender as TextBox, e);
         }
     }
 }

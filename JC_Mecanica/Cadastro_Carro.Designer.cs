@@ -34,6 +34,8 @@
             this.salvar_button = new System.Windows.Forms.Button();
             this.cancelar_button = new System.Windows.Forms.Button();
             this.ano_edit = new System.Windows.Forms.NumericUpDown();
+            this.km_edit = new System.Windows.Forms.TextBox();
+            this.km_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ano_edit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             this.modelo_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modelo_edit.Location = new System.Drawing.Point(29, 81);
             this.modelo_edit.Name = "modelo_edit";
-            this.modelo_edit.Size = new System.Drawing.Size(323, 24);
+            this.modelo_edit.Size = new System.Drawing.Size(217, 24);
             this.modelo_edit.TabIndex = 6;
             // 
             // chassi_edit
@@ -135,11 +137,32 @@
             this.ano_edit.Size = new System.Drawing.Size(69, 24);
             this.ano_edit.TabIndex = 10;
             // 
+            // km_edit
+            // 
+            this.km_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.km_edit.Location = new System.Drawing.Point(252, 81);
+            this.km_edit.Name = "km_edit";
+            this.km_edit.Size = new System.Drawing.Size(100, 24);
+            this.km_edit.TabIndex = 11;
+            this.km_edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.km_edit_KeyPress);
+            // 
+            // km_label
+            // 
+            this.km_label.AutoSize = true;
+            this.km_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.km_label.Location = new System.Drawing.Point(242, 63);
+            this.km_label.Name = "km_label";
+            this.km_label.Size = new System.Drawing.Size(32, 15);
+            this.km_label.TabIndex = 12;
+            this.km_label.Text = "KM:";
+            // 
             // Cadastro_Carro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 150);
+            this.Controls.Add(this.km_label);
+            this.Controls.Add(this.km_edit);
             this.Controls.Add(this.ano_edit);
             this.Controls.Add(this.cancelar_button);
             this.Controls.Add(this.salvar_button);
@@ -178,5 +201,7 @@
         private System.Windows.Forms.Button salvar_button;
         private System.Windows.Forms.Button cancelar_button;
         private System.Windows.Forms.NumericUpDown ano_edit;
+        private System.Windows.Forms.TextBox km_edit;
+        private System.Windows.Forms.Label km_label;
     }
 }

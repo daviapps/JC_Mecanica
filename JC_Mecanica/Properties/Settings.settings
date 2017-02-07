@@ -11,7 +11,7 @@
       <Value Profile="(Default)">Data Source=|DataDirectory|\banco_de_dados.sdf</Value>
     </Setting>
     <Setting Name="DataConnectionString" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source = banco_de_dados.sdf</Value>
+      <Value Profile="(Default)">Data Source=|DataDirectory|\banco_de_dados.sdf</Value>
     </Setting>
     <Setting Name="DB_VERSION" Type="System.Double" Scope="Application">
       <Value Profile="(Default)">1</Value>

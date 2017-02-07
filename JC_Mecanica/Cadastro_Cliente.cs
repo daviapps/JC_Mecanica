@@ -36,7 +36,7 @@ namespace JC_Mecanica {
 
             cidade_edit.Text = "Mirai"; estado_comboBox.Text = "MG";
 
-            telefone_edit.Text = "323426"; celular_edit.Text = "329";
+            rg_edit.Text = ""; celular_edit.Text = "329";
 
             numero_edit.Maximum = 10000;
 
@@ -81,39 +81,48 @@ namespace JC_Mecanica {
             data.Tables [0].Rows.Add(newRow);
             adapter.Update(data);
             connection.Close();*/
-            
 
-            SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+
+            SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
             // Check exists
 
-            SqlCeCommand check_User_Name = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] WHERE ([cpf] = @cpf)", connection);
-            check_User_Name.Parameters.AddWithValue("@cpf", Transform.packCPF(cpf_edit.Text));
-            int UserExist = (int) check_User_Name.ExecuteScalar();
+            SqlCeCommand check_User_CPF = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] WHERE ([cpf] = @cpf)", connection);
+            check_User_CPF.Parameters.AddWithValue("@cpf", Transform.packCPF(cpf_edit.Text));
+            int CpfExist = (int) check_User_CPF.ExecuteScalar();
 
-            if (UserExist > 0 && cpf_edit.Text.Length > 0) {
+            SqlCeCommand check_User_RG = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] WHERE ([rg] = @rg)", connection);
+            check_User_RG.Parameters.AddWithValue("@rg", Transform.packRG(rg_edit.Text));
+            int RgExist = (int) check_User_RG.ExecuteScalar();
+
+            if (CpfExist > 0 && cpf_edit.Text.Length > 0) {
                 MessageBox.Show("CPF já cadastrado", "Erro de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else {
-                if (telefone_edit.Text.Length < 14)
-                    telefone_edit.Text = "";
-                if (celular_edit.Text.Length < 14)
-                    celular_edit.Text = "";
-                using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Clientes (nome, cpf, telefone, celular, rua, numero, cidade, bairro, estado) Values(@nome,@cpf,@telefone,@celular,@rua,@numero,@cidade,@bairro,@estado)", connection)) {
-                    com.Parameters.AddWithValue("@nome", this.nome_edit.Text);
-                    com.Parameters.AddWithValue("@cpf", Transform.packCPF(this.cpf_edit.Text));
-                    com.Parameters.AddWithValue("@telefone", Transform.packPhone(this.telefone_edit.Text));
-                    com.Parameters.AddWithValue("@celular", Transform.packPhone(this.celular_edit.Text));
-                    com.Parameters.AddWithValue("@rua", this.rua_edit.Text);
-                    com.Parameters.AddWithValue("@numero", this.numero_edit.Text);
-                    com.Parameters.AddWithValue("@cidade", this.cidade_edit.Text);
-                    com.Parameters.AddWithValue("@bairro", this.bairro_edit.Text);
-                    com.Parameters.AddWithValue("@estado", this.estado_comboBox.Text);
-                    com.ExecuteNonQuery();
-                }
-
-                this.Close();
+                connection.Close();
+                return;
+            } 
+            if (RgExist > 0 && rg_edit.Text.Length > 0) {
+                MessageBox.Show("RG já cadastrado", "Erro de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connection.Close();
+                return;
             }
+
+            if (celular_edit.Text.Length < 14)
+                celular_edit.Text = "";
+            using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Clientes (nome, cpf, rg, celular, rua, numero, cidade, bairro, estado) Values(@nome,@cpf,@rg,@celular,@rua,@numero,@cidade,@bairro,@estado)", connection)) {
+                com.Parameters.AddWithValue("@nome", this.nome_edit.Text);
+                com.Parameters.AddWithValue("@cpf", Transform.packCPF(this.cpf_edit.Text));
+                com.Parameters.AddWithValue("@rg", Transform.packRG(this.rg_edit.Text));
+                com.Parameters.AddWithValue("@celular", Transform.packPhone(this.celular_edit.Text));
+                com.Parameters.AddWithValue("@rua", this.rua_edit.Text);
+                com.Parameters.AddWithValue("@numero", this.numero_edit.Text);
+                com.Parameters.AddWithValue("@cidade", this.cidade_edit.Text);
+                com.Parameters.AddWithValue("@bairro", this.bairro_edit.Text);
+                com.Parameters.AddWithValue("@estado", this.estado_comboBox.Text);
+                com.ExecuteNonQuery();
+            }
+
+            this.Close();
 
             connection.Close();
             
@@ -121,7 +130,7 @@ namespace JC_Mecanica {
 
         private void backTasking(object sender, EventArgs e) {
             Transform.setCpfEdit(cpf_edit);
-            Transform.setPhoneEdit(telefone_edit);
+            Transform.setRgEdit(rg_edit);
             Transform.setPhoneEdit(celular_edit);
 
             Transform.setUpperFrist(nome_edit);
@@ -133,13 +142,14 @@ namespace JC_Mecanica {
 
             bool nomeEmpty = nome_edit.Text.Equals("");
             bool cpfEmpty = (cpf_edit.Text.Length > 0 ? Transform.packCPF(cpf_edit.Text).ToCharArray().Length != 11 : false);
+            bool rgEmpty = (rg_edit.Text.Length > 0 ? Transform.packRG(rg_edit.Text).ToCharArray().Length != 10 : false);
             //bool ruaEmpty = rua_edit.Text.Equals("");
             bool numeroEmpty = numero_edit.Text.Equals("");
             //bool cidadeEmpty = cidade_edit.Text.Equals("");
             //bool bairroEmpty = bairro_edit.Text.Equals("");
             bool estadoEmpty = estado_comboBox.Text.Equals("");
 
-            salvar_button.Enabled = (!nomeEmpty && !cpfEmpty /*&& !ruaEmpty*/ && !numeroEmpty /*&& !cidadeEmpty && !bairroEmpty*/ && !estadoEmpty);
+            salvar_button.Enabled = (!nomeEmpty && !cpfEmpty && !rgEmpty /*&& !ruaEmpty*/ && !numeroEmpty /*&& !cidadeEmpty && !bairroEmpty*/ && !estadoEmpty);
         }
 
         /*private void clientesBindingNavigatorSaveItem_Click(object sender, EventArgs e) {

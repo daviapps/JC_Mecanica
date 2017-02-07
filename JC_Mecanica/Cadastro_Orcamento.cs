@@ -66,7 +66,7 @@ namespace JC_Mecanica {
         }
 
         private void Cadastro_Orcamento_Load(object sender, EventArgs e) {
-            SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+            SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
             if (orcamentoID <= 0) {

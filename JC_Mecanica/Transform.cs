@@ -71,6 +71,34 @@ namespace JC_Mecanica {
             return output;
         }
 
+        public static String packRG(String num) {
+            char [] _num = num.ToUpper().ToCharArray();
+            String output = "";
+            for (int i = 0; i < _num.Length; i++) {
+                if ((_num [i].Equals('.') || _num [i].Equals('-') || !Char.IsNumber(_num [i])) && i > 1) {}
+                //if (Char.IsNumber(_num [i])) && i < 2) {}
+                else {
+                    output = output + _num [i];
+                }
+
+            }
+            return output;
+        }
+
+        public static String unPackRG(String num) { // 123.456.789-00
+            char [] _num = Transform.packRG(num).ToCharArray();
+            String output = "";
+            for (int i = 0; i < _num.Length; i++) {
+                if (i == 4 || i == 7)
+                    output = output + '.';
+                else
+                    if (i == 2)
+                        output = output + '-';
+                output = output + _num [i];
+            }
+            return output;
+        }
+
         public static bool checkPlaca(String placa){
             char [] p = placa.ToCharArray();
 
@@ -165,6 +193,15 @@ namespace JC_Mecanica {
                     tb.Text = Transform.unPackPhone(tb.Text);
                     tb.SelectionStart = tb.Text.Length;
                 }
+            }
+        }
+
+        internal static void setRgEdit(TextBox tb) {
+            if (tb.Text.ToCharArray().Length > 14 && Transform.packRG(tb.Text).ToCharArray().Length < 11) {
+                tb.Text = "";
+            } else {
+                tb.Text = Transform.unPackRG(tb.Text);
+                tb.SelectionStart = tb.Text.Length;
             }
         }
     }

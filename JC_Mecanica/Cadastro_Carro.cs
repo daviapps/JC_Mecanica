@@ -37,7 +37,7 @@ namespace JC_Mecanica {
         }
 
         private void salvar_button_Click(object sender, EventArgs e) {
-            SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+            SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
             // Check exists
@@ -56,12 +56,13 @@ namespace JC_Mecanica {
             if (PlacaExist > 0) {
                 MessageBox.Show("Placa já cadastrado", "Erro de cadastra", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else {
-                using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Carros (placa, ano" + (this.chassi_edit.Text.Length > 0 ? ", chassi" : "") + ", modelo) Values(@placa,@ano" + (this.chassi_edit.Text.Length > 0 ? ", @chassi" : "") + ",@modelo)", connection)) {
+                using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Carros (placa, ano" + (this.chassi_edit.Text.Length > 0 ? ", chassi" : "") + ", modelo, km) Values(@placa,@ano" + (this.chassi_edit.Text.Length > 0 ? ", @chassi" : "") + ",@modelo,@km)", connection)) {
                     com.Parameters.AddWithValue("@placa", this.placa_edit.Text);
                     com.Parameters.AddWithValue("@ano", this.ano_edit.Text);
                     if (this.chassi_edit.Text.Length > 0) { com.Parameters.AddWithValue("@chassi", this.chassi_edit.Text); }
                     //MessageBox.Show("INSERT INTO Carros (placa, ano" + (this.chassi_edit.Text.Length > 0 ? ", chassi" : "") + ", modelo) Values(@placa,@ano" + (this.chassi_edit.Text.Length > 0 ? ", @chassi" : "") + ",@modelo)");
                     com.Parameters.AddWithValue("@modelo", this.modelo_edit.Text);
+                    com.Parameters.AddWithValue("@km", this.km_edit.Text);
                     com.ExecuteNonQuery();
                 }
 
@@ -83,8 +84,14 @@ namespace JC_Mecanica {
             bool anoError = (ano_edit.Text.Length > 0 ? (int.Parse(ano_edit.Text) <= 1700) : true);
             bool chassiError = (chassi_edit.Text.Length > 0 ? chassi_edit.Text.Length < 11 : false);
             bool modeloEmpty = modelo_edit.Text.Length <= 0;
+            bool kmEmpty = km_edit.Text.Length <= 0;
+            bool kmError = (!kmEmpty ? double.Parse(km_edit.Text) <= 0 : false);
 
-            salvar_button.Enabled = (!placaError && !anoError && !chassiError && !modeloEmpty);
+            salvar_button.Enabled = (!placaError && !anoError && !chassiError && !modeloEmpty && !kmError);
+        }
+
+        private void km_edit_KeyPress(object sender, KeyPressEventArgs e) {
+            Transform.setMoneyTextBox(sender as TextBox, e);
         }
     }
 }

@@ -70,10 +70,10 @@ namespace JC_Mecanica {
                 AVATARLINE_1.Fill(AVATARLINE);
                 foreach (DataRow row in AVATARLINE.Tables [0].Rows) {
                     ListViewItem list = new ListViewItem(row [9].ToString());
-                    if (!row [2].ToString().Equals("")) {
+                    /*if (!row [2].ToString().Equals("")) {
                         list.SubItems.Add(Transform.unPackPhone(row [2].ToString()));
-                    } else
-                        list.SubItems.Add(Transform.unPackPhone(row [3].ToString()));
+                    } else*/
+                    list.SubItems.Add(Transform.unPackPhone(row [3].ToString()));
                     listView.Items.Add(list);
                     clienteIDs [i] = int.Parse(row [0].ToString());
                     i++;
@@ -116,7 +116,7 @@ namespace JC_Mecanica {
 
         private void setEnabled(bool enabled) {
             nome_edit.Enabled = enabled;
-            telefone_edit.Enabled = enabled;
+            rg_edit.Enabled = false;
             celular_edit.Enabled = enabled;
             rua_edit.Enabled = enabled;
             numero_edit.Enabled = enabled;
@@ -153,7 +153,7 @@ namespace JC_Mecanica {
             if (re.Read()) {
                 nome_edit.Text = re ["nome"].ToString();
                 cpf_edit.Text = Transform.unPackCPF(re ["cpf"].ToString());
-                telefone_edit.Text = Transform.unPackPhone(re ["telefone"].ToString());
+                rg_edit.Text = Transform.unPackRG(re ["rg"].ToString());
                 celular_edit.Text = Transform.unPackPhone(re ["celular"].ToString());
                 rua_edit.Text = re ["rua"].ToString();
                 numero_edit.Text = re ["numero"].ToString();
@@ -177,7 +177,7 @@ namespace JC_Mecanica {
         }
 
         private void backTasking(object sender, EventArgs e) {
-            Transform.setPhoneEdit(telefone_edit);
+            Transform.setRgEdit(rg_edit);
             Transform.setPhoneEdit(celular_edit);
             Transform.setCpfEdit(cpf_edit);
 
@@ -206,9 +206,8 @@ namespace JC_Mecanica {
             SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
-            SqlCeCommand cmd = new SqlCeCommand("UPDATE Clientes SET nome = @nome, telefone = @telefone, celular = @celular, rua = @rua, numero = @numero, cidade = @cidade, bairro = @bairro, estado = @estado WHERE id = @id;", connection);
+            SqlCeCommand cmd = new SqlCeCommand("UPDATE Clientes SET nome = @nome, celular = @celular, rua = @rua, numero = @numero, cidade = @cidade, bairro = @bairro, estado = @estado WHERE id = @id;", connection);
             cmd.Parameters.AddWithValue("@nome", nome_edit.Text);
-            cmd.Parameters.AddWithValue("@telefone", telefone_edit.Text);
             cmd.Parameters.AddWithValue("@celular", celular_edit.Text);
             cmd.Parameters.AddWithValue("@rua", rua_edit.Text);
             cmd.Parameters.AddWithValue("@numero", numero_edit.Text);
@@ -252,7 +251,7 @@ namespace JC_Mecanica {
         private void clearTextBox() {
             nome_edit.Text = "";
             cpf_edit.Text = "";
-            telefone_edit.Text = "";
+            rg_edit.Text = "";
             celular_edit.Text = "";
             rua_edit.Text = "";
             numero_edit.Text = "";

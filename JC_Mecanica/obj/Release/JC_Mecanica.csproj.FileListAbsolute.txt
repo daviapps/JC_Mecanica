@@ -23,3 +23,10 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.S
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.csproj.GenerateResource.Cache
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.exe
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.pdb
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.ValidationForm.resources
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Release\JC_Mecanica.exe.manifest
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Release\JC_Mecanica.application
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.TrustInfo.xml
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.exe.manifest
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.application
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.csprojResolveAssemblyReference.cache

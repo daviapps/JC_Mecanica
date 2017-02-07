@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Linq;
@@ -67,7 +68,7 @@ namespace JC_Mecanica {
         }
 
         private void salvar_button_Click(object sender, EventArgs e) {
-            SqlCeConnection connection = new SqlCeConnection("Data Source = banco_de_dados.sdf");
+            SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
             String queryString = (this.dispesaID == -1 ? 
