@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="JC_Mecanica.exe.manifest" size="6728">
+    <dependentAssembly dependencyType="install" codebase="JC_Mecanica.exe.manifest" size="7443">
       <assemblyIdentity name="JC_Mecanica.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8EX68h7uSocmex2L+mEkjXicsOpc5lFC52gsmrhapVI=</dsig:DigestValue>
+        <dsig:DigestValue>JFkVHA75iIBp9BHYcOUtNn67bfCszW6zRzGrXgqtT2s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

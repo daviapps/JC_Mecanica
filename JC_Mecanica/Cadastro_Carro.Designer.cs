@@ -144,6 +144,7 @@
             this.km_edit.Name = "km_edit";
             this.km_edit.Size = new System.Drawing.Size(100, 24);
             this.km_edit.TabIndex = 11;
+            this.km_edit.Text = "0";
             this.km_edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.km_edit_KeyPress);
             // 
             // km_label

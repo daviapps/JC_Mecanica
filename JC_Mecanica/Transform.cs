@@ -211,7 +211,7 @@ namespace JC_Mecanica {
 
         public static bool checkValidation() {
             Properties.Settings.Default.Reload();
-            return getCode().Equals(Properties.Settings.Default.ACTIVED_CODE);
+            return getCode().Equals(Program.validation.Get("ACTIVED.CODE"));
         }
 
         public static bool checkValidation(String input) {
@@ -243,16 +243,16 @@ namespace JC_Mecanica {
         }
 
         public static int getAvaliableDays() {
-            bool timeAvalEmpty = Properties.Settings.Default.AVALIATION_DATE.Equals("");
-            DateTime timeAvaliation = (!timeAvalEmpty ? timeAvaliation = DateTime.Parse(Properties.Settings.Default.AVALIATION_DATE) : DateTime.Today), 
+            bool timeAvalEmpty = Program.validation.Get("AVALIATION.DATE", "").Equals("");
+            DateTime timeAvaliation = (!timeAvalEmpty ? timeAvaliation = DateTime.Parse(Program.validation.Get("AVALIATION.DATE") + " 00:00:00") : DateTime.Today), 
                 today = DateTime.Today;
 
             return (timeAvalEmpty ? -1000 : timeAvaliation.DayOfYear - today.DayOfYear);
         }
 
         public static bool inAvaliationMode() {
-            bool timeAvalEmpty = !Properties.Settings.Default.AVALIATION_DATE.Equals("");
-            bool codeValiEmpty = !Properties.Settings.Default.ACTIVED_CODE.Equals("");
+            bool timeAvalEmpty = !Program.validation.Get("AVALIATION.DATE", "").Equals("");
+            bool codeValiEmpty = !Program.validation.Get("ACTIVED.CODE", "").Equals("");
 
             return (getAvaliableDays() > 0 && !checkValidation());
         }

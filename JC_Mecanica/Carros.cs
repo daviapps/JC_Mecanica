@@ -103,6 +103,9 @@ namespace JC_Mecanica {
             SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
+            if (km_edit.Text.Equals(""))
+                km_edit.Text = "0";
+
             SqlCeCommand cmd = new SqlCeCommand("UPDATE Carros SET ano = @ano, chassi = @chassi, modelo = @modelo, km = @km WHERE placa = @placa;", connection);
             cmd.Parameters.AddWithValue("@ano", ano_edit.Text);
             cmd.Parameters.AddWithValue("@chassi", chassi_edit.Text);
@@ -136,7 +139,8 @@ namespace JC_Mecanica {
         }
 
         private void busca_button_Click(object sender, EventArgs e) {
-            new Show_table_content("Carros").ShowDialog();
+            this.updateLista();
+            //new Show_table_content("Carros").ShowDialog();
         }
 
         private void busca_edit_TextChanged(object sender, EventArgs e) {

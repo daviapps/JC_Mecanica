@@ -50,12 +50,14 @@ namespace JC_Mecanica {
             check_Chassi.Parameters.AddWithValue("@chassi", chassi_edit.Text);
             int ChassiExist = (int) check_Chassi.ExecuteScalar();
 
-            if (ChassiExist > 0) {
+            if (ChassiExist > 0 && chassi_edit.Text.Length > 0) {
                 MessageBox.Show("Chassi já cadastrado", "Erro de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             if (PlacaExist > 0) {
                 MessageBox.Show("Placa já cadastrado", "Erro de cadastra", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else {
+                if(km_edit.Text.Equals(""))
+                    km_edit.Text = "0";
                 using (SqlCeCommand com = new SqlCeCommand("INSERT INTO Carros (placa, ano" + (this.chassi_edit.Text.Length > 0 ? ", chassi" : "") + ", modelo, km) Values(@placa,@ano" + (this.chassi_edit.Text.Length > 0 ? ", @chassi" : "") + ",@modelo,@km)", connection)) {
                     com.Parameters.AddWithValue("@placa", this.placa_edit.Text);
                     com.Parameters.AddWithValue("@ano", this.ano_edit.Text);
@@ -84,10 +86,10 @@ namespace JC_Mecanica {
             bool anoError = (ano_edit.Text.Length > 0 ? (int.Parse(ano_edit.Text) <= 1700) : true);
             bool chassiError = (chassi_edit.Text.Length > 0 ? chassi_edit.Text.Length < 11 : false);
             bool modeloEmpty = modelo_edit.Text.Length <= 0;
-            bool kmEmpty = km_edit.Text.Length <= 0;
-            bool kmError = (!kmEmpty ? double.Parse(km_edit.Text) <= 0 : false);
+            //bool kmEmpty = km_edit.Text.Length <= 0;
+            //bool kmError = (!kmEmpty ? double.Parse(km_edit.Text) <= 0 : false);
 
-            salvar_button.Enabled = (!placaError && !anoError && !chassiError && !modeloEmpty && !kmError);
+            salvar_button.Enabled = (!placaError && !anoError && !chassiError && !modeloEmpty);
         }
 
         private void km_edit_KeyPress(object sender, KeyPressEventArgs e) {

@@ -50,29 +50,5 @@ namespace JC_Mecanica.Properties {
                 return ((double)(this["DB_VERSION"]));
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ACTIVED_CODE {
-            get {
-                return ((string)(this["ACTIVED_CODE"]));
-            }
-            set {
-                this["ACTIVED_CODE"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AVALIATION_DATE {
-            get {
-                return ((string)(this["AVALIATION_DATE"]));
-            }
-            set {
-                this["AVALIATION_DATE"] = value;
-            }
-        }
     }
 }

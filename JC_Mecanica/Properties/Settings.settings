@@ -16,11 +16,5 @@
     <Setting Name="DB_VERSION" Type="System.Double" Scope="Application">
       <Value Profile="(Default)">1</Value>
     </Setting>
-    <Setting Name="ACTIVED_CODE" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="AVALIATION_DATE" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
   </Settings>
 </SettingsFile>

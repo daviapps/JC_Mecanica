@@ -30,3 +30,5 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.T
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.exe.manifest
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.application
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Release\JC_Mecanica.csprojResolveAssemblyReference.cache
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Release\DCode.dll
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Release\DCode.pdb

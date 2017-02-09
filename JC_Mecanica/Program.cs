@@ -14,6 +14,8 @@ using System.Runtime.InteropServices;
 
 namespace JC_Mecanica {
     static class Program {
+        public static DCodePreferences validation;
+        public static DCodePreferences settings;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -47,6 +49,37 @@ namespace JC_Mecanica {
                 AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\JC Mecanica\\");
                 //AppDomain.CurrentDomain.SetData("DataDirectory", "\\");
             }
+
+            // CHECK DCODE DLL
+
+            if (!File.Exists("DCode.dll")) {
+                MessageBox.Show("Arquivo dll 'DCode' não encontrado." + contate, "DLL Error");
+                return;
+            }
+
+            String settingsFolder = (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\JC Mecanica\\settings\\");
+
+            validation = new DCodePreferences(new DCodeFile(settingsFolder + "validation.DCode"));
+            //_validation = new DCodePreferences(new DCodeFile(settingsFolder + "vali.DCode"));
+            settings = new DCodePreferences(new DCodeFile(settingsFolder + "settings.DCode"));
+
+            // DEFINE DEFAULT VALIDATION
+            validation.Add("ACTIVED.CODE", "");
+            validation.Add("AVALIATION.DATE", "");
+            //validation.Set("avaliationDate", "Teste");
+            //validation.Set("activeCode", "Teste2");
+            validation.save();
+            // DEFINE DEFAULT SETTINGS
+            //settings.Add("teste", "23");
+            //settings.Remove("teste");
+            //settings.Set("teste", "f");
+            //settings.save();
+            //MessageBox.Show(settings.Get("teste", "Não encontrado"));
+
+            //MessageBox.Show(validation.Get("teste", "Não encontrado"));
+            //MessageBox.Show(validation.Get("activeCode", "Não encontrado"));
+
+            //AppDomain.CurrentDomain.SetData("SettingsDiretory", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\DaviApps\\JC Mecanica\\Settings\\");
 
             UpdateDB.CHECK();
 
@@ -91,7 +124,8 @@ namespace JC_Mecanica {
             bool close = false;
 
             if (!Codes.checkValidation()) {
-                new ValidationForm().ShowDialog();
+                if(!Codes.inAvaliationMode())
+                    new ValidationForm().ShowDialog();
                 close = !Codes.checkValidation() && !Codes.inAvaliationMode();
             }
 

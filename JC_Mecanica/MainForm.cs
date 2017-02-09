@@ -20,16 +20,24 @@ namespace JC_Mecanica {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-            String avaliableDays = (Codes.inAvaliationMode() ? " - " + Codes.getAvaliableDays() + " dias restantes": "");
-            main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + (Codes.checkValidation() ? "Ativado" : "Em periodo de avaliação" + avaliableDays);
-
+            updateStatusBar();
             ajuda_menu.Visible = false;
+        }
+
+        private void updateStatusBar() {
+            String avaliableDays = (Codes.inAvaliationMode() ? " - " + Codes.getAvaliableDays() + " dias restantes" : "");
+            main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + (Codes.checkValidation() ? "Ativado" : "Em periodo de avaliação" + avaliableDays);
         }
 
         private void keyDown(object sender, KeyEventArgs e) {
             if (e.Modifiers == Keys.Control) {
                 if (e.KeyCode == Keys.S) { // Ctrl + S
                     MessageBox.Show("dfs");
+                } else
+                if (e.KeyCode == Keys.F2) { // Ctrl + F2
+                   if (!(Codes.checkValidation()))
+                       new ValidationForm().ShowDialog();
+                   updateStatusBar();
                 }
             } else
             if (e.KeyCode == Keys.F1) {
@@ -37,7 +45,7 @@ namespace JC_Mecanica {
                 new AjudaForm().ShowDialog();
             } else
             if (e.KeyCode == Keys.F2) {
-                SqlConnection connection;
+                /*SqlConnection connection;
                 try {
                     connection = new SqlConnection("Data Source = banco_de_dados.sdf");
                     connection.Open();
@@ -52,7 +60,7 @@ namespace JC_Mecanica {
                     }
                 } catch (SqlException ex) {
                     MessageBox.Show(ex.ToString());
-                }
+                }*/
 
             } else
             if (e.KeyCode == Keys.F5) {

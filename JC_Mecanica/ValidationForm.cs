@@ -13,6 +13,7 @@ namespace JC_Mecanica {
     public partial class ValidationForm : Form {
         private bool avaliationMode = false;
         private System.Windows.Forms.Timer backTast;
+        private int valiationDays = 20;
         public ValidationForm() {
             InitializeComponent();
         }
@@ -36,6 +37,8 @@ namespace JC_Mecanica {
                 }
             }
 
+            avaliacao_labelLink.Text = "Usar verção de avaliação por " + valiationDays + " dias";
+
             this.backTast = new System.Windows.Forms.Timer();
             this.backTast.Tick += new EventHandler(this.backTasking);
             this.backTast.Interval = 100;
@@ -43,13 +46,13 @@ namespace JC_Mecanica {
         }
 
         private void ValidationForm_FormClosed(object sender, FormClosedEventArgs e) {
-            Properties.Settings.Default.Save();
+            Program.validation.save();
             this.backTast.Stop();
         }
 
         private void validar_button_Click(object sender, EventArgs e) {
             if (Codes.getCode().Equals(code_edit.Text))
-                Properties.Settings.Default.ACTIVED_CODE = code_edit.Text;
+                Program.validation.Set("ACTIVED.CODE", code_edit.Text);
             else {
                 MessageBox.Show("Código de validação inválido", "Validation error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -58,9 +61,8 @@ namespace JC_Mecanica {
         }
 
         private void avaliacao_labelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            DateTime avatiation = DateTime.Today.AddDays(5);
-            //avatiation.AddDays(7);
-            Properties.Settings.Default.AVALIATION_DATE = avatiation.ToString();
+            DateTime avatiation = DateTime.Today.AddDays(valiationDays);
+            Program.validation.Set("AVALIATION.DATE", avatiation.ToString().Substring(0, 10));
             this.Close();
         }
 

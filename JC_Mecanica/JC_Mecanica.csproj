@@ -49,8 +49,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>icon6.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -71,6 +70,9 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DCode">
+      <HintPath>..\..\DCode\DCodeC#\DCode\bin\Debug\DCode.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -156,6 +158,7 @@
       <DependentUpon>Orcamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateDB.cs" />
+    <Compile Include="Validation.cs" />
     <Compile Include="ValidationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +287,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="settings.DCode" />
+    <None Include="validation.DCode" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
