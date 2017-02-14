@@ -255,7 +255,7 @@
             this.cliente_cel_label.Name = "cliente_cel_label";
             this.cliente_cel_label.Size = new System.Drawing.Size(132, 20);
             this.cliente_cel_label.TabIndex = 5;
-            this.cliente_cel_label.Text = "(32) 3426-0000";
+            this.cliente_cel_label.Text = "(32) 9942-8373";
             // 
             // contato_cel_label
             // 

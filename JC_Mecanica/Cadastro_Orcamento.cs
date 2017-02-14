@@ -103,18 +103,27 @@ namespace JC_Mecanica {
         }
 
         private void servico_escolher_button_Click(object sender, EventArgs e) {
-            servico.setID("codigo", new Servicos().getServicoID());
-            servico_edit.Text = servico.get("servico");
+            int id = new Servicos().getServicoID();
+            if (id > 0) {
+                servico.setID("codigo", id);
+                servico_edit.Text = servico.get("servico");
+            }
         }
 
         private void cliente_escolher_button_Click(object sender, EventArgs e) {
-            cliente.setID("id", new Clientes().getClienteID());
-            cliente_edit.Text = cliente.get("nome");
+            int id = new Clientes().getClienteID();
+            if (id > 0) {
+                cliente.setID("id", id);
+                cliente_edit.Text = cliente.get("nome");
+            }
         }
 
         private void carro_escolher_button_Click(object sender, EventArgs e) {
-            carro.setID("placa", new Carros().getCarroPlaca());
+            String placa = new Carros().getCarroPlaca();
+            if (!(placa.Equals(""))) {
+                carro.setID("placa", placa);
             carro_edit.Text = carro.get("placa");
+            }
         }
 
         private void cancelar_button_Click(object sender, EventArgs e) {
@@ -164,6 +173,18 @@ namespace JC_Mecanica {
 
                 this.Close();
             }
+        }
+
+        private void servico_edit_Click(object sender, EventArgs e) {
+            servico_escolher_button_Click(null, null);
+        }
+
+        private void cliente_edit_Click(object sender, EventArgs e) {
+            cliente_escolher_button_Click(null, null);
+        }
+
+        private void carro_edit_Click(object sender, EventArgs e) {
+            carro_escolher_button_Click(null, null);
         }
     }
 }

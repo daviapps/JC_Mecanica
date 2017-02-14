@@ -31,10 +31,7 @@
             this.data_label = new System.Windows.Forms.Label();
             this.valor_label = new System.Windows.Forms.Label();
             this.valor_edit = new System.Windows.Forms.TextBox();
-            this.servico_edit = new System.Windows.Forms.TextBox();
-            this.carro_edit = new System.Windows.Forms.TextBox();
             this.detalhes_edit = new System.Windows.Forms.TextBox();
-            this.cliente_edit = new System.Windows.Forms.TextBox();
             this.data_timePicker = new System.Windows.Forms.DateTimePicker();
             this.servico_escolher_button = new System.Windows.Forms.Button();
             this.cliente_escolher_button = new System.Windows.Forms.Button();
@@ -43,6 +40,9 @@
             this.cancelar_button = new System.Windows.Forms.Button();
             this.id_label = new System.Windows.Forms.Label();
             this.apagar_button = new System.Windows.Forms.Button();
+            this.servico_edit = new System.Windows.Forms.Label();
+            this.cliente_edit = new System.Windows.Forms.Label();
+            this.carro_edit = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // servico_label
@@ -114,28 +114,6 @@
             this.valor_edit.TabIndex = 6;
             this.valor_edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valor_edit_KeyPress);
             // 
-            // servico_edit
-            // 
-            this.servico_edit.Enabled = false;
-            this.servico_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.servico_edit.Location = new System.Drawing.Point(26, 27);
-            this.servico_edit.Name = "servico_edit";
-            this.servico_edit.Size = new System.Drawing.Size(184, 26);
-            this.servico_edit.TabIndex = 7;
-            this.servico_edit.Text = "Selecione o serviço >>";
-            this.servico_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // carro_edit
-            // 
-            this.carro_edit.Enabled = false;
-            this.carro_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carro_edit.Location = new System.Drawing.Point(26, 121);
-            this.carro_edit.Name = "carro_edit";
-            this.carro_edit.Size = new System.Drawing.Size(86, 26);
-            this.carro_edit.TabIndex = 8;
-            this.carro_edit.Text = "Selec. >>";
-            this.carro_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // detalhes_edit
             // 
             this.detalhes_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,17 +123,6 @@
             this.detalhes_edit.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.detalhes_edit.Size = new System.Drawing.Size(324, 72);
             this.detalhes_edit.TabIndex = 9;
-            // 
-            // cliente_edit
-            // 
-            this.cliente_edit.Enabled = false;
-            this.cliente_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cliente_edit.Location = new System.Drawing.Point(26, 74);
-            this.cliente_edit.Name = "cliente_edit";
-            this.cliente_edit.Size = new System.Drawing.Size(184, 26);
-            this.cliente_edit.TabIndex = 10;
-            this.cliente_edit.Text = "Selecione o cliente >>";
-            this.cliente_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // data_timePicker
             // 
@@ -250,11 +217,56 @@
             this.apagar_button.Visible = false;
             this.apagar_button.Click += new System.EventHandler(this.apagar_button_Click);
             // 
+            // servico_edit
+            // 
+            this.servico_edit.BackColor = System.Drawing.SystemColors.Control;
+            this.servico_edit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.servico_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.servico_edit.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.servico_edit.Location = new System.Drawing.Point(26, 28);
+            this.servico_edit.Name = "servico_edit";
+            this.servico_edit.Size = new System.Drawing.Size(184, 28);
+            this.servico_edit.TabIndex = 18;
+            this.servico_edit.Text = "Selecione o serviço >>";
+            this.servico_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.servico_edit.Click += new System.EventHandler(this.servico_edit_Click);
+            // 
+            // cliente_edit
+            // 
+            this.cliente_edit.BackColor = System.Drawing.SystemColors.Control;
+            this.cliente_edit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.cliente_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cliente_edit.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cliente_edit.Location = new System.Drawing.Point(26, 75);
+            this.cliente_edit.Name = "cliente_edit";
+            this.cliente_edit.Size = new System.Drawing.Size(184, 28);
+            this.cliente_edit.TabIndex = 19;
+            this.cliente_edit.Text = "Selecione o cliente >>";
+            this.cliente_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cliente_edit.Click += new System.EventHandler(this.cliente_edit_Click);
+            // 
+            // carro_edit
+            // 
+            this.carro_edit.BackColor = System.Drawing.SystemColors.Control;
+            this.carro_edit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.carro_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carro_edit.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.carro_edit.Location = new System.Drawing.Point(26, 122);
+            this.carro_edit.Name = "carro_edit";
+            this.carro_edit.Size = new System.Drawing.Size(86, 28);
+            this.carro_edit.TabIndex = 20;
+            this.carro_edit.Text = "Selec. >>";
+            this.carro_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.carro_edit.Click += new System.EventHandler(this.carro_edit_Click);
+            // 
             // Cadastro_Orcamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 194);
+            this.Controls.Add(this.carro_edit);
+            this.Controls.Add(this.cliente_edit);
+            this.Controls.Add(this.servico_edit);
             this.Controls.Add(this.apagar_button);
             this.Controls.Add(this.id_label);
             this.Controls.Add(this.cancelar_button);
@@ -263,10 +275,7 @@
             this.Controls.Add(this.cliente_escolher_button);
             this.Controls.Add(this.servico_escolher_button);
             this.Controls.Add(this.data_timePicker);
-            this.Controls.Add(this.cliente_edit);
             this.Controls.Add(this.detalhes_edit);
-            this.Controls.Add(this.carro_edit);
-            this.Controls.Add(this.servico_edit);
             this.Controls.Add(this.valor_edit);
             this.Controls.Add(this.valor_label);
             this.Controls.Add(this.data_label);
@@ -298,10 +307,7 @@
         private System.Windows.Forms.Label data_label;
         private System.Windows.Forms.Label valor_label;
         private System.Windows.Forms.TextBox valor_edit;
-        private System.Windows.Forms.TextBox servico_edit;
-        private System.Windows.Forms.TextBox carro_edit;
         private System.Windows.Forms.TextBox detalhes_edit;
-        private System.Windows.Forms.TextBox cliente_edit;
         private System.Windows.Forms.DateTimePicker data_timePicker;
         private System.Windows.Forms.Button servico_escolher_button;
         private System.Windows.Forms.Button cliente_escolher_button;
@@ -310,5 +316,8 @@
         private System.Windows.Forms.Button cancelar_button;
         private System.Windows.Forms.Label id_label;
         private System.Windows.Forms.Button apagar_button;
+        private System.Windows.Forms.Label servico_edit;
+        private System.Windows.Forms.Label cliente_edit;
+        private System.Windows.Forms.Label carro_edit;
     }
 }
