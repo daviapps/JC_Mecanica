@@ -67,7 +67,7 @@
             // 
             // cancelar_button
             // 
-            this.cancelar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelar_button.AutoSize = true;
             this.cancelar_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -93,6 +93,7 @@
             // 
             // validar_button
             // 
+            this.validar_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.validar_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.validar_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.validar_button.Location = new System.Drawing.Point(263, 62);
@@ -129,6 +130,7 @@
             this.Controls.Add(this.code_edit);
             this.Controls.Add(this.code_label);
             this.Controls.Add(this.daviapps_label);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

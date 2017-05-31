@@ -40,3 +40,5 @@ C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\JC_Mecanica.app
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.TrustInfo.xml
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.exe.manifest
 C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\obj\Debug\JC_Mecanica.application
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\DCode.dll
+C:\Users\Davi\Documents\GitHub\JC_Mecanica\JC_Mecanica\bin\Debug\DCode.pdb

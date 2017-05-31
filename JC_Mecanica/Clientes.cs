@@ -228,7 +228,8 @@ namespace JC_Mecanica {
         }
 
         private void apagar_button_Click(object sender, EventArgs e) {
-            if (Codes.confirm()) {
+            //Codes.confirm() to be used to limit actions on valiation period
+            if (true) {
                 DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse cadastro será apagado.", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (m == DialogResult.Yes) {
                     SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);

@@ -180,8 +180,10 @@ namespace JC_Mecanica {
             if (tb.Text.ToCharArray().Length > 14 && Transform.packCPF(tb.Text).ToCharArray().Length < 11) {
                 tb.Text = "";
             } else {
+                int pos = tb.SelectionStart;
                 tb.Text = Transform.unPackCPF(tb.Text);
-                tb.SelectionStart = tb.Text.Length;
+                int length = tb.Text.Length;
+                tb.SelectionStart = pos + 1 == length ? length : pos;
             }
         }
 
@@ -190,18 +192,22 @@ namespace JC_Mecanica {
                 tb.Text = "";
             } else {
                 if (!tb.Text.Equals(Transform.unPackPhone(tb.Text))) {
+                    int pos = tb.SelectionStart;
                     tb.Text = Transform.unPackPhone(tb.Text);
-                    tb.SelectionStart = tb.Text.Length;
+                    int length = tb.Text.Length;
+                    tb.SelectionStart = pos + 1 == length ? length : pos;
                 }
             }
         }
 
-        internal static void setRgEdit(TextBox tb) {
+        public static void setRgEdit(TextBox tb) {
             if (tb.Text.ToCharArray().Length > 14 && Transform.packRG(tb.Text).ToCharArray().Length < 11) {
                 tb.Text = "";
             } else {
+                int pos = tb.SelectionStart;
                 tb.Text = Transform.unPackRG(tb.Text);
-                tb.SelectionStart = tb.Text.Length;
+                int length = tb.Text.Length;
+                tb.SelectionStart = pos + 1 == length ? length : pos;
             }
         }
     }

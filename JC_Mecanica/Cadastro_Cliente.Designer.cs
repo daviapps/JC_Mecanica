@@ -100,7 +100,7 @@
             this.nome_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.nome_edit.Name = "nome_edit";
             this.nome_edit.Size = new System.Drawing.Size(420, 26);
-            this.nome_edit.TabIndex = 4;
+            this.nome_edit.TabIndex = 1;
             // 
             // cpf_edit
             // 
@@ -110,7 +110,7 @@
             this.cpf_edit.MaxLength = 14;
             this.cpf_edit.Name = "cpf_edit";
             this.cpf_edit.Size = new System.Drawing.Size(148, 26);
-            this.cpf_edit.TabIndex = 5;
+            this.cpf_edit.TabIndex = 2;
             this.cpf_edit.Text = "___.___.___-__";
             // 
             // rg_edit
@@ -121,7 +121,7 @@
             this.rg_edit.MaxLength = 13;
             this.rg_edit.Name = "rg_edit";
             this.rg_edit.Size = new System.Drawing.Size(128, 26);
-            this.rg_edit.TabIndex = 6;
+            this.rg_edit.TabIndex = 3;
             this.rg_edit.Text = "__-__.___.___";
             // 
             // rua_edit
@@ -131,7 +131,7 @@
             this.rua_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.rua_edit.Name = "rua_edit";
             this.rua_edit.Size = new System.Drawing.Size(337, 26);
-            this.rua_edit.TabIndex = 7;
+            this.rua_edit.TabIndex = 5;
             // 
             // numero_label
             // 
@@ -180,7 +180,7 @@
             this.numero_edit.Location = new System.Drawing.Point(362, 37);
             this.numero_edit.Name = "numero_edit";
             this.numero_edit.Size = new System.Drawing.Size(76, 26);
-            this.numero_edit.TabIndex = 16;
+            this.numero_edit.TabIndex = 6;
             // 
             // estado_comboBox
             // 
@@ -192,7 +192,7 @@
             this.estado_comboBox.MaxLength = 2;
             this.estado_comboBox.Name = "estado_comboBox";
             this.estado_comboBox.Size = new System.Drawing.Size(58, 28);
-            this.estado_comboBox.TabIndex = 13;
+            this.estado_comboBox.TabIndex = 9;
             // 
             // bairro_edit
             // 
@@ -200,7 +200,7 @@
             this.bairro_edit.Location = new System.Drawing.Point(213, 84);
             this.bairro_edit.Name = "bairro_edit";
             this.bairro_edit.Size = new System.Drawing.Size(161, 26);
-            this.bairro_edit.TabIndex = 12;
+            this.bairro_edit.TabIndex = 8;
             // 
             // cidade_edit
             // 
@@ -208,7 +208,7 @@
             this.cidade_edit.Location = new System.Drawing.Point(18, 85);
             this.cidade_edit.Name = "cidade_edit";
             this.cidade_edit.Size = new System.Drawing.Size(189, 26);
-            this.cidade_edit.TabIndex = 11;
+            this.cidade_edit.TabIndex = 7;
             // 
             // estado_label
             // 
@@ -248,7 +248,7 @@
             this.celular_edit.MaxLength = 15;
             this.celular_edit.Name = "celular_edit";
             this.celular_edit.Size = new System.Drawing.Size(131, 26);
-            this.celular_edit.TabIndex = 13;
+            this.celular_edit.TabIndex = 4;
             this.celular_edit.Text = "(__)____-____";
             // 
             // salvar_button
@@ -258,7 +258,7 @@
             this.salvar_button.Location = new System.Drawing.Point(388, 236);
             this.salvar_button.Name = "salvar_button";
             this.salvar_button.Size = new System.Drawing.Size(75, 29);
-            this.salvar_button.TabIndex = 14;
+            this.salvar_button.TabIndex = 20;
             this.salvar_button.Text = "Salvar";
             this.salvar_button.UseVisualStyleBackColor = true;
             this.salvar_button.Click += new System.EventHandler(this.salvar_button_Click);
@@ -269,7 +269,7 @@
             this.cancelar_button.Location = new System.Drawing.Point(297, 236);
             this.cancelar_button.Name = "cancelar_button";
             this.cancelar_button.Size = new System.Drawing.Size(85, 29);
-            this.cancelar_button.TabIndex = 15;
+            this.cancelar_button.TabIndex = 21;
             this.cancelar_button.Text = "Cancelar";
             this.cancelar_button.UseVisualStyleBackColor = true;
             this.cancelar_button.Click += new System.EventHandler(this.cancelar_button_Click);

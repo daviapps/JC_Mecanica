@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icon6.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JC_Mecanica" version="1.0.0.5" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JC_Mecanica" version="1.0.2.3" language="neutral" processorArchitecture="msil" />
     <commandLine file="JC_Mecanica.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -53,6 +53,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="22016">
+      <assemblyIdentity name="DCode" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>6Uu/KR9BAUNUOyrMcKZIdWtm1SEURDa7G6fEjjrbdBI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="1116760">
       <assemblyIdentity name="EntityFramework" version="5.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -65,14 +77,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2134016">
-      <assemblyIdentity name="JC_Mecanica" version="1.0.0.5" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2103296">
+      <assemblyIdentity name="JC_Mecanica" version="1.0.2.3" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qCWMqS1dhPefNTx/bAi/iNkKCcXViVrJBlF9gTystk8=</dsig:DigestValue>
+        <dsig:DigestValue>g+QDKlQaKnslOk18uWWv/Le4AXF3fc5coq/MnG9u1U8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -82,7 +94,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>83E3LkgW8APyuRnOBd4D1qTMY+njoBvUIjWwVDkzY5o=</dsig:DigestValue>
+      <dsig:DigestValue>9AMGbnVWVBpqJh6Hm2uJSieSelxdtOjOOVGrIROOKhk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icon6.ico" size="99678">
@@ -94,13 +106,13 @@
       <dsig:DigestValue>zXsf81N9MwzHg1RZj0gqsH823DkCBKu4INqL0/BymWo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="JC_Mecanica.exe.config" size="2496">
+  <file name="JC_Mecanica.exe.config" size="2469">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>S/r1oEISl+8xpq1XWWKMzyB1lxMSvbpDn4IxBGSDiH8=</dsig:DigestValue>
+      <dsig:DigestValue>AXtiArTuZM5HGHd0yzqKW4sy+nfDMbPbo3Uz+f22q5o=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

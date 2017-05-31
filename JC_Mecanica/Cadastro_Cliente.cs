@@ -38,6 +38,8 @@ namespace JC_Mecanica {
 
             rg_edit.Text = ""; celular_edit.Text = "329";
 
+            celular_edit.SelectionStart = celular_edit.Text.Length;
+
             numero_edit.Maximum = 10000;
 
             this.backTast = new System.Windows.Forms.Timer();
