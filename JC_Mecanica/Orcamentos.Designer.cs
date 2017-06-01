@@ -78,18 +78,19 @@
             // 
             this.error_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.error_panel.Controls.Add(this.error_label);
-            this.error_panel.Location = new System.Drawing.Point(15, 40);
+            this.error_panel.Location = new System.Drawing.Point(52, 67);
             this.error_panel.Name = "error_panel";
-            this.error_panel.Size = new System.Drawing.Size(865, 394);
+            this.error_panel.Size = new System.Drawing.Size(774, 320);
             this.error_panel.TabIndex = 4;
             this.error_panel.Visible = false;
             // 
             // error_label
             // 
+            this.error_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.error_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.error_label.Location = new System.Drawing.Point(3, 0);
+            this.error_label.Location = new System.Drawing.Point(0, 0);
             this.error_label.Name = "error_label";
-            this.error_label.Size = new System.Drawing.Size(862, 394);
+            this.error_label.Size = new System.Drawing.Size(774, 320);
             this.error_label.TabIndex = 1;
             this.error_label.Text = "Nenhum orçamento encontrado";
             this.error_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

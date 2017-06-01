@@ -53,8 +53,8 @@
             this.valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.busca_button = new System.Windows.Forms.Button();
             this.busca_edit = new System.Windows.Forms.ComboBox();
+            this.busca_button = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.soma_dispesas_label = new System.Windows.Forms.Label();
             this.tudo_panel = new System.Windows.Forms.Panel();
@@ -81,12 +81,14 @@
             this.tableLayoutPanel1.Controls.Add(this.date_tableLayout, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.93362F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.066381F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(796, 467);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 485);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // button_panel
@@ -94,14 +96,16 @@
             this.button_panel.Controls.Add(this.nova_button);
             this.button_panel.Controls.Add(this.ok_button);
             this.button_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_panel.Location = new System.Drawing.Point(649, 433);
+            this.button_panel.Location = new System.Drawing.Point(664, 440);
             this.button_panel.Margin = new System.Windows.Forms.Padding(0);
             this.button_panel.Name = "button_panel";
-            this.button_panel.Size = new System.Drawing.Size(147, 34);
+            this.button_panel.Size = new System.Drawing.Size(147, 35);
             this.button_panel.TabIndex = 3;
             // 
             // nova_button
             // 
+            this.nova_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.nova_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.nova_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nova_button.Location = new System.Drawing.Point(3, 2);
@@ -115,11 +119,13 @@
             // 
             // ok_button
             // 
+            this.ok_button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ok_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ok_button.Location = new System.Drawing.Point(75, 3);
             this.ok_button.Name = "ok_button";
-            this.ok_button.Size = new System.Drawing.Size(68, 29);
+            this.ok_button.Size = new System.Drawing.Size(68, 28);
             this.ok_button.TabIndex = 0;
             this.ok_button.Text = "Ok";
             this.ok_button.UseVisualStyleBackColor = true;
@@ -134,13 +140,13 @@
             this.date_tableLayout.Controls.Add(this.ano_listView, 0, 0);
             this.date_tableLayout.Controls.Add(this.mes_listView, 0, 1);
             this.date_tableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.date_tableLayout.Location = new System.Drawing.Point(649, 0);
+            this.date_tableLayout.Location = new System.Drawing.Point(664, 10);
             this.date_tableLayout.Margin = new System.Windows.Forms.Padding(0);
             this.date_tableLayout.Name = "date_tableLayout";
             this.date_tableLayout.RowCount = 2;
             this.date_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.66667F));
             this.date_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.33333F));
-            this.date_tableLayout.Size = new System.Drawing.Size(147, 433);
+            this.date_tableLayout.Size = new System.Drawing.Size(147, 430);
             this.date_tableLayout.TabIndex = 5;
             // 
             // ano_listView
@@ -154,7 +160,7 @@
             listViewItem2});
             this.ano_listView.Location = new System.Drawing.Point(3, 3);
             this.ano_listView.Name = "ano_listView";
-            this.ano_listView.Size = new System.Drawing.Size(141, 239);
+            this.ano_listView.Size = new System.Drawing.Size(141, 237);
             this.ano_listView.TabIndex = 0;
             this.ano_listView.UseCompatibleStateImageBehavior = false;
             this.ano_listView.View = System.Windows.Forms.View.List;
@@ -183,9 +189,9 @@
             listViewItem12,
             listViewItem13,
             listViewItem14});
-            this.mes_listView.Location = new System.Drawing.Point(3, 248);
+            this.mes_listView.Location = new System.Drawing.Point(3, 246);
             this.mes_listView.Name = "mes_listView";
-            this.mes_listView.Size = new System.Drawing.Size(141, 182);
+            this.mes_listView.Size = new System.Drawing.Size(141, 181);
             this.mes_listView.TabIndex = 1;
             this.mes_listView.UseCompatibleStateImageBehavior = false;
             this.mes_listView.SelectedIndexChanged += new System.EventHandler(this.mes_listView_SelectedIndexChanged);
@@ -197,11 +203,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.listView, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(13, 13);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.90476F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(643, 427);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(648, 424);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // listView
@@ -216,7 +222,7 @@
             this.listView.Location = new System.Drawing.Point(0, 0);
             this.listView.Margin = new System.Windows.Forms.Padding(0);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(643, 427);
+            this.listView.Size = new System.Drawing.Size(648, 424);
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -247,49 +253,48 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.10934F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.89066F));
-            this.tableLayoutPanel3.Controls.Add(this.busca_button, 2, 0);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2549F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.74509F));
             this.tableLayoutPanel3.Controls.Add(this.busca_edit, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.busca_button, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel1, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.tudo_panel, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 433);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(10, 440);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(649, 34);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(654, 35);
             this.tableLayoutPanel3.TabIndex = 7;
+            // 
+            // busca_edit
+            // 
+            this.busca_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.busca_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.busca_edit.FormattingEnabled = true;
+            this.busca_edit.Location = new System.Drawing.Point(3, 3);
+            this.busca_edit.Name = "busca_edit";
+            this.busca_edit.Size = new System.Drawing.Size(126, 28);
+            this.busca_edit.TabIndex = 4;
+            this.busca_edit.TextChanged += new System.EventHandler(this.busca_edit_TextChanged);
             // 
             // busca_button
             // 
             this.busca_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.busca_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.busca_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busca_button.Location = new System.Drawing.Point(147, 3);
+            this.busca_button.Location = new System.Drawing.Point(171, 3);
             this.busca_button.Name = "busca_button";
-            this.busca_button.Size = new System.Drawing.Size(70, 28);
+            this.busca_button.Size = new System.Drawing.Size(77, 29);
             this.busca_button.TabIndex = 1;
             this.busca_button.Text = "Buscar";
             this.busca_button.UseVisualStyleBackColor = true;
             this.busca_button.Click += new System.EventHandler(this.busca_button_Click);
             this.busca_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Dispesas_KeyDown);
-            // 
-            // busca_edit
-            // 
-            this.busca_edit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.busca_edit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.busca_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busca_edit.FormattingEnabled = true;
-            this.busca_edit.Location = new System.Drawing.Point(3, 3);
-            this.busca_edit.Name = "busca_edit";
-            this.busca_edit.Size = new System.Drawing.Size(102, 28);
-            this.busca_edit.TabIndex = 0;
-            this.busca_edit.TextChanged += new System.EventHandler(this.busca_edit_TextChanged);
-            this.busca_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Dispesas_KeyDown);
             // 
             // panel1
             // 
@@ -297,9 +302,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.soma_dispesas_label);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(223, 3);
+            this.panel1.Location = new System.Drawing.Point(254, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(423, 28);
+            this.panel1.Size = new System.Drawing.Size(397, 29);
             this.panel1.TabIndex = 2;
             // 
             // soma_dispesas_label
@@ -309,7 +314,7 @@
             this.soma_dispesas_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.soma_dispesas_label.Location = new System.Drawing.Point(0, 0);
             this.soma_dispesas_label.Name = "soma_dispesas_label";
-            this.soma_dispesas_label.Size = new System.Drawing.Size(421, 26);
+            this.soma_dispesas_label.Size = new System.Drawing.Size(395, 27);
             this.soma_dispesas_label.TabIndex = 0;
             this.soma_dispesas_label.Text = "Valor total de Janeiro / 2017: R$ ERROR";
             this.soma_dispesas_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,10 +324,10 @@
             this.tudo_panel.Controls.Add(this.tudo_label);
             this.tudo_panel.Controls.Add(this.tudo_checkBox);
             this.tudo_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tudo_panel.Location = new System.Drawing.Point(108, 0);
+            this.tudo_panel.Location = new System.Drawing.Point(132, 0);
             this.tudo_panel.Margin = new System.Windows.Forms.Padding(0);
             this.tudo_panel.Name = "tudo_panel";
-            this.tudo_panel.Size = new System.Drawing.Size(36, 34);
+            this.tudo_panel.Size = new System.Drawing.Size(36, 35);
             this.tudo_panel.TabIndex = 3;
             // 
             // tudo_label
@@ -349,9 +354,10 @@
             // 
             this.error_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.error_panel.Controls.Add(this.error_label);
-            this.error_panel.Location = new System.Drawing.Point(20, 50);
+            this.error_panel.Location = new System.Drawing.Point(50, 59);
+            this.error_panel.Margin = new System.Windows.Forms.Padding(0);
             this.error_panel.Name = "error_panel";
-            this.error_panel.Size = new System.Drawing.Size(632, 388);
+            this.error_panel.Size = new System.Drawing.Size(574, 342);
             this.error_panel.TabIndex = 2;
             this.error_panel.Visible = false;
             // 
@@ -361,7 +367,7 @@
             this.error_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.error_label.Location = new System.Drawing.Point(0, 0);
             this.error_label.Name = "error_label";
-            this.error_label.Size = new System.Drawing.Size(632, 388);
+            this.error_label.Size = new System.Drawing.Size(574, 342);
             this.error_label.TabIndex = 1;
             this.error_label.Text = "Nenhuma dispesa encontrada";
             this.error_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -370,7 +376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 485);
+            this.ClientSize = new System.Drawing.Size(821, 485);
             this.Controls.Add(this.error_panel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -408,7 +414,6 @@
         private System.Windows.Forms.ColumnHeader data;
         private System.Windows.Forms.Panel button_panel;
         private System.Windows.Forms.Button nova_button;
-        private System.Windows.Forms.ComboBox busca_edit;
         private System.Windows.Forms.Button busca_button;
         private System.Windows.Forms.TableLayoutPanel date_tableLayout;
         private System.Windows.Forms.ListView ano_listView;
@@ -423,5 +428,6 @@
         private System.Windows.Forms.Label tudo_label;
         private System.Windows.Forms.Panel error_panel;
         private System.Windows.Forms.Label error_label;
+        private System.Windows.Forms.ComboBox busca_edit;
     }
 }

@@ -53,14 +53,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="22016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="22528">
       <assemblyIdentity name="DCode" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ScZE6M3InaAZrPOiCCi5qu9Rvta6rJ+D7GdQpacQPms=</dsig:DigestValue>
+        <dsig:DigestValue>1WAUBXH5rvtJwVPzxMBOmDs6ucYRqDV/YuUIvHNXWoo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -77,14 +77,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2097664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2098176">
       <assemblyIdentity name="JC_Mecanica" version="1.0.2.5" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4/OR6gOgwojeNjg/p5winkQbx8RsupZTQt0bqal8vzs=</dsig:DigestValue>
+        <dsig:DigestValue>+cxAxo9wCqAF2SgwKf8qGSnAVaW5FlgX4ce6uH836Vo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -94,7 +94,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9AMGbnVWVBpqJh6Hm2uJSieSelxdtOjOOVGrIROOKhk=</dsig:DigestValue>
+      <dsig:DigestValue>n0brk5N9cAMqkiU+bv3Gu+CnrCy78TEaKX5Mw46wIvw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icon6.ico" size="99678">
