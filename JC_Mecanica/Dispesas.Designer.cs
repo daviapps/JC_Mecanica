@@ -100,7 +100,7 @@
             this.button_panel.Margin = new System.Windows.Forms.Padding(0);
             this.button_panel.Name = "button_panel";
             this.button_panel.Size = new System.Drawing.Size(147, 35);
-            this.button_panel.TabIndex = 3;
+            this.button_panel.TabIndex = 0;
             // 
             // nova_button
             // 
@@ -111,7 +111,7 @@
             this.nova_button.Location = new System.Drawing.Point(3, 2);
             this.nova_button.Name = "nova_button";
             this.nova_button.Size = new System.Drawing.Size(66, 29);
-            this.nova_button.TabIndex = 4;
+            this.nova_button.TabIndex = 2;
             this.nova_button.Text = "Nova";
             this.nova_button.UseVisualStyleBackColor = true;
             this.nova_button.Click += new System.EventHandler(this.nova_button_Click);
@@ -126,7 +126,7 @@
             this.ok_button.Location = new System.Drawing.Point(75, 3);
             this.ok_button.Name = "ok_button";
             this.ok_button.Size = new System.Drawing.Size(68, 28);
-            this.ok_button.TabIndex = 0;
+            this.ok_button.TabIndex = 1;
             this.ok_button.Text = "Ok";
             this.ok_button.UseVisualStyleBackColor = true;
             this.ok_button.Click += new System.EventHandler(this.ok_button_Click);
@@ -147,7 +147,7 @@
             this.date_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.66667F));
             this.date_tableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.33333F));
             this.date_tableLayout.Size = new System.Drawing.Size(147, 430);
-            this.date_tableLayout.TabIndex = 5;
+            this.date_tableLayout.TabIndex = 0;
             // 
             // ano_listView
             // 
@@ -192,7 +192,7 @@
             this.mes_listView.Location = new System.Drawing.Point(3, 246);
             this.mes_listView.Name = "mes_listView";
             this.mes_listView.Size = new System.Drawing.Size(141, 181);
-            this.mes_listView.TabIndex = 1;
+            this.mes_listView.TabIndex = 0;
             this.mes_listView.UseCompatibleStateImageBehavior = false;
             this.mes_listView.SelectedIndexChanged += new System.EventHandler(this.mes_listView_SelectedIndexChanged);
             this.mes_listView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Dispesas_KeyDown);
@@ -207,6 +207,12 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.90476F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(648, 424);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
@@ -223,7 +229,7 @@
             this.listView.Margin = new System.Windows.Forms.Padding(0);
             this.listView.Name = "listView";
             this.listView.Size = new System.Drawing.Size(648, 424);
-            this.listView.TabIndex = 1;
+            this.listView.TabIndex = 6;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
@@ -269,7 +275,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(654, 35);
-            this.tableLayoutPanel3.TabIndex = 7;
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // busca_edit
             // 
@@ -279,7 +285,7 @@
             this.busca_edit.Location = new System.Drawing.Point(3, 3);
             this.busca_edit.Name = "busca_edit";
             this.busca_edit.Size = new System.Drawing.Size(126, 28);
-            this.busca_edit.TabIndex = 4;
+            this.busca_edit.TabIndex = 3;
             this.busca_edit.TextChanged += new System.EventHandler(this.busca_edit_TextChanged);
             // 
             // busca_button
@@ -290,7 +296,7 @@
             this.busca_button.Location = new System.Drawing.Point(171, 3);
             this.busca_button.Name = "busca_button";
             this.busca_button.Size = new System.Drawing.Size(77, 29);
-            this.busca_button.TabIndex = 1;
+            this.busca_button.TabIndex = 5;
             this.busca_button.Text = "Buscar";
             this.busca_button.UseVisualStyleBackColor = true;
             this.busca_button.Click += new System.EventHandler(this.busca_button_Click);
@@ -328,7 +334,7 @@
             this.tudo_panel.Margin = new System.Windows.Forms.Padding(0);
             this.tudo_panel.Name = "tudo_panel";
             this.tudo_panel.Size = new System.Drawing.Size(36, 35);
-            this.tudo_panel.TabIndex = 3;
+            this.tudo_panel.TabIndex = 0;
             // 
             // tudo_label
             // 
@@ -337,7 +343,7 @@
             this.tudo_label.Location = new System.Drawing.Point(0, 19);
             this.tudo_label.Name = "tudo_label";
             this.tudo_label.Size = new System.Drawing.Size(36, 13);
-            this.tudo_label.TabIndex = 1;
+            this.tudo_label.TabIndex = 0;
             this.tudo_label.Text = "Tudo";
             // 
             // tudo_checkBox
@@ -346,7 +352,7 @@
             this.tudo_checkBox.Location = new System.Drawing.Point(12, 4);
             this.tudo_checkBox.Name = "tudo_checkBox";
             this.tudo_checkBox.Size = new System.Drawing.Size(15, 14);
-            this.tudo_checkBox.TabIndex = 0;
+            this.tudo_checkBox.TabIndex = 4;
             this.tudo_checkBox.UseVisualStyleBackColor = true;
             this.tudo_checkBox.CheckedChanged += new System.EventHandler(this.tudo_checkBox_CheckedChanged);
             // 
@@ -368,7 +374,7 @@
             this.error_label.Location = new System.Drawing.Point(0, 0);
             this.error_label.Name = "error_label";
             this.error_label.Size = new System.Drawing.Size(574, 342);
-            this.error_label.TabIndex = 1;
+            this.error_label.TabIndex = 0;
             this.error_label.Text = "Nenhuma dispesa encontrada";
             this.error_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

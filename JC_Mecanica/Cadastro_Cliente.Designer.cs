@@ -73,6 +73,8 @@
             // 
             // rg_label
             // 
+            this.rg_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rg_label.AutoSize = true;
             this.rg_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rg_label.Location = new System.Drawing.Point(172, 61);
@@ -104,6 +106,8 @@
             // 
             // cpf_edit
             // 
+            this.cpf_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cpf_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpf_edit.Location = new System.Drawing.Point(30, 78);
             this.cpf_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -115,8 +119,10 @@
             // 
             // rg_edit
             // 
+            this.rg_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rg_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rg_edit.Location = new System.Drawing.Point(181, 80);
+            this.rg_edit.Location = new System.Drawing.Point(181, 78);
             this.rg_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.rg_edit.MaxLength = 13;
             this.rg_edit.Name = "rg_edit";
@@ -177,9 +183,9 @@
             // numero_edit
             // 
             this.numero_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero_edit.Location = new System.Drawing.Point(362, 37);
+            this.numero_edit.Location = new System.Drawing.Point(358, 36);
             this.numero_edit.Name = "numero_edit";
-            this.numero_edit.Size = new System.Drawing.Size(76, 26);
+            this.numero_edit.Size = new System.Drawing.Size(80, 26);
             this.numero_edit.TabIndex = 6;
             // 
             // estado_comboBox
@@ -232,9 +238,10 @@
             // 
             // celular_label
             // 
+            this.celular_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.celular_label.AutoSize = true;
             this.celular_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.celular_label.Location = new System.Drawing.Point(310, 61);
+            this.celular_label.Location = new System.Drawing.Point(305, 61);
             this.celular_label.Name = "celular_label";
             this.celular_label.Size = new System.Drawing.Size(57, 15);
             this.celular_label.TabIndex = 12;
@@ -242,12 +249,14 @@
             // 
             // celular_edit
             // 
+            this.celular_edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.celular_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.celular_edit.Location = new System.Drawing.Point(319, 80);
+            this.celular_edit.Location = new System.Drawing.Point(313, 78);
             this.celular_edit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.celular_edit.MaxLength = 15;
             this.celular_edit.Name = "celular_edit";
-            this.celular_edit.Size = new System.Drawing.Size(131, 26);
+            this.celular_edit.Size = new System.Drawing.Size(137, 26);
             this.celular_edit.TabIndex = 4;
             this.celular_edit.Text = "(__)____-____";
             // 

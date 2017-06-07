@@ -65,7 +65,7 @@
             this.produto_edit.Location = new System.Drawing.Point(24, 27);
             this.produto_edit.Name = "produto_edit";
             this.produto_edit.Size = new System.Drawing.Size(255, 26);
-            this.produto_edit.TabIndex = 2;
+            this.produto_edit.TabIndex = 1;
             this.produto_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.valor_edit_KeyDown);
             // 
             // moeda_label
@@ -84,7 +84,7 @@
             this.valor_edit.Location = new System.Drawing.Point(323, 27);
             this.valor_edit.Name = "valor_edit";
             this.valor_edit.Size = new System.Drawing.Size(100, 26);
-            this.valor_edit.TabIndex = 5;
+            this.valor_edit.TabIndex = 2;
             this.valor_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.valor_edit_KeyDown);
             this.valor_edit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valor_edit_KeyPress);
             // 
@@ -95,7 +95,7 @@
             this.salvar_button.Location = new System.Drawing.Point(351, 106);
             this.salvar_button.Name = "salvar_button";
             this.salvar_button.Size = new System.Drawing.Size(72, 29);
-            this.salvar_button.TabIndex = 6;
+            this.salvar_button.TabIndex = 5;
             this.salvar_button.Text = "Salvar";
             this.salvar_button.UseVisualStyleBackColor = true;
             this.salvar_button.Click += new System.EventHandler(this.salvar_button_Click);
@@ -118,7 +118,7 @@
             this.data_timePicker.Location = new System.Drawing.Point(119, 76);
             this.data_timePicker.Name = "data_timePicker";
             this.data_timePicker.Size = new System.Drawing.Size(304, 26);
-            this.data_timePicker.TabIndex = 8;
+            this.data_timePicker.TabIndex = 4;
             this.data_timePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.valor_edit_KeyDown);
             // 
             // data_label
@@ -147,7 +147,7 @@
             this.count_edit.Location = new System.Drawing.Point(24, 76);
             this.count_edit.Name = "count_edit";
             this.count_edit.Size = new System.Drawing.Size(89, 26);
-            this.count_edit.TabIndex = 11;
+            this.count_edit.TabIndex = 3;
             this.count_edit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.count_edit.Value = new decimal(new int[] {
             1,
@@ -163,7 +163,7 @@
             this.apagar_button.Location = new System.Drawing.Point(182, 106);
             this.apagar_button.Name = "apagar_button";
             this.apagar_button.Size = new System.Drawing.Size(74, 29);
-            this.apagar_button.TabIndex = 12;
+            this.apagar_button.TabIndex = 6;
             this.apagar_button.Text = "Apagar";
             this.apagar_button.UseVisualStyleBackColor = true;
             this.apagar_button.Click += new System.EventHandler(this.apagar_button_Click);
