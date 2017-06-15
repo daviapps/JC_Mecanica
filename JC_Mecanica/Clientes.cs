@@ -53,8 +53,13 @@ namespace JC_Mecanica {
             SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
-            SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM Clientes WHERE nome Like ?", connection);
-            cmd_count.Parameters.AddWithValue("@p1", "%" + busca_edit.Text.ToString() + "%");
+            String selectString = "(nome Like @nome or celular Like @celular or cpf Like @cpf or rg Like @rg)";
+
+            SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM Clientes WHERE " + selectString, connection);
+            cmd_count.Parameters.AddWithValue("@nome", "%" + busca_edit.Text.ToString() + "%");
+            cmd_count.Parameters.AddWithValue("@celular", "%" + busca_edit.Text.ToString() + "%");
+            cmd_count.Parameters.AddWithValue("@cpf", "%" + busca_edit.Text.ToString() + "%");
+            cmd_count.Parameters.AddWithValue("@rg", "%" + busca_edit.Text.ToString() + "%");
             int length = (int) cmd_count.ExecuteScalar();
             clienteIDs = new int [length];
 
@@ -63,8 +68,11 @@ namespace JC_Mecanica {
             if (length > 0) {
                 int i = 0;
                 DataSet AVATARLINE = new DataSet();
-                SqlCeCommand cmd = new SqlCeCommand("SELECT * FROM Clientes WHERE nome Like ? ORDER BY nome " + (sortOrder ? "ASC" : "DESC"), connection);
-                cmd.Parameters.AddWithValue("@p1", "%" + busca_edit.Text.ToString() + "%");
+                SqlCeCommand cmd = new SqlCeCommand("SELECT * FROM Clientes WHERE " + selectString + " ORDER BY nome " + (sortOrder ? "ASC" : "DESC"), connection);
+                cmd.Parameters.AddWithValue("@nome", "%" + busca_edit.Text.ToString() + "%");
+                cmd.Parameters.AddWithValue("@celular", "%" + busca_edit.Text.ToString() + "%");
+                cmd.Parameters.AddWithValue("@cpf", "%" + busca_edit.Text.ToString() + "%");
+                cmd.Parameters.AddWithValue("@rg", "%" + busca_edit.Text.ToString() + "%");
                 SqlCeDataAdapter AVATARLINE_1 = new SqlCeDataAdapter(cmd);
                 //SqlCeDataAdapter AVATARLINE_1 = new SqlCeDataAdapter("SELECT * FROM clientes WHERE " + findParameters + " ORDER BY nome " + (sortOrder ? "ASC" : "DESC"), connection);
                 AVATARLINE_1.Fill(AVATARLINE);
@@ -116,7 +124,8 @@ namespace JC_Mecanica {
 
         private void setEnabled(bool enabled) {
             nome_edit.Enabled = enabled;
-            rg_edit.Enabled = false;
+            rg_edit.Enabled = (rg_edit.Text.Length > 0 ? false : enabled);
+            cpf_edit.Enabled = (cpf_edit.Text.Length > 0 ? false : enabled);
             celular_edit.Enabled = enabled;
             rua_edit.Enabled = enabled;
             numero_edit.Enabled = enabled;
@@ -190,6 +199,7 @@ namespace JC_Mecanica {
 
             ok_button.Enabled = (selectMode ? currentID > 0 : true);
             editar_button.Visible = !selectMode;
+            
         }
 
         private void busca_button_Click(object sender, EventArgs e) {
@@ -206,21 +216,77 @@ namespace JC_Mecanica {
             SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
             connection.Open();
 
-            SqlCeCommand cmd = new SqlCeCommand("UPDATE Clientes SET nome = @nome, celular = @celular, rua = @rua, numero = @numero, cidade = @cidade, bairro = @bairro, estado = @estado WHERE id = @id;", connection);
-            cmd.Parameters.AddWithValue("@nome", nome_edit.Text);
-            cmd.Parameters.AddWithValue("@celular", celular_edit.Text);
-            cmd.Parameters.AddWithValue("@rua", rua_edit.Text);
-            cmd.Parameters.AddWithValue("@numero", numero_edit.Text);
-            cmd.Parameters.AddWithValue("@cidade", cidade_edit.Text);
-            cmd.Parameters.AddWithValue("@bairro", bairro_edit.Text);
-            cmd.Parameters.AddWithValue("@estado", estado_comboBox.Text);
+            // Confirm save rg and cpf
 
-            cmd.Parameters.AddWithValue("@id", currentID);
-            cmd.ExecuteNonQuery();
+            SqlCeCommand conf = new SqlCeCommand("SELECT * FROM clientes WHERE id = @id", connection);
+            conf.Parameters.AddWithValue("@id", currentID);
+            SqlCeDataReader re = conf.ExecuteReader();
 
+            if (re.Read()) {
+                //MessageBox.Show(re["cpf"].ToString());
+                //MessageBox.Show(re["rg"].ToString());
+
+                // Verificação do CPF
+                if ((re["cpf"].ToString().Length <= 0 && cpf_edit.Text.Length > 0)) {
+                    SqlCeCommand count = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] WHERE ([cpf] = @cpf)", connection);
+                    count.Parameters.AddWithValue("@cpf", Transform.packCPF(cpf_edit.Text));
+                    int exists = (int) count.ExecuteScalar();
+
+                    if (exists > 0) {
+                        MessageBox.Show("Esse CPF já está cadastrado em outro cliente.", "CPF inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        connection.Close();
+                        return;
+                    }
+
+                    DialogResult m = MessageBox.Show("O CPF que você digitou, não poderá ser modificado.\n'" + cpf_edit.Text + "', Continuar?", "Confirmar CPF", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (m == DialogResult.No) {
+                        connection.Close(); return;
+                    }
+                }
+
+                // Verificação do RG
+                if ((re["rg"].ToString().Length <= 0 && rg_edit.Text.Length > 0)) {
+                    SqlCeCommand count = new SqlCeCommand("SELECT COUNT(*) FROM [clientes] WHERE ([rg] = @rg)", connection);
+                    count.Parameters.AddWithValue("@rg", Transform.packRG(rg_edit.Text));
+                    int exists = (int) count.ExecuteScalar();
+
+                    if (exists > 0) {
+                        MessageBox.Show("Esse RG já está cadastrado em outro cliente.", "RG inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        connection.Close();
+                        return;
+                    }
+
+                    DialogResult m = MessageBox.Show("O RG que você digitou, não poderá ser modificado.\n'" + rg_edit.Text + "', Continuar?", "Confirmar RG", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (m == DialogResult.No) {
+                        connection.Close(); return;
+                    }
+                }
+
+                // Update
+
+                SqlCeCommand cmd = new SqlCeCommand("UPDATE Clientes SET nome = @nome, celular = @celular, rua = @rua, numero = @numero, cidade = @cidade, bairro = @bairro, cpf = @cpf, rg = @rg, estado = @estado WHERE id = @id;", connection);
+                cmd.Parameters.AddWithValue("@nome", nome_edit.Text);
+                cmd.Parameters.AddWithValue("@celular", Transform.packPhone(celular_edit.Text));
+                cmd.Parameters.AddWithValue("@cpf", Transform.packCPF(cpf_edit.Text));
+                cmd.Parameters.AddWithValue("@rg", Transform.packRG(rg_edit.Text));
+                cmd.Parameters.AddWithValue("@rua", rua_edit.Text);
+                cmd.Parameters.AddWithValue("@numero", numero_edit.Text);
+                cmd.Parameters.AddWithValue("@cidade", cidade_edit.Text);
+                cmd.Parameters.AddWithValue("@bairro", bairro_edit.Text);
+                cmd.Parameters.AddWithValue("@estado", estado_comboBox.Text);
+
+                cmd.Parameters.AddWithValue("@id", currentID);
+                cmd.ExecuteNonQuery();
+
+                
+                this.updateLista();
+                this.setBtnMode(0);
+            } else {
+                MessageBox.Show("Please enter a valid item barcode");
+            }
+
+            re.Close();
             connection.Close();
-            this.updateLista();
-            this.setBtnMode(0);
         }
 
         private void ok_button_Click(object sender, EventArgs e) {
@@ -230,7 +296,7 @@ namespace JC_Mecanica {
         private void apagar_button_Click(object sender, EventArgs e) {
             //Codes.confirm() to be used to limit actions on valiation period
             if (true) {
-                DialogResult m = MessageBox.Show("Se você clicar em 'Sim',\n esse cadastro será apagado.", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult m = MessageBox.Show("Esse cadastro será apagado.\nContinuar?", "Apagar cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (m == DialogResult.Yes) {
                     SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
                     connection.Open();
@@ -324,6 +390,16 @@ namespace JC_Mecanica {
             selectMode = true;
             this.ShowDialog();
             return currentID;
+        }
+
+        private void information_edit_TextChanged(object sender, EventArgs e) {
+            bool cpf_empty = cpf_edit.Text.Length <= 0;
+            bool cpf_valid = cpf_edit.Text.Length >= 14;
+
+            bool rg_empty = rg_edit.Text.Length <= 0;
+            bool rg_valid = rg_edit.Text.Length >= 13;
+
+            salvar_button.Enabled = ((cpf_empty || cpf_valid) && (rg_empty || rg_valid) ? true : false);
         }
     }
 }

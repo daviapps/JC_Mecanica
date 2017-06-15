@@ -344,6 +344,7 @@
             this.rg_edit.Size = new System.Drawing.Size(118, 24);
             this.rg_edit.TabIndex = 7;
             this.rg_edit.Text = "__-__.___.___";
+            this.rg_edit.TextChanged += new System.EventHandler(this.information_edit_TextChanged);
             this.rg_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // celular_edit
@@ -367,6 +368,7 @@
             this.cpf_edit.Size = new System.Drawing.Size(109, 24);
             this.cpf_edit.TabIndex = 5;
             this.cpf_edit.Text = "___.___.___-__";
+            this.cpf_edit.TextChanged += new System.EventHandler(this.information_edit_TextChanged);
             this.cpf_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clientes_KeyDown);
             // 
             // nome_edit

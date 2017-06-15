@@ -4,7 +4,7 @@
   <description asmv2:iconFile="icon6.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JC_Mecanica" version="1.0.2.5" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JC_Mecanica" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="JC_Mecanica.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -77,14 +77,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2098176">
-      <assemblyIdentity name="JC_Mecanica" version="1.0.2.5" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2099712">
+      <assemblyIdentity name="JC_Mecanica" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dyNE4yeRNeiql7aadCkO0Yyb2tjN7ynyxafLLpLeoVU=</dsig:DigestValue>
+        <dsig:DigestValue>jlK+AF23cBy2j9KdH2m8wS8YUdp+6KKQaylIQx6Inpk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
