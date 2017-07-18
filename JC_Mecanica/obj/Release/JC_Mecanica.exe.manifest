@@ -77,14 +77,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2099712">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2100224">
       <assemblyIdentity name="JC_Mecanica" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jlK+AF23cBy2j9KdH2m8wS8YUdp+6KKQaylIQx6Inpk=</dsig:DigestValue>
+        <dsig:DigestValue>JPlHgFnFTFLHFaJoArusMsah6stFCuQ+lbB3mQ9jXks=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

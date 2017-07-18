@@ -29,6 +29,8 @@ namespace JC_Mecanica {
             estado_comboBox.Items.Add("PR"); estado_comboBox.Items.Add("PE"); estado_comboBox.Items.Add("PI");
             estado_comboBox.Items.Add("RJ"); estado_comboBox.Items.Add("RN"); estado_comboBox.Items.Add("RS");
 
+            listView.FullRowSelect = true;
+
             updateLista();
             this.setBtnMode(0);
             numero_edit.Maximum = 3000;

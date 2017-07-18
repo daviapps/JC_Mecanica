@@ -64,6 +64,24 @@ namespace JC_Mecanica {
             return (_id.Equals("") || id.Equals("") || id.Equals("0"));
         }
 
+        public bool exists() {
+            SqlCeConnection connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
+            connection.Open();
+
+            int id_count = 0;
+
+            if (!isError()) {
+                SqlCeCommand cmd_count = new SqlCeCommand("SELECT COUNT(*) FROM [" + table + "] WHERE ([id] = @id)", connection);
+                cmd_count.Parameters.AddWithValue("@id", _id);
+
+                id_count = (int) cmd_count.ExecuteScalar();
+
+                connection.Close();
+            }
+
+            return id_count > 0;
+        }
+
         public String get(String item, String id) {
             this.id = id;
             return get(item);

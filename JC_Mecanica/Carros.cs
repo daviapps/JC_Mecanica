@@ -26,6 +26,8 @@ namespace JC_Mecanica {
             updateLista();
             clearTextBox();
 
+            listView.FullRowSelect = true;
+
             this.backTast = new System.Windows.Forms.Timer();
             this.backTast.Tick += new EventHandler(this.backTasking);
             this.backTast.Interval = 100;

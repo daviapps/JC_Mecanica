@@ -29,6 +29,8 @@ namespace JC_Mecanica {
         private void Orcamentos_Load(object sender, EventArgs e) {
             connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
 
+            listView.FullRowSelect = true;
+
             today = DateTime.Today;
             currentYear = today.Year;
             currentMonth = today.Month;
@@ -184,15 +186,16 @@ namespace JC_Mecanica {
         }
 
         private void Orcamentos_KeyDown(object sender, KeyEventArgs e) {
+            //MessageBox.Show("");
             if (e.KeyCode == Keys.F2) {
                 listView_MouseDoubleClick(null, null);
             } else
-                if (e.KeyCode == Keys.F3) {
-                    nova_button_Click(null, null);
-                } else
-                    if (e.KeyCode == Keys.Escape) {
-                        this.Close();
-                    }
+            if (e.KeyCode == Keys.F3) {
+                nova_button_Click(null, null);
+            } else
+            if (e.KeyCode == Keys.Escape) {
+                this.Close();
+            }
         }
 
         private void listView_MouseDoubleClick(object sender, MouseEventArgs e) {

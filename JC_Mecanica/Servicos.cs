@@ -20,6 +20,8 @@ namespace JC_Mecanica {
         }
 
         private void Servicos_Load(object sender, EventArgs e) {
+            listView.FullRowSelect = true;
+
             this.backTast = new System.Windows.Forms.Timer();
             this.backTast.Tick += new EventHandler(this.backTasking);
             this.backTast.Interval = 100;

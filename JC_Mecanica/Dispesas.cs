@@ -31,7 +31,8 @@ namespace JC_Mecanica {
         private void Dispesas_Load(object sender, EventArgs e) {
             //listView.Focus();
             connection = new SqlCeConnection(Properties.Settings.Default.DataConnectionString);
-            
+
+            listView.FullRowSelect = true;
 
             //MessageBox.Show("Min year: " + minMonth);
 

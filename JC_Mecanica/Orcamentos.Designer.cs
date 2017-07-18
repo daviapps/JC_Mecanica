@@ -136,6 +136,7 @@
             this.nova_button.Text = "Novo";
             this.nova_button.UseVisualStyleBackColor = true;
             this.nova_button.Click += new System.EventHandler(this.nova_button_Click);
+            this.nova_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             // 
             // ok_button
             // 
@@ -148,6 +149,7 @@
             this.ok_button.Text = "Ok";
             this.ok_button.UseVisualStyleBackColor = true;
             this.ok_button.Click += new System.EventHandler(this.ok_button_Click);
+            this.ok_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             // 
             // date_tableLayout
             // 
@@ -182,6 +184,7 @@
             this.ano_listView.UseCompatibleStateImageBehavior = false;
             this.ano_listView.View = System.Windows.Forms.View.List;
             this.ano_listView.SelectedIndexChanged += new System.EventHandler(this.ano_listView_SelectedIndexChanged);
+            this.ano_listView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             // 
             // ano_column
             // 
@@ -211,6 +214,7 @@
             this.mes_listView.TabIndex = 1;
             this.mes_listView.UseCompatibleStateImageBehavior = false;
             this.mes_listView.SelectedIndexChanged += new System.EventHandler(this.mes_listView_SelectedIndexChanged);
+            this.mes_listView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             // 
             // tableLayoutPanel2
             // 
@@ -244,6 +248,7 @@
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
+            this.listView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             this.listView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_MouseDoubleClick);
             // 
             // servico
@@ -308,6 +313,7 @@
             this.busca_button.Text = "Buscar";
             this.busca_button.UseVisualStyleBackColor = true;
             this.busca_button.Click += new System.EventHandler(this.busca_button_Click);
+            this.busca_button.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             // 
             // busca_edit
             // 
@@ -320,6 +326,7 @@
             this.busca_edit.Size = new System.Drawing.Size(179, 28);
             this.busca_edit.TabIndex = 0;
             this.busca_edit.TextChanged += new System.EventHandler(this.busca_edit_TextChanged);
+            this.busca_edit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Orcamentos_KeyDown);
             // 
             // panel1
             // 
