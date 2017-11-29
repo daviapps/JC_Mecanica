@@ -84,7 +84,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JPlHgFnFTFLHFaJoArusMsah6stFCuQ+lbB3mQ9jXks=</dsig:DigestValue>
+        <dsig:DigestValue>HQZP2LTaH8V+sCmOYAuwGHOPU+2USdEkP1YnFlmDSAk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -94,7 +94,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>n0brk5N9cAMqkiU+bv3Gu+CnrCy78TEaKX5Mw46wIvw=</dsig:DigestValue>
+      <dsig:DigestValue>Th87Pip0jez1x56d1O41O7sY96ST+OqCJ8yfYZ27H9I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icon6.ico" size="99678">

@@ -26,7 +26,7 @@ namespace JC_Mecanica {
 
         private void updateStatusBar() {
             String avaliableDays = (Codes.inAvaliationMode() ? " - " + Codes.getAvaliableDays() + " dias restantes" : "");
-            main_version_label.Text = "Verção: " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + (Codes.checkValidation() ? "Ativado" : "Em periodo de avaliação" + avaliableDays);
+            main_version_label.Text = "Versão: " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - " + (Codes.checkValidation() ? "Ativado" : "Em periodo de avaliação" + avaliableDays);
         }
 
         private void keyDown(object sender, KeyEventArgs e) {
