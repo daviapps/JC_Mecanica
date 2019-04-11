@@ -55,10 +55,11 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>6D37B090DD034FB01EF81EFF8791BE706A3C6CAF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>48C33E8260348B18732B1BE90D14E3364625BBF0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>JC_Mecanica_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -71,13 +72,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DCode">
-      <HintPath>..\..\DCode\DCodeC#\DCode\bin\Debug\DCode.dll</HintPath>
+      <HintPath>..\..\..\Java\DCode\dcode-csharp\DCode\bin\Release\DCode.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -322,6 +322,7 @@
     <Content Include="banco_de_dados.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DCode.csproj" />
     <Content Include="icon6.ico" />
     <None Include="Resources\Lighthouse.jpg" />
   </ItemGroup>

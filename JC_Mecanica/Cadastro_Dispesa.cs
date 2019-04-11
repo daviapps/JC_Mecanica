@@ -85,7 +85,7 @@ namespace JC_Mecanica {
                 com.Parameters.AddWithValue("@produto", this.produto_edit.Text);
                 com.Parameters.AddWithValue("@valor", this.valor_edit.Text);
                 com.Parameters.AddWithValue("@count", this.count_edit.Text);
-                com.Parameters.Add("@data", data_timePicker.Value.Date);
+                com.Parameters.AddWithValue("@data", data_timePicker.Value.Date);
                 //com.Parameters.AddWithValue("@data", this.valor_edit.Text);
                 com.ExecuteNonQuery();
             }

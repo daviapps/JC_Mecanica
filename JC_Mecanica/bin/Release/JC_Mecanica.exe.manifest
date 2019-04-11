@@ -43,24 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="Microsoft.VisualBasic.PowerPacks.Vs" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
-      <assemblyIdentity name="System.Data.SqlServerCe" version="4.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="22528">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DCode.dll" size="19456">
       <assemblyIdentity name="DCode" version="1.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>h3WrqoKYyb61sco4fX0uVVkSG/dqP7Cpwi1ghzaG/K8=</dsig:DigestValue>
+        <dsig:DigestValue>4q/uyiIt+13KDf5nsRflPEfnqcH8SkaQpBtLJrKV67w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -77,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2100224">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JC_Mecanica.exe" size="2099672">
       <assemblyIdentity name="JC_Mecanica" version="1.0.3.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HQZP2LTaH8V+sCmOYAuwGHOPU+2USdEkP1YnFlmDSAk=</dsig:DigestValue>
+        <dsig:DigestValue>RDM754ItZL6xNO67BXw9cL0wLTwGLlTn5Xmfn0te7Cs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -95,6 +85,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Th87Pip0jez1x56d1O41O7sY96ST+OqCJ8yfYZ27H9I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="DCode.csproj" size="2684">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TnaLM2vIqPjnUG2sGeaIzZS7v11IdMkEdIQD28vubh8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icon6.ico" size="99678">
